@@ -1,0 +1,2514 @@
+/*Para quitar el recuadro azul que sale en el evento focus del chrome*/
+#menuModulo a:focus{
+    outline-style: none !important;
+}
+/*Html*/
+html{
+    height: 100%;
+}
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+/*Body*/
+body{
+    color: rgba(69, 93, 127, 1);
+    font-family: "Roboto",sans-serif;
+    height: 100%;
+}
+/*Logs*/
+hr{
+ margin: 0;
+}
+#logMessages {
+    position: fixed;
+    right: 22px;
+    left: 5px;
+    top: 138px;
+    z-index: 3;
+    font-size: 1.2em;
+    height: auto;
+    max-height: 75%;
+    overflow: auto;
+    background: #ffffc8;
+}
+#logMessages > div {
+    margin-bottom: 0px;
+}
+#logMessages > div > button {
+    right: 45px;
+    top: 139px;
+    position: fixed;
+    font-size: 1.8em;
+}
+#logMessages > div > button.borrar-logs {
+    right: 70px;
+    font-size: 22px;
+    margin-top: 4px;
+}
+#logMessages > div > button.borrar-logs:hover {
+    color: firebrick;
+    opacity: 0.8;
+}
+#logMessages > div > button.refrescar-logs {
+    right: 95px;
+    font-size: 21px;
+    margin-top: 6px;
+}
+#logMessages > div > button.refrescar-logs:hover {
+    color: darkgoldenrod;
+    opacity: 0.8;
+}
+#logMessages .titulo-log {
+    position: fixed;
+    box-shadow: 0 0 1px inset;
+    background-color: rgba(255,255,255,0.5);
+    left: 5px;
+    padding: 5px 15px; 
+    right: 22px;
+    height: 37px;
+    margin-top: -16px;
+    margin-bottom: 17px;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+    font-size: 20px;
+    color: #777;
+}
+/*Titulo App*/
+#cabeceraTituloApp {
+    padding: 0px;
+    position: fixed;
+    height: 19px;
+    z-index: 1500;
+}
+#tituloApp {
+    border: medium none;
+    font-size: 1.2em;
+    text-align: center;
+    text-overflow:ellipsis;
+    white-space:nowrap; 
+    overflow: inherit; 
+    color: #2095D8 !important;
+    cursor: pointer;
+    padding-top: 0px;
+    height: 100%;
+}
+#tituloApp:hover {
+    background: #e6e6e6;
+}
+#informacionApp{
+    border: medium none;
+    font-size: 1.2em;
+    text-align: center;
+    text-overflow:ellipsis;
+    white-space:nowrap; 
+    overflow: inherit; 
+    color: #2095D8 !important;
+    cursor: pointer;
+    padding-top: 0px;
+    height: 100%;
+}
+/*Cabecera App*/
+#cabeceraApp {
+    border: medium none;
+    font-size: 1.34em;
+    padding-right: 20px;
+    vertical-align: middle;
+    background-color: rgba(69, 93, 127, 1);
+    margin-top:16px;
+    z-index: 1400;
+    padding-bottom: 46px;
+}
+#cabeceraConfig .dropdown-menu {
+    z-index: 1500;
+}
+.dropdown-menu {
+    background-color: #fff !important;
+    border: 1px solid lightgray;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 15.5px;
+}
+#cabeceraApp.navbar-default .navbar-nav > .open > a, #cabeceraApp.navbar-default .navbar-nav > .open > a:focus, 
+#cabeceraApp.navbar-default .navbar-nav > .open > a:hover, #cabeceraApp.navbar-default .navbar-nav > .active > a, 
+#cabeceraApp.navbar-default .navbar-nav > .active > a:hover, #cabeceraApp.navbar-default .navbar-nav a:hover,
+#cabeceraApp.navbar-default .navbar-nav > li > a:focus, #cabeceraApp.navbar-default .navbar-nav > li > a:hover,
+#cabeceraApp .dropdown-menu li > a:hover, #cabeceraApp .dropdown-menu li > a:focus, #cabeceraApp .dropdown-submenu:hover > a{
+    background-color: #5E7596;
+    color:#eee;
+}
+#cabeceraApp.navbar-default .navbar-toggle:focus,#cabeceraApp.navbar-default .navbar-toggle:hover {
+    background-color: #5E7596;
+}
+#menuResponsive {
+    height: 49px;
+}
+#menuResponsiveCabeceraApp {
+    position: absolute;
+    font-size: 0.8em;
+    right: -19px;
+}
+#menuResponsiveCabeceraApp > button {
+    border: 1px solid cornflowerblue;
+    color: white;
+}
+#menuCabecera > span > ul > li > a, #menuSuperiorDerecha > span > ul > li > a {
+    color: white !important;
+}
+@media (max-width: 768px) {
+    #menuCabecera .dropdown-submenu .dropdown-submenu {
+        margin-left: 10px;
+    }
+}
+@media (min-width: 768px) {
+    #menuResponsive {
+        float: right;
+    }
+}
+/*Cuerpo App*/
+#cuerpoApp {
+    overflow: auto !important;
+    height: 100%;
+    padding-top: 50px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+#tabDisenio input[readonly] {
+    background: white none repeat scroll 0 0 !important;
+}
+/*Notificaciones*/
+div[data-notify='container'].alert.alert-success{
+    background: rgba(223, 240, 216, 1);
+} 
+div[data-notify='container'].alert.alert-danger {
+    background: rgba(242, 222, 222, 1);
+}
+div[data-notify='container'].alert.alert-info {
+    background: rgba(216, 221, 227, 1)
+}
+div[data-notify='container'].alert.alert-warning {
+    background: rgba(255, 255, 195, 1);
+}
+#filaFlashMessages,#flashMessages{
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    min-height: 0px;
+}
+/*Barra Accion*/
+#menuModulo {
+    background-color: hsl(225, 15%, 92%);
+    font-size: 1.15em;
+    top: 62px;
+    position: fixed;
+    width: 100%;
+    z-index: 1300;
+    border: 1px solid #ccc;
+    /*min-height: 30px !important;
+    max-height: 30px !important;*/
+}
+#menuModulo .dropdown-menu{
+    z-index: 1300;
+}
+#menuModulo.navbar-default .navbar-nav > li > a:hover, #menuModulo.navbar-default .navbar-nav > li > a:hover {
+    background-color: #f6f6f6;
+}
+#menuModulo.navbar-default .navbar-nav > li > a.active {
+    background-color: #f6f6f6;
+    border: none;
+    box-shadow: none;
+}
+#botonConfigurar.active {
+    color: hsl(0, 0%, 83%) !important;
+    cursor: auto;
+}
+#botonDiseniarVista.active {
+    color: fuchsia;
+    box-shadow: 0 0 5px -1px;
+    color: hotpink;
+    border-radius: 3px;
+}
+#menuModulo > div[class*="col-"]{
+  background-color: #E7E9ED;
+}
+#menuModulo > div[class*="col-"]:not(.collapse) li {
+    display: table-cell;
+    margin-top: -2px;
+}
+#menuModulo > div[class*="col-"] ul li a {
+    color: #777;
+    height: 35px;
+    cursor:pointer;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-plus,#menuModulo > div[class*="col-"] ul li a.fa-plus-circle,
+#menuModulo > div[class*="col-"] ul li a.fa-check:not(.disabled){
+    background: transparent !important;
+    color: green !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-plus:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-plus-circle:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-check:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-eye:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-eye-slash:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-pencil:hover{
+    background: transparent !important;
+    color: hsl(109, 100%, 39%) !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-trash:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-reply:hover{
+    background: transparent !important;
+    color: firebrick;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-cog:hover,
+#menuModulo > div[class*="col-"] ul li a.fa-refresh:hover {
+    background: transparent !important;
+    color: darkgoldenrod;
+}
+#menuModulo > div[class*="col-"] ul li a i.fa-cog {
+    line-height: 20px;
+}
+#menuModulo.navbar-default .navbar-toggle:focus, #menuModulo.navbar-default .navbar-toggle:hover {
+    background-color: #f8f8f8;
+}
+#menuModulo  > div[class*="col-"] > ul.pull-right,
+#menuModulo  > div[class*="col-"] > ul.pull-left{
+    margin: 1px;
+}
+#menuModulo  li a {
+    max-height: 33px;
+    padding-top: 6px;
+}
+#menuResponsiveMenuModulo button.navbar-toggle {
+    margin-top: -2px;
+    font-size: 0.8em;
+    background: hsl(225, 15%, 95%) none repeat scroll 0 0;
+    z-index: 1300;
+    left: 15px;
+    float: left;
+    top: 1px;
+    margin-bottom: 2px;
+    
+}
+#menuResponsiveMenuModulo .dropdown-menu{
+    z-index: 1300;   
+}
+#columnaBotonesUsuario {
+    background-color: hsl(225, 15%, 92%);
+}
+.tituloModulo {
+    float: left;
+    margin-left: 15px;
+    color: #fff;
+    margin-top: 10px;
+}
+#columnaElementoBusqueda {
+    display: inline;
+    top: 0px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    right: 31px;
+    padding-left: 30px;
+    height: 34px;
+}
+.disabled{
+    cursor: text;
+    color: lightgray !important;
+    pointer-events: none;
+    background-color: transparent !important;
+}
+.disabled > a, .disabled > span{
+    cursor: text;
+    color: lightgray !important;
+    pointer-events: none;
+    
+}
+/*Busqueda y Exportar*/
+#elementoExportar, .elementoExportar {
+    width: 46px;
+    position: absolute;
+    right: -32px;
+    top: 0px;
+}
+#searchText[readonly],.searchText[readonly] {
+    background: #FFFFCF;
+}
+#searchText,.searchText {
+    right: -1px !important;
+    border-radius: 0px;
+}
+#searchText[readonly]:focus,.searchText[readonly]:focus{
+    box-shadow: none;
+    border:1px solid #ccc;
+}
+
+#botonBuscar,#botonExportar,.botonBuscar,.botonExportar{
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 0px;
+    padding: 8px;
+}
+#botonBuscar:hover,#botonExportar:hover,.botonBuscar:hover,.botonExportar:hover{
+    background: rgba(216, 221, 227, 0.5) none repeat scroll 0 0;
+}
+#removeSearch,.removeSearch{
+    cursor: pointer;
+}
+
+a.alert-buscar::before {
+    color: hsl(43, 91%, 38%) !important;
+    font-family: FontAwesome;
+    content: "\f002 "" ";
+    font-size: 13px;
+    top: -1px;
+    left: -1px;
+    display: ruby;
+    position: relative;
+}
+
+.alert-buscarTexto{
+    background: rgba(255, 255, 195, 0.8);
+    color: hsl(43, 91%, 38%) !important;
+}
+
+#listaCamposBuscar{
+    max-height: 400px;
+    overflow: auto;
+}
+
+ul#listaCamposBuscar.lista-readonly,ul.listaCamposBuscar.lista-readonly{
+    pointer-events: none;
+    background: #FFFFCF !important;
+}
+ul#listaCamposBuscar,ul#listaCamposExportar,ul.listaCamposBuscar,ul.listaCamposExportar {
+    margin-top: 0;
+    padding-top: 11px;
+    padding-bottom: 0;
+    margin-right: -1px;
+    box-shadow: 1px 2px 3px #ccc;
+}
+#camposBuscar button,.camposBuscar button { 
+    height: 34px;
+    padding-right: 9px;
+    border-left: 1px dotted lightgrey;
+    padding-left: 0px;
+    border-radius: 0px;
+}
+#camposBuscar.open button, #camposExportar.open button,.camposBuscar.open button, .camposExportar.open button {
+    background-color: #eef1f4;
+}
+#listaCamposBuscar li,#listaCamposExportar li,.listaCamposBuscar li,.listaCamposExportar li  {
+    margin-bottom: 7px;
+    margin-top: -2px;
+}
+#listaCamposBuscar li.divider,#listaCamposExportar li.divider,.listaCamposBuscar li.divider,.listaCamposExportar li.divider {
+    border: 1px solid #ccc;
+}
+#listaCamposBuscar li:hover,#listaCamposExportar li:hover,.listaCamposBuscar li:hover,.listaCamposExportar li:hover {
+    background: rgba(216, 221, 227, 0.5) none repeat scroll 0 0;
+    border-radius: 2px;
+}
+#listaCamposBuscar i,#listaCamposExportar i,.listaCamposBuscar i,.listaCamposExportar i {
+    font-size: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#listaCamposBuscar label,#listaCamposExportar label,.listaCamposBuscar label,.listaCamposExportar label {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 2px;
+}
+#listaCamposExportar .fa-arrows-v,.listaCamposExportar .fa-arrows-v {
+    margin-right: -25px;
+    width: 20px;
+    text-align: center;
+    margin-top: 7px;
+    height: 24px;
+}
+#listaCamposExportar .fa-chevron-circle-up,.listaCamposExportar .fa-chevron-circle-up{
+    color:#3c763d;
+}
+#listaCamposExportar .fa-chevron-circle-down,.listaCamposExportar .fa-chevron-circle-down{
+    color:#a94442;
+}
+#listaCamposExportar #formExportar,.listaCamposExportar .formExportar {
+    margin-top: 5px;
+    overflow: auto;
+    max-height: 400px;
+    min-width: 260px;
+}
+#listaCamposExportar #formExportar input,.listaCamposExportar .formExportar input {
+    border: none;
+    cursor:text;
+}
+#listaCamposExportar #formExportar input:focus,.listaCamposExportar .formExportar input:focus {
+    border-color: #66afe9;
+    outline: 1px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.075),0 0px 2px rgba(102,175,233,1);
+}
+#listaCamposExportar #formExportar input:hover,.listaCamposExportar .formExportar input:hover {
+    background-color: #ebeff1;
+}
+#listaCamposBuscar li:not(.divider), #listaCamposExportar li:not(.divider),.listaCamposBuscar li:not(.divider), .listaCamposExportar li:not(.divider) {
+    padding-left: 13px;
+    padding-right: 28px;
+    font-size: 14px;
+}
+
+#listaCamposExportar li.tipo-documento,.listaCamposExportar li.tipo-documento {
+    padding: 0 !important;
+    margin-top: -11px !important;
+    margin-bottom: 1px !important;
+}
+#listaCamposExportar li.tipo-documento span,.listaCamposExportar li.tipo-documento span {
+    background-color: #fff;
+    border-radius: 0px;
+    cursor: pointer;
+    border: none;
+}
+#listaCamposExportar li.tipo-documento span:hover,#listaCamposExportar li.tipo-documento span.active,.listaCamposExportar li.tipo-documento span:hover,.listaCamposExportar li.tipo-documento span.active{
+    background-color: #ebeff1;
+}
+#listaCamposExportar .fa-file-excel-o,.listaCamposExportar .fa-file-excel-o{
+    color: #3c763d;
+    font-size: 21px !important;
+}
+#listaCamposExportar .fa-file-pdf-o,.listaCamposExportar .fa-file-pdf-o{
+    color: #b00000;
+    font-size: 21px !important;
+    
+}
+#camposBuscar i.fa-caret-down, #camposExportar i.fa-caret-down,.camposBuscar i.fa-caret-down, .camposExportar i.fa-caret-down{
+    color: darkgray;
+    margin-left: 5px;
+    margin-right: -4px;
+}
+#camposExportar i.fa-download,.camposExportar i.fa-download { 
+    font-size: 17px;
+    vertical-align: middle;
+    margin-left: -2px;
+    margin-right: -5px;
+}
+#exportarAvanzado,#exportarSimple,.exportarAvanzado,.exportarSimple {
+    right: 7px;
+    position: absolute;
+    margin-top: 5px;
+    color: rgba(69, 93, 127, 1);
+}
+#exportarAvanzado:hover,#exportarSimple:hover,.exportarAvanzado:hover,.exportarSimple:hover  {
+    color: darkgoldenrod;
+}
+#listaCamposExportar li.cabecera,.listaCamposExportar li.cabecera {
+    background-color: aliceblue;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+}
+#formExportar i.fa-plus,.formExportar i.fa-plus {
+    float: right;
+    margin-right: -22px;
+    margin-top: 3px;
+    color: lightgray;
+}
+#formExportar i.fa-plus:hover,.formExportar i.fa-plus:hover {
+    color: darkgoldenrod;
+}
+.order.fa-minus-circle{
+    color: lightgray;
+}
+/*Botones*/
+button.btn-default,a:not(.alert-warning):not(.alert-danger):not(.alert-success):not(.alert-info):not(.text-warning):not(.text-danger):not(.text-success):not(.text-info):not(.disabled):not(.boton-enviar-filtro):not(.boton-enviar-y-guardar-filtro){
+    color: rgba(69, 93, 127, 1);
+}
+.btn-admin{
+    color: darkgoldenrod !important;
+    height: 34px;
+}
+.btn-group > .btn {
+    margin-right: -1px;
+}
+.btn-default:hover {
+    background: rgba(216, 221, 227, 0.35) none repeat scroll 0 0;
+}
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default.focus:active, .btn-default:active:focus, .btn-default:active:hover, .open > .dropdown-toggle.btn-default.focus, .open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default:hover {
+    background: rgba(216, 221, 227, 1) none repeat scroll 0 0;
+    border-color: #adadad;
+}
+.btn-default.focus, .btn-default:focus {
+    background: rgba(216, 221, 227, 1) none repeat scroll 0 0;
+    border-color: #adadad;
+}
+/*Contenedor*/
+.contenedor {
+    margin-top: 2px;
+    padding-top: 30px;
+}
+#cabeceraModulo{
+    margin-top: 18px;
+}
+#cuerpoApp > #cabeceraModulo{
+    margin-top: 56px;
+}
+/*Cabecera Contenedor*/
+.cabecera-contenedor {
+    border-bottom: 1px solid #ccc;
+}
+#etiquetaModulo {
+    font-size: 1.7em;
+    font-weight: 400;
+    margin-left: -15px;
+    color: #777;
+}
+/*Cabecera Index*/
+#cabeceraModuloIndex {
+    padding-top: 6px;
+}
+/*Menu Superior*/
+.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
+    background: #5E7596 none repeat scroll 0 0;
+    color: white !important;
+}
+.dropdown-menu li > a:active {
+    background: #5E7596 none repeat scroll 0 0;
+    color: white !important;
+}
+.dropdown-menu li > a {color: rgba(69, 93, 127, 1);}
+.dropdown-submenu {position: relative;}
+.dropdown-submenu .dropdown-menu {
+    background-color: hsl(225, 15%, 100%) !important;
+    left: 100%;
+    margin-top: -1px;
+    top: 0;
+}
+/*Formulario*/
+div.columna.dataTables_wrapper {
+    overflow: auto;
+}
+form{
+    margin-top: 5px;
+}
+.form-group {
+    margin-top: 15px;
+}
+form .form-group label {
+    width: 100%;
+}
+.form-control.fa-square-o, .form-control.fa-check-square-o {
+    padding-left: 12px;
+    padding-top: 10px;
+    width: 40px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+/*Este es el backdrop que tengo que modificar para el chrome a la hora de desplegar un select bootstrap.De esta manera me deja modificar*/
+.bootstrap-select .dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -100;
+}
+.bootstrap-select .dropdown-menu{
+    z-index: 1100;
+}
+.bootstrap-select .dropdown-menu li.active a{
+    background-color: #eef1f4 !important;
+    color: rgba(69, 93, 127, 1);
+}
+.bootstrap-select .dropdown-menu li a:hover{
+    background-color: #eef1f4 !important;
+    color: rgba(69, 93, 127, 1) !important;
+} 
+.bootstrap-select .dropdown-menu li.active a:hover{
+    background-color: #eef1f4 !important;
+    color: rgba(69, 93, 127, 1) !important;
+} 
+.radio-form i.fa-circle-o{
+    padding-top: 10px;
+}
+.radio-form .input-group-addon {
+    width: 45%;
+    text-align: left;
+}
+.input-group-addon {
+    color: rgba(69, 93, 127, 1);
+}
+
+.bootstrap-datetimepicker-widget {
+    z-index: 1100;
+    min-width: 200px;
+}
+.bootstrap-select {
+    width: 100% !important;
+}
+.panel-default > .panel-heading {
+    color: rgba(69, 93, 127, 1);
+    cursor: pointer;
+    line-height: 10px;
+}
+.panel-default > .panel-heading:hover {
+    background-color: hsl(225, 3%, 93%);
+}
+.panel-group .panel {
+    border-radius: 0px;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+    background-color: #eef1f4 !important;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+    width: auto !important;
+    display: initial;
+}
+/*Elemento registrosPagina*/
+#registrosPagina , .registrosPagina{
+    left: -7px;
+    margin-right: 25px;
+}
+#registrosPagina .btn-group > .btn:last-of-type , .registrosPagina .btn-group > .btn:last-of-type{
+    border-radius: 0px !important;
+    margin-right: 1px;
+}
+/*colores*/
+.light-blue{background-color: #d9e3ed }
+/*Filtros*/
+.dialogo-filtro .modalPersonalizado .modal-header {
+    background-color: hsl(43, 34%, 50%) !important;
+    color: white !important;
+    font-size: 17px;
+}
+.dialogo-filtro .modalPersonalizado .modal-header .close {
+    right: 38px;
+    position: absolute;
+}
+.modalPersonalizado .modal-header .close,.modalPersonalizado2 .modal-header .close {
+    right: 9px;
+    position: absolute;
+}
+.dialogo-filtro .modalPersonalizado .modal-body>li {
+    list-style:none;
+}
+.colorFiltroActivo{
+    color: hsl(43, 100%, 41%) !important;
+}
+#columnaBotonesUsuario .colorFiltroActivo:hover {
+    color: hsl(43, 100%, 29%) !important;
+}
+
+#menuModulo > div[class*="col-"] ul li .filtroSidera:hover{
+    background: transparent !important;
+}
+#menuModulo > div[class*="col-"] ul li .filtroSidera .fa-ban{
+    position: absolute;
+    top: 2px;
+    font-size: 28px;
+    left: 12px;
+}
+#menuModulo > div[class*="col-"] ul li .filtroSidera .fa-ban:hover{
+    color:  firebrick ;
+    background: transparent !important;
+}
+#menuModulo > div[class*="col-"] ul li .filtroSidera .fa-filter:hover{
+    color:  gray ;
+    background: transparent !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-filter:hover
+{
+    background: transparent !important;
+    color:  hsl(43, 100%, 41%) ;
+}
+.alert-filtro{
+    color: hsl(43, 80%, 33%) !important;
+    background-color: hsl(58, 86%, 93%);
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+}
+.boton-enviar-filtro {
+    position: absolute;
+    top: -35px;
+    right: 10px;
+    font-size: 23px !important;
+    color: white;
+}
+.boton-enviar-filtro:hover {
+    text-decoration: none;
+    color: hsl(117, 61%, 39%);
+}
+.boton-enviar-y-guardar-filtro {
+    position: absolute;
+    top: -32px;
+    right: 75px;
+    font-size: 23px !important;
+    color: white;
+}
+.boton-enviar-y-guardar-filtro:hover {
+    text-decoration: none;
+    color: hsl(117, 61%, 39%);
+}
+.columnaFiltroSelect{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 2px;
+    top: -1px;
+}
+.filtroActivoSelect + button{
+    color: hsl(43, 100%, 41%) !important;
+    border-color: hsl(43, 100%, 41%) !important;
+}
+#filter{height: 91%;left: -305px;margin-top: 67px;opacity: 0.95;position: absolute;width: 500px;z-index: 5;padding:10px;box-shadow: 2px 0 5px #000000;}
+nav#primary {z-index: 6;position:fixed;font-size: 1.0em;width:200px;}
+.optionFilters{width:auto;}
+#filtroSelectores {height: 42px;}
+#filtroSelectores div{float: left;padding-right: 1px;}
+#filtroCampos .input{width:120px;}
+#filtroOperadores .input{width:124px;}
+#filtroValor input{width:185px;}
+#filtros{height:500px;overflow:auto;}
+#addFiltro{height:30px;margin-top: 0;}
+#textoCondicionesACumplir {
+    margin: 0px 0px -15px 0px;
+    border: 0px;
+}    
+#opcionCondicionesACumplir {
+    font-size: 16px;
+}
+#columnaCondiciones {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 15px 15px 0px 15px;
+    margin-bottom: 40px;
+}    
+.filaCondicion {
+    margin-bottom: 5px;
+    height: auto;
+    padding: 5px;
+}    
+.filaCondicion.alert.alert-filtro::before {
+    content: "  \f0b0  ";
+    position: absolute;
+    font-family: FontAwesome;
+    margin-top: 3px;
+    font-size: 18px;
+    display: block;
+}
+.filaCondicion:not(.alert-filtro) .campoCondicion {
+    color: #aaa;
+}
+.filaCondicion:not(.alert-filtro) .valorCondicion {
+    display: none;
+}
+.campoCondicion {
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 5px;
+}
+.filaCondicion .form-group {
+    margin: 0px;
+}
+
+
+/*Paginacion*/
+#columnaPaginacion,.columnaPaginacion {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: -7px;
+}
+.compact-theme a, .compact-theme span{
+    box-shadow: none;
+    background: transparent;
+    color: rgba(69, 93, 127, 1);
+    border-color: #bbb;
+    border: medium none !important;
+}
+.compact-theme .current {
+    background: transparent none repeat scroll 0 0;
+    color: lightgray;
+}
+.compact-theme a:hover {
+    background: rgba(216, 221, 227, 0.35) none repeat scroll 0 0;
+}
+.compact-theme .ellipse {
+    background: rgba(216, 221, 227, 0.35) none repeat scroll 0 0;
+}
+/*Registros totales totalRegistros*/
+#totalRegistros ,.totalRegistros{
+    margin-top: 7px;
+}
+/*Index Table*/
+.dataTables_wrapper{
+    overflow: auto;
+}
+.table.dataTable{
+    border: 1px solid #ccc;
+}
+.table.dataTable tbody tr.row-selected td {
+    background-color: rgba(255, 255, 195, 0.8);
+}
+.dataTables_wrapper thead tr {
+    background-color: hsl(216, 5%, 94%);
+}
+th > a{
+    font-weight: 500;
+    font-size: 16px;
+}
+th.no-orderable > a:hover {
+    text-decoration: none;
+    cursor: default;
+}
+th > a > i{
+    position: absolute;
+    margin-left: 1px;
+    margin-top: 3px;
+}
+th a.desc::after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    left: 3px;
+    position: relative;
+}
+th a.asc::after {
+    content: "\f0d8";
+    font-family: FontAwesome;
+    left: 3px;
+    position: relative;
+}
+th.check{
+    width: 3%;
+}
+td.checkCell i.itemSelector {
+    position: relative;
+    top: 2px;
+}
+th.check i {
+    position: relative;
+    top: -4px;
+}
+
+tbody i.fa.fa-check-square-o, i.fa.fa-square-o {
+    font-size: 18px;
+}
+/*constructores*/
+#progressConstructor {
+    margin: 0px -27px 12px -27px;
+    border-radius: 0;
+}
+.well.well-resizable-vertical {
+    background-color: #fff;
+    height: 180px;
+    overflow: auto;
+    padding: 0px 0px 0px 18px;
+    resize: vertical;
+}
+#relaciones .form-group {
+    display: table;
+}
+#relaciones .label-right {
+    display: table-cell;
+    font-weight: inherit;
+    padding: 6px;
+    position: relative;
+    top: -12px !important;
+}
+#etiquetasCampos {
+    height: 442px;
+}
+#listaEtiquetasCampos {
+    padding: 10px 0px;
+}
+#listaEtiquetasCampos li {
+    display: flex;
+}
+#listaEtiquetasCampos li input {
+    border: 1px solid #ddd;
+    font-size: 12px;
+    line-height: 28px;
+    padding-left: 10px;
+    margin-top: 4px;
+    border-radius: 4px;
+    width: 50%;
+}
+#listaEtiquetasCampos li input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.ordenar-lista-campos {
+    margin-left: -8px;
+    width: 25px;
+    padding: 13px 0px 0px 9px;
+}
+.mostrar-campo-index {
+    padding: 10px;
+    width: 40px;
+    margin-top: 3px;
+}
+ol.dd-dragel > .dd-item {
+    display: flex !important;
+}
+ol.dd-dragel input {
+    width: 50% !important;
+    font-size: 15px!important;
+}
+ol.dd-dragel .ordenar-lista-campos {
+    margin-top: -4px !important;
+}
+ol.dd-dragel .mostrar-campo-index {
+    margin: -1px;
+}
+i.opcion-imprimir, i.opcion-estadistica {
+    position: absolute;
+    margin-top: -32px;
+    margin-left: 50px;
+    font-size: 27px;
+}
+/*Legend, Alert*/
+
+.alert-info {
+    background: rgba(216, 221, 227, 0.41) none repeat scroll 0 0;
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+    color: rgba(69, 93, 127, 1);
+}
+.alert-grey {
+    background: #eee none repeat scroll 0 0;
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+    color: rgba(69, 93, 127, 1);
+}
+.alert-white {
+    background: white none repeat scroll 0 0;
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+    color: rgba(69, 93, 127, 1);
+}
+.alert-danger {
+    background: rgba(242, 222, 222, 0.46);
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+    color: #a94442;
+}
+.alert-warning {
+    background: rgba(255, 255, 195, 0.8);
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+    color: hsl(43, 91%, 38%) !important;
+}
+/*popover*/
+.popover{
+    z-index: 1500;
+    font-size: 13px;
+}
+i[data-toggle='popover'].fa-info-circle {
+    color: #000 !important;
+    opacity: .3;
+    cursor: help;
+}
+i[data-toggle='popover'].fa-info-circle:hover, i[aria-describedby].fa-info-circle {
+    opacity: .5;
+    color: #000;
+}
+.popover.fa-info-circle{
+    cursor: help;
+}
+.popover-title {
+    display: flex;
+}    
+.popover-label{
+    margin: 0px 25px 0px 25px;
+}
+.popover-save{
+    right: 8px;
+    position: absolute;
+    top: 8px;
+}
+.popover-content .form-group {
+    margin-top: -2px !important;
+}
+.text-warning {color: hsl(43, 100%, 19%) !important;}
+.text-danger {color: #a94442 !important;}
+.text-info {color: rgba(69, 93, 127, 1) !important;}
+.text-success {color: hsl(121, 33%, 35%) !important;}
+.text-seccion {color: #2095D8 !important;}
+.text-darkgoldenrod {color: darkgoldenrod !important;}
+.alert-success {
+    background: rgba(223, 240, 216, 0.46) ;
+    border: medium none;
+    box-shadow: 0 0 1px inset;
+}
+/*configuracion App*/
+#panel,.nav-tabs{
+    margin-top: 15px;
+}
+.tab-pane {
+    margin-bottom: 10px;
+}
+
+/*Validacion HTML%*/
+input:invalid, input:invalid ~ i {
+    border: 1px solid #a94442;
+    margin-left: 1px;
+}
+input:invalid ~ .input-group-addon {
+    background-color: #f2dede;
+    border-color: #a94442;
+    color: #a94442;
+    border-radius: 0 4px 4px 0 !important;
+}
+input:invalid:focus {
+    border: 1px solid #a94442;
+    box-shadow: 0 0 5px rgba(150, 40, 1, 0.7);
+}
+div.form-group.required > label::before, a.required::before {
+    color: darkred;
+    content: "* ";
+}
+.mensaje-error {
+    display: table-footer-group;
+}
+/*Loading*/
+#loading{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+.cssload-whirlpool,
+.cssload-whirlpool::before,
+.cssload-whirlpool::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border: 1px solid rgb(182,197,217);
+	border-left-color: rgb(26,58,102);
+	border-radius: 974px;
+		-o-border-radius: 974px;
+		-ms-border-radius: 974px;
+		-webkit-border-radius: 974px;
+		-moz-border-radius: 974px;
+}
+.cssload-whirlpool {
+	margin: -24px 0 0 -24px;
+	height: 49px;
+	width: 49px;
+	animation: cssload-rotate 1150ms linear infinite;
+		-o-animation: cssload-rotate 1150ms linear infinite;
+		-ms-animation: cssload-rotate 1150ms linear infinite;
+		-webkit-animation: cssload-rotate 1150ms linear infinite;
+		-moz-animation: cssload-rotate 1150ms linear infinite;
+}
+.cssload-whirlpool::before {
+	content: "";
+	margin: -22px 0 0 -22px;
+	height: 43px;
+	width: 43px;
+	animation: cssload-rotate 1150ms linear infinite;
+		-o-animation: cssload-rotate 1150ms linear infinite;
+		-ms-animation: cssload-rotate 1150ms linear infinite;
+		-webkit-animation: cssload-rotate 1150ms linear infinite;
+		-moz-animation: cssload-rotate 1150ms linear infinite;
+}
+.cssload-whirlpool::after {
+	content: "";
+	margin: -28px 0 0 -28px;
+	height: 55px;
+	width: 55px;
+	animation: cssload-rotate 2300ms linear infinite;
+		-o-animation: cssload-rotate 2300ms linear infinite;
+		-ms-animation: cssload-rotate 2300ms linear infinite;
+		-webkit-animation: cssload-rotate 2300ms linear infinite;
+		-moz-animation: cssload-rotate 2300ms linear infinite;
+}
+@keyframes cssload-rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@-o-keyframes cssload-rotate {
+	100% {
+		-o-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes cssload-rotate {
+	100% {
+		-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes cssload-rotate {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes cssload-rotate {
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+/*Configurar App*/
+#ConfiguracionEditForm span.label.alert-white{
+    font-size: 14px;
+    font-weight: 400;
+    padding: .4em .6em .3em;
+}
+/*Configurar Modulo*/
+/*Cabecera Config*/
+#tituloConfig {
+    margin-left: 13px;
+    margin-top: -1px;
+}
+#tituloConfig span:nth-child(1) {
+    margin-right: -15px;
+}
+#tituloConfig span:nth-child(2) {
+    margin-right: 4px;
+}
+#cabeceraConfig {
+    background: hsl(43, 92%, 71%) none repeat scroll 0 0;
+    border: medium none;
+    display: none;
+    font-size: 1.5em;
+    line-height: 48px;
+    margin-top: 30px;
+    height: 50px;
+    padding-top: 1px;
+    position: fixed;
+    width: 101%;
+    z-index: 1500;
+}
+
+#cabeceraConfig.navbar-default .navbar-nav > .open > a:not(.disabled),
+#cabeceraConfig.navbar-default .navbar-nav > .open > a:not(.disabled):focus,
+#cabeceraConfig.navbar-default .navbar-nav > .open > a:not(.disabled):hover,
+#cabeceraConfig.navbar-default .navbar-nav > .active > a:not(.disabled),
+#cabeceraConfig.navbar-default .navbar-nav > .active > a:not(.disabled):hover,
+#cabeceraConfig.navbar-default .navbar-nav   a:not(.disabled):hover,
+#cabeceraConfig.navbar-default .navbar-nav > li > a:not(.disabled):focus,
+#cabeceraConfig.navbar-default .navbar-nav > li > a:not(.disabled):hover {
+    background-color: hsl(43, 91%, 79%) !important;
+}
+#menuCabeceraConfigDerecha {
+    margin-right: 15px;
+    margin-top: -2px;
+}
+/* Da estilo a la nueva barra de navegacion para qeu haga sangria con los submenus*/
+#menuLateral2 .dropdown-submenu .dropdown-submenu {
+        margin-left: 20px;
+}
+.configurar-botones label > .fa{
+    margin-left: 10px;
+}
+.configurar-botones label > .fa:not(.activo) {
+    color: #ccc;
+}
+.ayuda-config .popover {
+    min-width: 300px;
+}
+.ayuda-config .popover dd{
+    margin-left: 15px;
+}
+/*Cuerpo Config*/
+#cuerpoConfig .contenedor {
+    background: hsl(204, 11%, 91%) none repeat scroll 0 0 !important;
+    border: 2px solid hsl(0, 0%, 90%);
+    box-shadow: -1px 4px 6px hsla(0, 0%, 0%, 0.26);
+    color: hsl(43, 100%, 19%) !important;
+    margin: 12px 0 0;
+    padding: 3px;
+}
+#cuerpoConfig .row {
+   max-height: 500px;
+    overflow: auto;
+}
+#botonAvanzarConfig.disabled, #botonRetrocederConfig.disabled, #botonEliminarElementoConfig.disabled {
+    color: hsl(43, 62%, 66%) !important;
+}
+.configurando .disabled {
+    background-color: white !important;
+}
+.configurando .form-control[disabled]{
+    cursor: not-allowed;
+    pointer-events: all;
+}
+.configurando *.focused{
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.modal-configurar-index {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 1499;
+}
+.configurando .focused.dd-item::before {
+    color: hsl(43, 93%, 25%);
+    content: "\f047 "" ";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 10px;
+    font-size: 15px;
+    top: 0px;
+    z-index: 1;
+}
+.dd-item:hover::before {
+    color: darkgoldenrod !important;
+}
+.configurando .boton-etiqueta-elemento::after {
+    background-color: hsl(43, 92%, 71%) !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: hsl(43, 93%, 16%);
+    content: attr(title);
+    font-size: 15px;
+    left: 0;
+    padding-bottom: 0;
+    padding-left: 31px;
+    padding-right: 13px;
+    padding-top: 1px;
+    position: absolute;
+    top: -22px;
+    z-index: 2;
+    font-weight: 400;
+    
+}
+.configurando .boton-editar-elemento::after {
+    color: green;
+    content: "\f040";
+    font-family: FontAwesome;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: -21px;
+    z-index: 2;
+}
+.configurando div[class*="col-"] > .boton-acciones-elemento::after {
+    background-color: hsl(43, 92%, 71%) !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: hsl(43, 92%, 71%) !important;
+    content: ".";
+    font-size: 15px;
+    padding-bottom: 0;
+    padding-left: 38px;
+    padding-right: 34px;
+    padding-top: 1px;
+    position: absolute;
+    right: 0;
+    top: -23px;
+    z-index: 1;
+}
+.configurando .boton-acciones-elemento::after,
+.configurando .dd-handle:hover {
+    background: #f2fbff !important;
+}
+.configurando .focused> .boton-acciones-elemento::after{
+    background-color: hsl(43, 92%, 71%) !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: hsl(43, 92%, 71%) !important;
+    content: ".";
+    font-size: 15px;
+    padding-bottom: 0;
+    padding-left: 0px;
+    padding-right: 32px;
+    padding-top: 1px;
+    position: absolute;
+    right: 0;
+    top: -22px;
+    z-index: 2;
+}
+
+.configurando .boton-reducir-columna::after{
+    color: hsl(43, 93%, 29%);
+    content: "\f053";
+    font-family: FontAwesome;
+    font-size: 18px;
+    position: absolute;
+    right: 52px;
+    top: -21px;
+    z-index: 2;
+}
+.configurando .boton-aumentar-columna::after {
+    color: hsl(43, 93%, 29%);
+    content: "\f054";
+    font-family: FontAwesome;
+    font-size: 18px;
+    position: absolute;
+    right: 31px;
+    top: -21px;
+    z-index: 2;
+}
+.configurando .boton-insertar-columna::after,
+.configurando .boton-insertar-fila::after{
+    color: green;
+    content: "\f067";
+    font-family: FontAwesome;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: -21px;
+    z-index: 2;
+}
+.configurando .boton-guardar-elemento::after{
+    color: green;
+    font-family: FontAwesome;
+    content: "\f00c";
+    font-size: 18px;
+    top: 0px;
+    right: 5px;
+    position: absolute;
+    z-index: 2;
+}
+.configurando .boton-eliminar-elemento::after{
+   font-family: FontAwesome;
+    font-size: 18px;
+    left: 10px;
+    position: absolute;
+    top: -21px;
+    content: "\f1f8";
+    color: #a94442;
+    z-index: 2;
+}
+.configurando .boton-cancelar-elemento::after{
+   font-family: FontAwesome;
+    font-size: 18px;
+    left: 10px;
+    position: absolute;
+    top: 8px;
+    content: "\f112";
+    color: #a94442;
+    z-index: 2;
+}
+.configurando .boton-reducir-columna:hover::after,
+.configurando .boton-aumentar-columna:hover::after{
+    color: darkgoldenrod !important;
+}
+.configurando .boton-insertar-columna:hover::after,
+.configurando .boton-insertar-fila:hover::after{
+    color: limegreen !important;
+}
+.configurando .boton-guardar-elemento:hover::after{
+    color: limegreen !important;
+}
+.configurando .boton-eliminar-elemento:hover::after{
+    color: crimson !important;
+}
+.no-action{
+    pointer-events: none;
+}
+.action-auto{
+    pointer-events: auto !important;
+}
+#menuConfigModulo {
+    background: hsla(212, 49%, 7%, 0.33) none repeat scroll 0 0 !important;
+    border: 1px solid hsl(0, 0%, 90%);
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    right: -2px;
+    width: 100%;
+}
+#menuConfigModulo .cabecera-contenedor {
+    background-color: hsl(60, 24%, 92%);
+}
+#menuConfigModulo .nav.nav-tabs a {color: white;font-weight: 500;}
+.formMakeForm {
+    background-color: rgba(140, 104, 104, 0.4);
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+    height: auto;
+    margin: 15px auto 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px 15px 15px;
+    width: 100%;
+}
+.configurando .ui-state-highlight{
+    height: 40px;
+    width: 100%;
+}
+#tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+/* Menu Configurar Derecho */
+.hiddencon {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    right: -30%;
+    top: 79px;
+    width: 30%;
+    z-index: 1500;
+}
+/* Contenido visible al hacer hover */
+.hiddencon.active {
+right: 0;
+}
+legend {
+    padding: 5px 5px 5px 10px;
+    margin-top: 5px;
+}
+legend.badge{
+    font-size: 21px;
+    font-weight: 400;
+}
+.legend-config {
+    background: hsl(43, 92%, 71%) none repeat scroll 0 0;
+    color: hsl(43, 100%, 19%) !important;
+    font-size: 18px;
+    margin: 0;
+    padding: 7px 10px 7px 10px;
+    line-height: 20px;
+    border-bottom: 1px solid lightgray;
+}
+.legend-config::after {
+    content: "\f0d8";
+    float: right;
+    font-family: FontAwesome;
+    cursor: n-resize;
+}    
+.legend-config.collapsed::after {
+    content: "\f0d7";
+    cursor: s-resize;
+}
+#tabPropiedades #classDivConfig .bootstrap-select {
+    position: absolute;
+    width: 8% !important;
+}
+#tabPropiedades #classDivConfig .bootstrap-select button {
+    border-radius: 4px 0 0 4px !important;
+    width: 8% !important;
+}
+#classConfig {
+    margin-left: 8%;
+    padding-left: 30px;
+    width: 92%;
+}
+@media (max-width: 800px) {
+.hiddencon {
+    width: 70%;
+    right: -70%;
+}
+.input-group.radio-form {
+    display: table-cell;
+}
+}
+/* Pestaña para desplegar */
+.hiddencon-label {
+    background: hsl(43, 92%, 71%) none repeat scroll 0 0 !important;
+    border-radius: 100px 0 0 100px;
+    color: hsl(43, 93%, 38%);
+    display: inline-block;
+    font-size: 17px;
+    height: 70px;
+    margin-left: -37px;
+    margin-top: -17px;
+    padding: 16px 0 0 14px;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    z-index: inherit;
+}
+.hiddencon-label:hover {
+    box-shadow: -4px 3px 6px hsla(0, 0%, 0%, 0.16), 0 0 1px 0 hsl(0, 4%, 42%);
+}
+.hiddencon, .hiddencon-label {
+/* Desplegado suave con transiciones */
+-moz-transition: all 0.3s ease-in-out;
+-webkit-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+.hiddencon:not(.active) .hiddencon-label::after {
+    content: "\f100";
+    font-family: FontAwesome;
+    font-size: 2em;
+    position: absolute;
+    top: 9px;
+    cursor: w-resize;
+}
+.hiddencon.active .hiddencon-label::after {
+    content: "\f101";
+    font-family: "FontAwesome";
+    font-size: 2em;
+    position: absolute;
+    top: 9px;
+    cursor: e-resize;
+}
+
+#cuerpoApp.configurando div[id]{
+    min-height: inherit;
+}
+#cuerpoApp.configurando #menuModulo{
+    box-shadow: 1px 1px 1px #444;
+}
+#cuerpoApp.configurando div[id]:hover{
+    min-height: 20px;
+}
+#cuerpoApp.configurando .popover-title {
+    background-color: hsl(43, 92%, 71%);
+}    
+#cuerpoApp.configurando *[id][class*="col-"]:not(.popover) {
+    outline: 1px dashed #ccc;
+}
+#cuerpoApp.configurando #menuModulo > div[class*="col-"]:not(.collapse) li {
+    margin-top: 0px;
+}
+#cuerpoApp.configurando legend,#menuConfigModulo legend{
+    font-size: 21px;
+    font-weight: inherit;
+    border-bottom: 1px solid lightgray;
+}
+#cuerpoApp.configurando .dd-list {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+#cuerpoApp.configurando .dd-empty {
+    background-color: transparent !important;
+    min-height: 20px !important;
+    border: none !important;
+}
+#cuerpoApp.configurando .form-group.dd-item{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#cuerpoApp.configurando .focused.form-group > *:not([class*="boton-"]){
+    pointer-events: none;
+    cursor: text;
+}
+#cuerpoApp.configurando label.dd-item{
+    margin-bottom: 5px;
+}
+
+/*Modulo de Inincio - iniciousuario.ctp*/
+.dashboard-cabecera {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.2em;
+    margin-top: 0px;
+    margin-left: -27px;
+    margin-right: -27px;
+    border-radius: 0 !important;
+    padding-bottom: 25px;
+    margin-bottom: 10px;
+}
+.dashboard-cabecera p{
+    font-size: 1.2em;
+}  
+
+.dashboard-cuerpo ul{
+    margin-left: -25px;
+    font-size: 16px;
+} 
+.dashboard-cuerpo hr{
+    margin-top:40px;
+    margin-bottom: 10px;
+}
+.dashboard-cabecera header{
+    text-align: center;
+}
+.dashboard-pie {
+    padding-top: 13px;
+    padding-bottom: 0px;
+    margin: 0px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    z-index: -1;
+    border-radius: 0px !important;
+}
+h1.home {
+    font-size: 2.3em;
+}
+h3.home {
+    margin: 0px auto 12px;
+    color: #2095D8;
+    font-size: 1.6em;
+    letter-spacing: -2px;
+    line-height: 80%;
+    letter-spacing: 1px;
+}
+/*Login*/
+#cuerpoAppLogin .container{
+    padding: 0;
+}
+.login {
+    font-size: 16px;
+    font-weight: 300;
+    height: 120%;
+    line-height: 30px;
+    overflow: auto !important;
+    padding-top: 60px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+}
+#form-login {
+    background: rgba(69, 93, 127, 0.13) -moz-linear-gradient(top , #f9f9f9 0%, rgba(69, 93, 127, 0.03) 100%) repeat scroll 0 0;
+    background: rgba(69, 93, 127, 0.13) -ms-linear-gradient(top , #f9f9f9 0%, rgba(69, 93, 127, 0.03) 100%) repeat scroll 0 0;/* IE 10+ */
+    background: rgba(69, 93, 127, 0.13) -webkit-linear-gradient(top , #f9f9f9 0%, rgba(69, 93, 127, 0.03) 100%) repeat scroll 0 0;/* FF 3.6+ */
+    background: rgba(69, 93, 127, 0.13) -o-linear-gradient(top , #f9f9f9 0%, rgba(69, 93, 127, 0.03) 100%) repeat scroll 0 0;/* Safari 5.1+, Chrome 10+ */
+    background: rgba(69, 93, 127, 0.13) linear-gradient(top , #f9f9f9 0%, rgba(69, 93, 127, 0.03) 100%) repeat scroll 0 0;
+    border-radius: 8px;
+    box-shadow: 0 0 4px lightslategrey inset, 5px 5px 4px #777;
+    margin-top: 5%;
+    padding: 0 30px 25px;
+}
+#login-submit{
+    color: #fff;
+    background-color:transparent;
+    font-size: 16px;
+    border-color: #fff;
+}
+#login-submit:hover{
+    color: #563d7c;
+    text-shadow: none;
+    background-color: #fff;
+    border-color: #fff;
+}
+#cuerpoAppLogin i.fa-user {
+    margin-right: 4px !important;
+}
+#cuerpoAppLogin .jumbotron{
+    margin-right: -15px !important;
+}
+.bs-docs-featurette + .bs-docs-footer {
+    margin-top: 0;
+    border-top: 0;
+}
+.bs-docs-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+}
+
+.icono-login{
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+/*Instalador*/
+.bd-pageheaderInstalador {
+    padding: 2rem 15px;
+    color: #cdbfe3;
+    text-align: center;
+    background-color: #563d7c;
+    margin-top: 0px;
+}
+#btInstalar {
+    color: rgba(69, 93, 127, 1);
+    font-size: 1.3em;
+    cursor: pointer;
+}
+#btInstalar i {
+    font-size: 1.6em;
+    margin-top: 2px !important;
+    position: absolute;
+    margin-left: -27px;
+}
+#btInstalar:hover {
+    color: #2095D8;
+}
+#jumbotronInstalador{
+    margin-top: -20px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+#divBotonInstalar{
+    line-height: 33px;
+    width:100%;
+}
+.bd-pageheader {
+    padding: 2rem 15px;
+    margin-top: -30px;
+    margin-bottom: 200px;
+    margin-left: -27px;
+    margin-right: -27px;
+    color: #cdbfe3;
+    text-align: center;
+    background-color: #563d7c;
+}
+#flashMessagesLogin {
+    line-height: 8px;
+    margin-top: -50px;
+    padding-right: 30px;
+    position: absolute;
+    width: 100%;
+}
+#flashMessagesLogin button.close {
+    margin-top: -5px;
+}
+/*Modo Mantenimiento*/
+.texto-modo-mantenimiento {
+    min-height: 100px;
+    padding-top: 25px;
+}
+/*arboles tree*/
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.tree ul {
+    margin-left:1em;
+    position:relative;
+}
+.tree ul ul {
+    margin-left:.5em;
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid;
+}
+.tree .popover {
+    min-width: 175px !important;
+}
+.tree li {
+    margin:0;
+    padding:0 1em;
+    line-height:2.2em;
+    color:#369;
+    font-weight:500;
+    position:relative;
+    font-size: 14px;
+}
+.dd-handle {
+    padding-left: 3px;
+}
+.dd-item > button {
+    height: 19px !important;
+}
+.tree ul li span {
+    padding-left: 3px;
+}
+@media (max-width: 800px) {
+.tree li {
+    width: 150%;
+}
+}
+.tree ul li::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 0;
+    border-top: 1px solid;
+    margin-top: 5px;
+    position: absolute;
+    top: 1em;
+    left: 0px;
+}
+.tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1em;
+    bottom:0;
+}
+.tree i.fa-trash,.tree i.fa-close{
+    color: #aaa;
+}
+.tree i{
+    vertical-align: middle;
+}
+.tree i.fa-trash:hover,.tree i.fa-close:hover{
+    color: firebrick;
+}
+.tree i.editar{
+    color: #aaa;
+}
+.tree .popover-title label {
+    color: #777;
+    font-size: 19px;
+}
+.tree .guardar-editar-menu {
+    position: absolute;
+    right: 7px;
+    font-size: 21px;
+    top: 11px;
+}
+.tree .cerrar-editar-menu {
+    position: absolute;
+    right: 31px;
+    top: 12px;
+    font-size: 21px;
+}
+.tree i.editar:hover{
+    color: green;
+}
+.tree i.editar.text-success:hover, #nuevoMenu:hover,.tree .guardar-editar-menu:hover {
+    color: hsl(109, 100%, 39%) !important;
+}
+.tree li span.ordenable{
+    cursor:  row-resize;
+}
+.tree i:hover,#nuevoMenu:hover{
+    cursor:  pointer;
+}
+.tree .ui-state-highlight{
+    height: 30px;
+    width: 50%;
+}
+.tree li.elemento-ficticio {
+    color: transparent;
+    display: table-column;
+}
+.tree li.elemento-ficticio:hover {
+    display: block;
+}
+/* Permisos */
+#listaGrupos{
+    margin: 2px 0px 5px -15px;
+}
+#cabeceraModuloPermisos {
+    margin-top: 50px;
+}
+#treeMenus span.alert,#treeAcciones span.alert{
+    padding: 5px;
+}    
+/*modal*/
+.modal.modalPersonalizado,.modal,.modal.modalPersonalizado2 {
+  z-index: 2000;
+}
+.modal-backdrop {
+  z-index: 1999;
+}
+.modal-dialog {
+    margin: 202px auto;
+    width: 80%;
+}
+.modal-header {
+    border-radius: 4px 4px 0 0;
+    padding: 10px 10px;
+    height: 50px;
+    background-color: cornflowerblue;
+    color: white;
+}
+.modal-title {
+    font-size: 20px;
+}
+.modal-header .close {
+    color: inherit;
+    margin-right: 5px;
+    font-size: 34px;
+    font-weight: 500;
+}
+.modal-body {
+    font-size: 17px;
+    padding: 25px 0 17px 30px;
+    position: relative;
+}
+.modal-content #menuModulo {
+    top: 49px;
+    font-size: 1em;
+    min-height: 28px !important;
+}
+.modal-content #etiquetaModulo {
+    font-size: 1.4em;
+}
+.modal-footer {
+    background-color: #eef1f4;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 2px lightslategrey inset;
+    padding: 8px;
+}
+a.fa-printView{
+    margin-right: 20px;
+    margin-top: 2px;
+    float: right;
+    color: white !important;
+    font-size: 2.333em;
+    opacity: 1;
+}
+a.fa-printView:hover{
+    background-color: transparent;
+    text-decoration: none;
+    color: white !important;
+    opacity: 1;
+}
+/*Modulo del Modal*/
+.botonEditViewModal{
+    background: white !important;
+}
+.botonEditViewModal:hover{
+    background: white !important;
+    color:green;
+}
+.botonAddModal {
+    background: transparent !important;
+    cursor: pointer !important;
+}
+.botonAddModal:hover {
+    background: transparent !important;
+    color: green !important;
+    cursor: pointer !important;
+}
+.botonDelModal {
+    background: white;
+    cursor: pointer !important;
+}
+.botonDelModal.fa-trash:hover {
+    background: transparent !important;
+    color: firebrick;
+    cursor: pointer !important;
+}
+.modalPersonalizado .modal-header,.modalPersonalizado2 .modal-header {
+    background-color: cornflowerblue !important;
+    color: white;
+    z-index: 2;
+}
+.modalPersonalizado .modal-title,.modalPersonalizado2 .modal-title {
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    float: left;
+}
+.modalPersonalizado .modal-content,.modalPersonalizado2 .modal-content {
+    border: 0px solid rgba(0,0,0,.2) !important;
+}
+.modalPersonalizado .modal-body,.modalPersonalizado2 .modal-body {
+    font-size: 1.0em !important;
+    padding: 15px 32px 10px 32px;
+    position: relative;
+}
+.modalPersonalizado .modal-footer,.modalPersonalizado2 .modal-footer {
+    background-color: #eee;
+    box-shadow: none;
+    border: 1px solid #ccc;
+}
+.modalPersonalizado .modal-dialog,.modalPersonalizado2 .modal-dialog {
+    margin:80px auto;
+    width: 95% !important;
+    height:95% !important;
+}
+.cursorPointer {
+    cursor: pointer;
+}
+.cursorPointer:hover {
+    background-color: white;
+}
+
+.deshabilitadoSelectDentroModal{
+    background-color: #eee !important;
+    opacity: 1 !important;
+    cursor: not-allowed !important;
+    color: #555 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;
+}
+
+.deshabilitadoSelectDentroModal2 span{
+    color: #000 !important;
+    opacity: 1 !important;
+}
+
+.cursorProhibido{
+    cursor:not-allowed !important;
+}
+.botonesOpcionesComboModal{
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+/*pestañas nav tabs*/
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:active, .nav-tabs > li.active > a:focus {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid white;
+    top: 0px;
+    font-size: 17px;
+    color: #2095D8 !important;
+    outline: none;
+}
+
+.nav-tabs li a {
+    background-color: #e6e6e6;
+    border: medium none;
+    color: #575757;
+    line-height: 2.3em;
+    padding: 0 25px;
+    margin-right: 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 17px;
+    border-color: #ddd #ddd #ddd;
+    margin-bottom: -1px;
+}
+/*Mi Perfil*/
+#tituloMiPerfil{
+    font-size: 2.3em;
+}
+
+#cambiarPass.panel-body{
+    margin-top: -10px;
+    padding: 0px 1px 0px 0px;
+}
+#nombreUsuario{
+    font-weight: 600;
+}
+#guardarMisDatos{
+    font-size: 1em;
+    text-decoration: none;
+}
+#guardarCambiarPass{
+    font-size: 1em;
+    text-decoration: none;
+    display: none;
+}
+#mostrarCambiarPass{
+    font-size: 1em;
+    text-decoration: none;
+}
+/*Pill para sustituir pestañas que se descuadran*/
+.nav-pills.sideraPills > li.active > a{
+    background-color: white;
+    color: #2095D8 !important;
+    border-left: 1px solid #ccc;
+    border-right:1px solid  #ccc;
+    border-top:1px solid  #ccc;
+    border-bottom: 1px solid transparent ;
+    border-radius: 4px 4px 0 0;
+}
+.nav-pills.sideraPills > li > a{
+    border-left: 1px solid transparent ;
+    border-right:1px solid transparent ;
+    border-top:1px solid white ;
+    border-bottom:1px solid #ccc;
+    margin-bottom: -1px;
+    background-color: #e6e6e6;
+    font-size: 17px;
+    
+}
+.nav-pills.sideraPills > li:not(.active) > a:hover{
+    background-color: #e6e6e6;
+    border-left: 1px solid #ccc;
+    border-right:1px solid  #ccc;
+    border-top:1px solid  #ccc;
+    border-bottom: 1px solid transparent ;
+    border-radius: 4px 4px 0 0;
+}
+.nav-pills.sideraPills > li + li {
+    margin-right: 2px;
+    margin-left: 0px;
+}
+.nav-pills.sideraPills > li {
+    margin-right: 2px;
+}
+/*Meter un margen ente los paneles y la label*/
+.sideraPills{
+    margin-top: 10px;
+}
+/*para meter en un recuadro el conenido de las pestañas(pill)*/
+.sideraPillsRecuadro{
+    border-left: 1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #ccc ;
+    border-radius: 0px 4px 4px 4px;
+}
+/*Editar Informe*/
+.editar-informe:hover{
+    color:darkorange !important;
+}
+.editar-informe.active{
+    color:darkorange !important;
+}
+.editando-informe p.editable {
+    outline: 1px dotted darkorange;
+}
+.editando-informe p.editable.focused{
+    background: #f2fbff;
+}   
+.editando-informe .boton-guardar-elemento::after{
+    color: green;
+    font-family: FontAwesome;
+    content: "\f00c";
+    font-size: 18px;
+    top: 0px;
+    right: 5px;
+    position: absolute;
+    z-index: 2;
+}
+.editando-informe .boton-cancelar-elemento::after{
+   font-family: FontAwesome;
+    font-size: 18px;
+    left: 10px;
+    position: absolute;
+    top: 8px;
+    content: "\f112";
+    color: #a94442;
+    z-index: 2;
+}
+.editando-informe div.popover{
+    max-width: 100%;
+    width: 15cm;
+}
+/**************        AUTOCOMPLETE                       ******************/
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border:  1px solid hsl(216, 5%, 94%);
+    background: hsl(216, 5%, 94%);
+    font-family: "Roboto",sans-serif;
+    color: rgba(69, 93, 127, 1);
+}
+.divAutocomplete {
+    border:  1px solid white;
+    background: white;
+    font-family: "Roboto",sans-serif;
+    color: rgba(69, 93, 127, 1);
+    margin: -1px;
+}
+.sinPaddin{
+padding-right: 0px;
+padding-left: 0px;
+}
+
+.ulAutocomplete{
+position: absolute;
+z-index: 1100;
+display: block;
+}
+.ui-autocomplete {
+    max-height: 400px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+
+.elimanarBusquedaYDatos:hover{
+    background: white;
+}
+
+
+/************ OPCIONES ESPECIALES PARA QUE SE VEA MEJOR **********************************************************************************************************/
+
+/************* AFECTANA  TODO*****************************************/
+
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+}
+.bloquePequeño .jumbotron {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+/*Esto es para los menus .Para que no se vean un poco recortados*/
+#menuSuperiorDerecha > span > ul > li > a{
+    height: 51px;
+}
+#menuLateral2 li.dropdown {
+    font-size: 13.5px;
+}
+#cabeceraConfig {
+    margin-top: 10px;
+}
+.hiddencon {
+    top: 49px;
+}
+.bloquePequeño .btn{
+    font-size: 12px;
+}
+.bloquePequeño form .fa-lg {
+    font-size: 0.9em;
+    line-height: .75em;
+}
+
+.dropdown-menu {
+    font-size: 13.5px;
+}
+
+.bloquePequeño #etiquetaModulo {
+    font-size: 1.4em;
+}
+
+.bloquePequeño .modal-title {
+    font-size: 13px;
+}
+.bloquePequeño .modal-content #menuModulo {
+    top: 35px;
+}
+.modal-header {
+    height: 36px;
+}
+.listaCamposExportar li.divider {
+    margin-bottom: 7px;
+    margin-top: -2px;
+}
+
+.bloquePequeño .tree li {
+    font-size: 14px;
+}
+
+.bloquePequeño .input-group-addon {
+    padding: 3px 12px;
+    font-size: 12px;
+}
+.bloquePequeño .deshabilitadoSelectDentroModal > button{
+    color:black !important;
+}
+.bloquePequeño  #opcionAvanzado i.opcion-imprimir, i.opcion-estadistica {
+    margin-top: -25px;
+}
+
+.bloquePequeño #relaciones .label-right {
+    top: 7px !important;
+}
+.bloquePequeño .bootstrap-select .dropdown-menu {
+    min-width: 100% !important;
+}
+/******************************INDEX ADD EDIT *************************************/
+.bloquePequeño .modal #cabeceraModulo {
+    margin-top: 20px;
+}
+
+.bloquePequeño #flashMessages > div {
+    padding: 3px;
+}
+.bloquePequeño #menuModulo {
+    font-size: 1em;
+}
+.bloquePequeño #menuModulo.navbar {
+    max-height: 30px;
+    min-height: 26px;
+}
+.bloquePequeño #menuModulo > div[class*="col-"] ul li a {
+    height: 26px;
+}
+.bloquePequeño #menuModulo li a {
+    padding-top: 3px;
+}
+
+.bloquePequeño #menuModulo li a {
+    padding-top: 3px;
+}
+#logMessages > div > button {
+    top: 87px;
+}
+#logMessages {
+    top: 84px;
+}
+/*******  INDEX  ****************************************************************************/
+
+.navbar{
+    max-height: 40px;
+    min-height: 40px;
+}
+.navbar-nav > li > a {
+    padding-bottom: 6px;
+}
+#menuSuperiorDerecha > span > ul > li > a {
+    height: 40px;
+}
+
+#menu_parte_superior ul:first-child  > li[data-menu='1']:first-child  > a:first-child {
+    padding-bottom: 9px;
+}
+.bloquePequeño th > a {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.bloquePequeño .dropdown-menu {
+    font-size: 12px;
+}
+
+.bloquePequeño #registrosPagina .btn-group > .btn:last-of-type,.bloquePequeño .registrosPagina .btn-group > .btn:last-of-type {
+    margin-right: 10px;
+}
+.bloquePequeño #registrosPagina .input-group-btn:first-child > .btn,.bloquePequeño #registrosPagina .input-group-btn:first-child > .btn-group,.bloquePequeño .registrosPagina .input-group-btn:first-child > .btn,.bloquePequeño .registrosPagina .input-group-btn:first-child > .btn-group {
+    margin-right: 25px;
+}
+.bloquePequeño #botonBuscar,.bloquePequeño #botonExportar,.bloquePequeño .botonBuscar, .botonExportar {
+    padding: 4px;
+}
+
+.bloquePequeño #camposBuscar button,.bloquePequeño .camposBuscar button { 
+    height: 24px;
+}
+
+.bloquePequeño #camposExportar button,.bloquePequeño .camposExportar button { 
+    height: 24px;
+}
+
+.bloquePequeño .table > tbody > tr > td,.bloquePequeño .table > tbody > tr > th,.bloquePequeño .table > tfoot > tr > td,.bloquePequeño .table > tfoot > tr > th,.bloquePequeño .table > thead > tr > td,.bloquePequeño .table > thead > tr > th {
+    line-height: 1.429;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+}
+.bloquePequeño th.check i {
+    top: 3px;
+}
+.bloquePequeño #registrosPagina,.bloquePequeño .registrosPagina {
+    top: 3px;
+}
+
+
+/****** ADD Y EDIT ***********************************************************************************************/
+
+.bloquePequeño .form-control {
+    height: 24px;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1.42857143;
+}
+.bloquePequeño #elementoBuscar {
+    height: 24px;
+}
+.bloquePequeño .form-group{
+   margin-top: 1px; 
+   margin-bottom: 1px;
+}
+.bloquePequeño .nav > li > a{
+  padding: 4px 5px;  
+}
+
+.nav-pills.sideraPills > li > a {
+    font-size: 12px;
+}
+
+.bloquePequeño label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bloquePequeño .alert-info.text-seccion {
+    line-height: 11px;
+    font-size: 13px;
+}
+
+.bloquePequeño legend.legendStrata,.bloquePequeño legend {
+    font-size: 13px;
+}
+.bloquePequeño textarea.form-control{
+    height: 53px;  
+}
+
+
+.bloquePequeño .form-control.fa-square-o,.bloquePequeño .form-control.fa-check-square-o{
+    padding-top: 5px;  
+    width: 31px;
+    font-size: 15px;
+}
+.bloquePequeño .modal .form-control.fa-square-o,.bloquePequeño .modal .form-control.fa-check-square-o{
+    padding-top: 4px;  
+    width: 30px;
+    font-size: 15px;
+}
+
+.bloquePequeño .btn {
+    padding: 3px 12px;
+}
+
+/************** FILTROS *********/
+.bloquePequeño .dialogo-filtro .form-control {
+    padding: 0px 0px;
+}
+.bloquePequeño .dialogo-filtro .modal-header .close {
+    margin-top: -16px;
+}
+.bloquePequeño #menuModulo > div[class*="col-"] ul li .filtroSidera .fa-ban {
+    left: 2px;
+    top: 0px;
+    font-size: 25px;
+}
+
+.bloquePequeño .jumbotron.modificado {
+    height: 25%;
+}
+.bloquePequeño .dashboard-cabecera.modificado {
+    margin-top: 0px;
+}
+/*****************************   PANTALLLA DE LOGIN   *******************************************************/
+.bd-pageheader2 {
+    color: gray;
+    text-align: center;
+    background-color: #563d7c;
+}
+
+.bd-pageheader2 #login-submit:hover {
+    color:  rgba(69, 93, 127, 1);
+    text-shadow: none;
+    background-color: #eee;
+    border-color: #ccc;
+}
+.bd-pageheader2 #login-submit {
+    color:  rgba(69, 93, 127, 1);
+    background-color: white;
+    font-size: 16px;
+    border-color: #ccc;
+}
+
+
+.dashboard-cabecera.sideraLogin {
+    height: inherit;
+}
+.dashboard-cabecera2 {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.2em;
+    margin-top: -80px;
+    margin-left: 1px !important;
+    margin-right: -27px !important;
+    border-radius: 0 !important;
+    padding-bottom: 25px;
+    margin-bottom: 10px;   
+}
+.bd-pageheader2.sideraLogin {
+background-color: #eee;
+}
+
+#columnaElementoBusqueda.sinOpcionExportar{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+    right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.azulImporte{
+    color:  #2e86c1  !important;
+    font-weight: bold !important;
+}
+
+.rojoImporte{
+    color: #ff5733 !important;
+    font-weight: bold !important;
+}

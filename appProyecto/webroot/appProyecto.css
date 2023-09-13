@@ -1,0 +1,353 @@
+
+.bd-pageheader2 {
+    color: gray;
+    text-align: center;
+    background-color: #563d7c;
+}
+
+.bd-pageheader2 #login-submit:hover {
+    color:  rgba(69, 93, 127, 1);
+    text-shadow: none;
+    background-color: #eee;
+    border-color: #ccc;
+}
+.bd-pageheader2 #login-submit {
+    color:  rgba(69, 93, 127, 1);
+    background-color: white;
+    font-size: 16px;
+    border-color: #ccc;
+}
+
+
+.dashboard-cabecera.strata {
+    height: inherit;
+}
+.dashboard-cabecera2 {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.2em;
+    margin-top: -80px;
+    margin-left: 1px !important;
+    margin-right: -27px !important;
+    border-radius: 0 !important;
+    padding-bottom: 25px;
+    margin-bottom: 10px;   
+}
+.bd-pageheader2.strataLogin {
+background-color: #eee;
+}
+/*Hace los iconos mas pequeños*/
+.fa-lg.masPequeño {
+    font-size: 0.8em;
+    line-height: .75em;
+}
+/*Modificado para que muestre los botones de los selet opcions con el bordfer del final */
+.botonesOpcionesComboModal{
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+/*Para que muestre el simbolo de la ordenacion en las cabeceras de los nuevos listados*/
+tr td i a.desc::after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    left: 3px;
+    position: relative;
+}
+tr td i a.asc::after {
+    content: "\f0d8";
+    font-family: FontAwesome;
+    left: 3px;
+    position: relative;
+}
+/*Este es el backdrop que tengo que modificar para el chrome a la hora de desplegar un select bootstrap.De esta manera me deja modificar*/
+.bootstrap-select .dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -100;
+}
+/*Ajustes de la tabla que ajusta el presupuesto*/
+#ajustePresupuesto td{
+    vertical-align: middle;
+    text-align: center;
+}
+#ajustePresupuesto th{
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 500;
+}
+#ajustePresupuesto td .form-group {
+    margin-top: 0px;
+}
+#ajustePresupuesto td .form-group {
+    margin-bottom: 0px;
+}
+#ajustePresupuesto thead tr th{
+    border-top: 1px solid #fff;
+    min-width: 150px;
+}
+#ajustePresupuesto thead tr > th{
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+
+/*Para qeu las tablas de los listados para moviles los elemntos queden mas visibles*/
+.table.dataTable.tablaMovil {
+border: 0px solid #ccc !important;
+border-spacing: 5px;
+border-collapse: separate;
+}
+
+.table.dataTable.tablaMovil>tbody>tr> td, .table.dataTable.tablaMovil>tfoot>tr> td, .table.dataTable.tablaMovil>thead>tr> td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-radius: 25px 25px 25px 25px !important;
+    -moz-border-radius: 25px 25px 25px 25px !important;
+    -webkit-border-radius: 25px 25px 25px 25px !important;
+    border: 1px solid #ccc !important;
+    border-spacing: 0px;
+}
+.table.dataTable.tablaMovil>tbody>tr, .table.dataTable.tablaMovil>tfoot>tr, .table.dataTable.tablaMovil>thead>tr{
+    border-spacing: 0px;
+}
+/*Para quitar el recuadro azul que sale en el evento focus del chrome*/
+#menuModulo a:focus{
+    outline-style: none !important;
+}
+.colorNaranja{
+    color: orange;
+}
+.legenSinSubrayar{
+    color: #2095D8 !important;
+    padding: 5px 5px 5px 10px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+/* Da estilo al nombre del presupuesto*/
+.etiquetaInformacion{
+    border-radius: 11px 11px 11px 11px;
+    -moz-border-radius: 11px 11px 11px 11px;
+    -webkit-border-radius: 11px 11px 11px 11px;
+    border: 0px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #a0a0a0;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+.print2{
+    background: transparent !important;
+    color: green;
+}   
+
+/* Da estilo a la nueva bara de navegacion para qeu haga sangria para los submenus*/
+#menuLateral2 .dropdown-submenu .dropdown-submenu {
+        margin-left: 20px;
+    }
+    
+
+/*Estilo de las etiquetas mejorado*/
+.alert-info.text-seccion {
+    color: #2095D8 !important;
+    box-shadow: none;
+    border-color: #ddd !important;
+    border: 1px solid;
+    line-height: 18px;
+    margin-bottom: 0px;    
+}
+
+/*Meter un margen ente los paneles y la label*/
+.sideraPills{
+    margin-top: 10px;
+}
+
+/*acordeon para mostrar campos */
+.alv {
+    color: #2095D8 !important;
+    box-shadow: none;
+    border-color: #ddd !important;
+    border: 1px solid;
+    line-height: 18px;
+    margin-bottom: 0px;
+    line-height: 11px;
+    font-size: 13px;
+    background: rgba(216, 221, 227, 0.41) none repeat scroll 0 0;
+    padding: 5px 5px 5px 10px;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+#menuModulo > div[class*="col-"] ul li a.fa-file-text{
+    background: transparent !important;
+    color: gray !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-file-o{
+    background: transparent !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-clone{
+    background: transparent !important;
+    color: green !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-clone:hover{
+    background: transparent !important;
+    color: hsl(109, 100%, 39%) !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-file-text:hover{
+    background: transparent !important;
+    color: hsl(109, 100%, 39%) !important;
+}
+#menuModulo > div[class*="col-"] ul li a.fa-file-o:hover{
+    background: transparent !important;
+    color: hsl(109, 100%, 39%) !important;
+}
+.modal-body > p{
+    font-size: 13px !important;
+}
+
+.tablaExcel div[class*="col-"]{
+    padding-right: 0px;
+    padding-left:  0px;
+}
+.tablaExcel .table > tbody > tr > td{
+    padding: 0px;
+}
+.dropdown.bootstrap-select.disabled{
+background-color: #eee !important;
+opacity: 1;
+}
+.positionSticky{
+  position: sticky;
+  top: 0;
+  background-color: hsl(216, 5%, 94%);
+}
+.positionSticky2{
+  position: sticky;
+  top: 21px;
+  background-color: hsl(216, 5%, 94%);
+}
+
+/*color para los botones*/
+.colorNegro:not(.disabled){
+    color: black !important;  
+}
+.colorNegro:not(.disabled):hover{
+background: transparent !important;
+color: hsl(109, 100%, 39%) !important;
+}
+.colorAzulBoton:not(.disabled){
+    color: rgba(69, 93, 127, 1) !important;  
+}
+.colorAzulBoton:not(.disabled):hover{
+background: transparent !important;
+color: green !important;
+}
+.colorNegro2:hover{
+background: transparent !important;
+color: hsl(109, 100%, 39%) !important;
+}
+
+/*TinyMCE se ajuste correctamente*/
+.mce-toolbar-grp.mce-container.mce-panel .mce-btn-group > div{
+    white-space: normal !important;
+}
+
+.btn.btn-default.btn-choose,.btn.btn-warning.btn-reset{
+    height: 24px;
+}
+.colorNegroTexto{
+    color: black !important;
+    font-weight: bold !important;
+}
+.azulOscuroMovimiento{
+    color:  rgb(0, 112, 192)  !important;
+    font-weight: bold !important;
+}
+.resaltar .table.dataTable tbody tr:hover td {
+    background-color: rgba(255, 255, 195, 0.8) !important;
+}
+.verdeOscuroMovimiento{
+    color:  rgb(0, 176, 80)    !important;
+    font-weight: bold !important;
+}
+.azulClaroMovimiento{
+    color:  rgba(0, 176, 240)    !important;
+    font-weight: bold !important;
+}
+.cobradoMovimiento{
+    background-color:  rgba(204, 192, 218) !important;
+}
+
+.bloquePequeño .masJuntasFilas .table > tbody > tr > td,.bloquePequeño .masJuntasFilas .table > tbody > tr > th,.bloquePequeño .masJuntasFilas .table > tfoot > tr > td,.bloquePequeño .masJuntasFilas .table > tfoot > tr > th,.bloquePequeño .masJuntasFilas .table > thead > tr > td,.bloquePequeño .masJuntasFilas .table > thead > tr > th {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    min-width: 176px;
+}
+.bloquePequeño  .noSaltoLinea .table > tbody > tr > td,.bloquePequeño  .noSaltoLinea  .table > tbody > tr > th,.bloquePequeño   .noSaltoLinea .table > tfoot > tr > td,.bloquePequeño   .noSaltoLinea .table > tfoot > tr > th,.bloquePequeño  .noSaltoLinea  .table > thead > tr > td,.bloquePequeño  .noSaltoLinea  .table > thead > tr > th {
+    white-space: nowrap ;
+}
+
+.bloquePequeño .masJuntasFilas2 .table > tbody > tr > td,.bloquePequeño .masJuntasFilas2 .table > tbody > tr > th,.bloquePequeño .masJuntasFilas2 .table > tfoot > tr > td,.bloquePequeño .masJuntasFilas2 .table > tfoot > tr > th,.bloquePequeño .masJuntasFilas2 .table > thead > tr > td,.bloquePequeño .masJuntasFilas2 .table > thead > tr > th {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+.modal-body{
+    min-height: 70px;
+}
+
+.bootstrap-select a:focus{
+    outline:thin dotted #333!important;
+    outline-offset:-2px
+}
+
+button.close:focus{
+    outline:thin none #333!important;
+    outline-offset:-2px
+}
+
+.amarilloObra td{
+    background-color:  rgba(255, 255, 0) !important;
+}
+.verdeObra td{
+    background-color:  rgba(104, 182, 99) !important;
+}
+.verdeFosforitoObra td{
+    background-color:  rgba( 77, 255, 0 ) !important;
+}
+.rojoObra td{
+    background-color:  rgba( 255, 0, 0 ) !important;
+}
+.rojo2{
+    background-color:  rgba( 255, 0, 0 ) !important;
+}
+.azulclaro2{
+    background-color:  rgba(163, 205, 250)    !important;
+}
+.amarillo2{
+    background-color:  rgba(250, 249, 163)    !important;
+}
+.verdeBrillante2{
+    background-color:  rgba( 77, 255, 0 ) !important;
+}
+
+/*Mejorando los estilos del innput group, para que salgan bien */
+#elementoBuscar.input-group .input-group-addon:first-child {
+  border-right: 1px solid #ccc !important;
+}
+.menuRecogido li{
+    display: block !important;
+    background-color: #E7E9ED !important;
+}
+.menuRecogido .dropdown-menu {
+    min-width: 75px;
+    background-color: #E7E9ED !important;
+}
+.dropdown-menu li > a.colorNegro3:hover{
+    color: hsl(109, 100%, 39%) !important;
+}
