@@ -53,7 +53,7 @@
     <link rel="stylesheet" type="text/css" href="app/webroot/lib/bootstrap-duallistbox/src/bootstrap-duallistbox.css">
     <link rel="stylesheet" type="text/css" href="app/webroot/lib/sidera/sidera.css">
     <link rel="stylesheet" type="text/css" href="app/webroot/lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="app/webroot/appProyecto/webroot/appProyecto.css">
+    <link rel="stylesheet" type="text/css" href="app/appProyecto/webroot/appProyecto.css">
 	<link rel="stylesheet" type="text/css" href="app/webroot/lib/simplePagination/simplePagination.css">
     <link rel="stylesheet" type="text/css" href="app/webroot/lib/elfinder/css/elfinder.min.css">
     <link rel="stylesheet" type="text/css" href="app/webroot/lib/elfinder/css/theme.css">
@@ -72,8 +72,8 @@
     <script type="text/javascript" src="app/webroot/lib/bootstrap-duallistbox/src/jquery.bootstrap-duallistbox.js"></script>
     <script type="text/javascript" src="app/webroot/lib/simplePagination/simplePagination.js"></script>
     <script type="text/javascript" src="app/webroot/lib/sidera/sidera.js"></script>
-    <script type="text/javascript" src="app/webroot/appProyecto/webroot/appProyecto.js"></script>
-    <script type="text/javascript" src="app/webroot/appProyecto/webroot/appValidaciones.js"></script>
+    <script type="text/javascript" src="app/appProyecto/webroot/appProyecto.js"></script>
+    <script type="text/javascript" src="app/appProyecto/webroot/appValidaciones.js"></script>
     <script type="text/javascript" src="app/webroot/lib/jquery-highlight/jquery-highlight1.js"></script>
     <script type="text/javascript" src="app/webroot/lib/elfinder/js/elfinder.min.js"></script>
     <script type="text/javascript" src="app/webroot/lib/elfinder/js/i18n/elfinder.es.js"></script>

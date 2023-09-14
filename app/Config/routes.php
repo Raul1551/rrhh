@@ -33,8 +33,10 @@
 
 	// Index Personal
 	Router::connect('/personals', array('controller' => 'personals', 'action' => 'index'));
+	// Ruta editar
+	Router::connect('/personals/editarPersonal/:id', array('controller' => 'personals', 'action' => 'editarPersonal'), array('pass' => array('id')));
 	// Ruta delete
-	Router::connect('/personals/delete/:id', array('controller' => 'personals', 'action' => 'eliminarPersonal'), array('pass' => array('id'), 'id' => '[0-9]+'));
+	Router::connect('/personals/eliminarPersonal/:id', array('controller' => 'personals', 'action' => 'eliminarPersonal'), array('pass' => array('id'), 'id' => '[0-9]+'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
