@@ -76,7 +76,15 @@ class PersonalsController extends AppController
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(__('No se pudo actualizar tu personal.'));
+
+            // Crear una respuesta JSON para indicar error
+            $response = ['success' => false];
         }
+
+        // Enviar la respuesta como JSON
+        $this->autoRender = false;
+        $this->response->type('json');
+        echo json_encode($response);
 
         if (!$this->request->data) {
             $this->request->data = $personal;

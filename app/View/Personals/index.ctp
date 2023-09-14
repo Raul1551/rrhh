@@ -11,7 +11,7 @@
                 <li>
                     <a class="disabled fa fa-lg fa-trash disabled" data-toggle="modal" data-target="#registroDialogpersonals" title="Eliminar Registro" id="delRegistro" disabled href="#"></a>
                 </li>
-                
+
                 <li>
                     <a class="disabled fa fa-pencil fa-lg" title="Modificar Registro" id="editRegistro" href="#"></a>
                 </li>
@@ -70,7 +70,7 @@
                                         <a class="fa fa-lg fa-check" id="guardarEditRegistroCliente" form="ClienteEditForm" title="Guardar" onclick="guardarNuevoRegistro()" type="submit" href="#"></a>
                                     </li>
                                     <script type="text/javascript">
-                                       /*  $('#guardarEditRegistroCliente').on('click', function(event) {
+                                        /*  $('#guardarEditRegistroCliente').on('click', function(event) {
                                             event.preventDefault();
                                             $(this).addClass('disabled');
                                             var formulario = $("#ClienteEditForm");
@@ -109,7 +109,7 @@
                                 </label>
                             </div>
                         </div>
-                        <form class="cuerpo-contenedor" action="rrhh/personals/update" id="ClientesEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
+                        <form class="cuerpo-contenedor" action="/personals/add" id="ClientesEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del personal</legend>
                             <div id="fila2" class="row">
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -214,7 +214,7 @@
                                 <div id="columna12" class="col-md-3">
                                     <div id="telefonoDiv" class="form-group required" aria-required="true">
                                         <label id="telefonoLabel">Teléfono</label>
-                                        <input id="telefono" type="text" name="data[Personal][telefono]" class="form-control" value="" maxlength="11" pattern title="Introduce un email correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input id="telefono" type="text" name="data[Personal][telefono]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna13" class="col-md-3">
@@ -229,6 +229,12 @@
                                         <input id="emailEmpresa" type="text" name="data[Personal][email_empresa]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
                                     </div>
                                 </div>
+                                <div id="columna15" class="col-md-3">
+                                    <div id="cuentaCorrienteDiv" class="form-group required" aria-required="true">
+                                        <label id="cuentaCorrienteLabel">Cuenta Corriente</label>
+                                        <input id="cuentaCorriente" type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
+                                    </div>
+                                </div>
                             </div>
                             <a class id="direccionCliente" href="#" style="text-decoration: none;"></a>
                         </form>
@@ -239,37 +245,37 @@
     </div>
     <script>
         //Esta funcion se ejecuta cuando se cierra el modal
-       /*  $("#clientesModalPrincipalDialog").on('hidden.bs.modal', function(e) {
-            e.stopPropagation();
-            $('#clientesModalPrincipalDiv').remove();
+        /*  $("#clientesModalPrincipalDialog").on('hidden.bs.modal', function(e) {
+             e.stopPropagation();
+             $('#clientesModalPrincipalDiv').remove();
 
-        });
+         });
 
-        //Cuando se muestra hay que ajustar el scroll de todos los modals que haya
-        $("#clientesModalPrincipalDialog").on('shown.bs.modal', function(e) {
-            e.stopPropagation();
-        });
+         //Cuando se muestra hay que ajustar el scroll de todos los modals que haya
+         $("#clientesModalPrincipalDialog").on('shown.bs.modal', function(e) {
+             e.stopPropagation();
+         });
 
-        //Esta funcion se ejecuta cuando se cierra el modal y evita que se propague la funcion shown.bs.modal con el e.stopPropagation();
-        $("#clientesModalPrincipalDialog").on('hide.bs.modal', function(e) {
-            e.stopPropagation();
-        });
-        //Esta funcion se ejecuta se muestra el modal y evita que se propague la funcion shown.bs.modal con el e.stopPropagation();
-        $("#clientesModalPrincipalDialog").on('show.bs.modal', function(e) {
-            e.stopPropagation();
-            $("#clientesModalPrincipalDialog").css('overflow-y', 'auto');
-            var zIndex = 2000 + (10 * $('.modalPersonalizado:visible').length);
-            $(this).css('z-index', zIndex);
-            setTimeout(function() {
-                $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
-            }, 0);
-        });
+         //Esta funcion se ejecuta cuando se cierra el modal y evita que se propague la funcion shown.bs.modal con el e.stopPropagation();
+         $("#clientesModalPrincipalDialog").on('hide.bs.modal', function(e) {
+             e.stopPropagation();
+         });
+         //Esta funcion se ejecuta se muestra el modal y evita que se propague la funcion shown.bs.modal con el e.stopPropagation();
+         $("#clientesModalPrincipalDialog").on('show.bs.modal', function(e) {
+             e.stopPropagation();
+             $("#clientesModalPrincipalDialog").css('overflow-y', 'auto');
+             var zIndex = 2000 + (10 * $('.modalPersonalizado:visible').length);
+             $(this).css('z-index', zIndex);
+             setTimeout(function() {
+                 $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+             }, 0);
+         });
 
 
-        //Esto es la vista que carga en el modal 
-        $("#dialogBodyclientesModalPrincipalDialog").load('personals/editarPersonal/modalPrincipal:cerrarModal', function() {
-            $().ajustarModalPrincipal('ordenador', 'dialogBodyclientesModalPrincipalDialog');
-        }); */
+         //Esto es la vista que carga en el modal 
+         $("#dialogBodyclientesModalPrincipalDialog").load('personals/editarPersonal/modalPrincipal:cerrarModal', function() {
+             $().ajustarModalPrincipal('ordenador', 'dialogBodyclientesModalPrincipalDialog');
+         }); */
     </script>
     <div id="cabeceraModulo" class="row cabecera-contenedor">
         <div id="columnaCabeceraModulo" class="col-md-8 col-xs-12">
@@ -520,49 +526,52 @@
     });
 </script>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         // Asigna un evento click al botón
-        $("#nuevoRegistroCliente").on("click", function (event) {
+        $("#nuevoRegistroCliente").on("click", function(event) {
             event.preventDefault(); // Evita el comportamiento predeterminado del enlace
             // Abre el modal
-            
+
             $("#clientesModalPrincipalDiv").modal("show");
         });
     });
 </script>
 <script>
-function guardarNuevoRegistro() {
-    // Prevenir la acción predeterminada del formulario
-    event.preventDefault();
+    function guardarNuevoRegistro() {
+        // Prevenir la acción predeterminada del formulario
+        event.preventDefault();
 
-    // Recopilar los datos del formulario
-    var formData = new FormData(document.getElementById('ClientesEditForm'));
+        // Recopilar los datos del formulario
+        var formData = new FormData(document.getElementById('ClientesEditForm'));
 
-    // Enviar los datos al controlador para crear un nuevo registro
-    $.ajax({
-        url: '/personals/add', // Reemplaza esto con la URL de tu controlador
-        type: 'POST',
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function(response) {
-            // Verificar la respuesta del controlador y realizar acciones necesarias
-            if (response.success) {
-                // Registro creado con éxito, cierra el modal
-                var modal = document.getElementById('clientesModalPrincipalDialog');
-                modal.style.display = 'none';
-                // También puedes actualizar la vista de la tabla u otras acciones necesarias
-                // ...
-            } else {
-                // Manejar errores si es necesario
-                alert('Error al crear el registro');
+        // Enviar los datos al controlador para crear un nuevo registro
+        $.ajax({
+            url: 'personals/add', // Reemplaza esto con la URL de tu controlador
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log('Petición AJAX exitosa'); // Agregar un mensaje de depuración
+                console.log(response); // Mostrar la respuesta en la consola
+                // Verificar si la propiedad "success" está definida en la respuesta JSON
+                if (response.hasOwnProperty('success')) {
+                    if (response.success) {
+                        // Registro creado con éxito, cierra el modal
+                        var modal = document.getElementById('clientesModalPrincipalDiv');
+                        modal.style.display = 'none'; // Llama a la función para cerrar el modal
+                        // También puedes actualizar la vista de la tabla u otras acciones necesarias
+                        // ...
+                    } else {
+                        // Manejar errores si es necesario
+                        alert('Error al crear el registro');
+                    }
+                }
+            },
+            error: function() {
+                // Manejar errores de la solicitud AJAX
+                alert('Error de conexión al crear el registro');
             }
-        },
-        error: function() {
-            // Manejar errores de la solicitud AJAX
-            alert('Error de conexión al crear el registro');
-        }
-    });
-}
-
+        });
+    }
 </script>
