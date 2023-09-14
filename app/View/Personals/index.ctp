@@ -11,6 +11,7 @@
                 <li>
                     <a class="disabled fa fa-lg fa-trash disabled" data-toggle="modal" data-target="#registroDialogpersonals" title="Eliminar Registro" id="delRegistro" disabled href="#"></a>
                 </li>
+                
                 <li>
                     <a class="disabled fa fa-pencil fa-lg" title="Modificar Registro" id="editRegistro" href="#"></a>
                 </li>
@@ -20,7 +21,7 @@
             </ul>
         </div>
     </div>
-    <div id="clientesModalPrincipalDiv" class="modalPrincipal">
+    <div id="clientesModalPrincipalDiv" class="modalPrincipal" style="display: none;">
         <div class="modal fade modalPersonalizado in" id="clientesModalPrincipalDialog" tabindex="-1" role="dialog" aria-labelledby="clientesModalPrincipalDialog" aria-hidden="true" data-backdrop="static" data-keyboard="true" style="overflow-y: auto; z-index: 2000; display: block; padding-left: 17px;">
             <div class="modal-dialog  modal-lg" role="document">
                 <div class="modal-content">
@@ -97,11 +98,12 @@
                         <div id="cabeceraModulo" class="row cabecera-contenedor bloqueMasPequeño">
                             <div id="columnaCabeceraModulo" class="col-md-12">
                                 <label id="etiquetaModulo">
-                                
+
                                     Modificar Personal
                                     <!--
                                     <span class="etiquetaInformacion">
-                                        <i style="color: white;"><?php //echo $personal['Personal']['nombre']; ?></i>
+                                        <i style="color: white;"><?php //echo $personal['Personal']['nombre']; 
+                                                                    ?></i>
                                     </span>
                                     -->
                                 </label>
@@ -264,7 +266,7 @@
         });
 
 
-        //Esto es la vista qeu carga en el modal 
+        //Esto es la vista que carga en el modal 
         $("#dialogBodyclientesModalPrincipalDialog").load('personals/editarPersonal/modalPrincipal:cerrarModal', function() {
             $().ajustarModalPrincipal('ordenador', 'dialogBodyclientesModalPrincipalDialog');
         });
@@ -367,14 +369,14 @@
                 </thead>
                 <tbody class="griddata" id="ClienteGridData">
                     <?php foreach ($personals as $personal) : ?>
-                        <tr data-id="<?php echo $personal['Personal']['id']; ?>">
+                        <tr ondblclick="dobleClickFila($(this).attr('itemid'))" itemid="<?php echo $personal['Personal']['id']; ?>" class="gradeA" title="Haga click para editar registro">
                             <td>
-                                <i class="checkCell fa fa-lg fa-square-o"></i>
+                                <i value="<?php echo $personal['Personal']['id']; ?>" class="checkCell fa fa-lg fa-square-o"></i>
                             </td>
-                            <td ><?php echo $personal['Personal']['id']; ?> </td>
-                            <td><?php echo $personal['Personal']['nombre']; ?></td>
-                            <td><?php echo $personal['Personal']['dni']; ?></td>
-                            <td><?php echo $personal['Personal']['localidad']; ?></td>
+                            <td class="id"><?php echo $personal['Personal']['id']; ?> </td>
+                            <td class="nombre text-left"><?php echo $personal['Personal']['nombre']; ?></td>
+                            <td class="dni text-left"><?php echo $personal['Personal']['dni']; ?></td>
+                            <td class="localidad text-left"><?php echo $personal['Personal']['localidad']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -504,25 +506,6 @@
             $.post("personals/cambiarNombrePersonal/");
         });
     </script>
-    <div id="registroDialogpersonals" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                    <p class="modal-title">Personal</p>
-                </div>
-                <div class="modal-body">
-                    <p>¿Realmente desea eliminar estos elementos?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="dialogButtonCancel">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="dialogButtonOkpersonals">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
