@@ -535,6 +535,16 @@
             $("#clientesModalPrincipalDiv").modal("show");
         });
     });
+    $(document).ready(function() {
+        // Asigna un evento click al botón
+        $("#guardarEditRegistroCliente").on("click", function(event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            // Cierra el modal
+
+            $("#clientesModalPrincipalDiv").modal("hide");
+        });
+    });
+    
 </script>
 <script>
     function guardarNuevoRegistro() {
@@ -558,8 +568,7 @@
                 if (response.hasOwnProperty('success')) {
                     if (response.success) {
                         // Registro creado con éxito, cierra el modal
-                        var modal = document.getElementById('clientesModalPrincipalDiv');
-                        modal.style.display = 'none'; // Llama a la función para cerrar el modal
+                        // Llama a la función para cerrar el modal
                         // También puedes actualizar la vista de la tabla u otras acciones necesarias
                         // ...
                     } else {
