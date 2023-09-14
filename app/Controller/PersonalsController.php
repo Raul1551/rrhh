@@ -44,7 +44,7 @@ class PersonalsController extends AppController
         $this->render('add');
     }
 
-    public function verPersonal($id = null)
+    /* public function verPersonal($id = null)
     {
         if (!$id) {
             throw new NotFoundException(__('ID inválido'));
@@ -56,39 +56,45 @@ class PersonalsController extends AppController
         }
 
         $this->set('personal', $personal);
-    }
+    } */
 
     public function edit($id = null)
     {
+        // Verificar si se proporciona un ID de registro válido
         if (!$id) {
-            throw new NotFoundException(__('ID inválido'));
+            throw new NotFoundException(__('ID de registro no válido'));
         }
 
-        $personal = $this->Personal->findById($id);
-        if (!$personal) {
-            throw new NotFoundException(__('Personal inválido'));
+        // Buscar el registro en la base de datos por su ID
+        $registro = $this->Personal->findById($id);
+
+        // Verificar si el registro existe
+        if (!$registro) {
+            throw new NotFoundException(__('Registro no encontrado'));
         }
 
-        if ($this->request->is(array('post', 'put'))) {
-            $this->Personal->id = $id;
+        // Verificar si se ha enviado un formulario (POST)
+        if ($this->request->is(['post', 'put'])) {
+            // Establecer el ID del registro en los datos enviados
+            $this->request->data['Personal']['id'] = $id;
+
+            // Intentar guardar los datos del formulario en el modelo
             if ($this->Personal->save($this->request->data)) {
-                $this->Flash->success(__('Tu personal ha sido actualizado.'));
-                return $this->redirect(array('action' => 'index'));
+                // Los datos se guardaron correctamente
+                $this->Flash->success(__('Los cambios se guardaron correctamente.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                // Los datos no se pudieron guardar
+                $this->Flash->error(__('No se pudieron guardar los cambios. Por favor, inténtalo de nuevo.'));
             }
-            $this->Flash->error(__('No se pudo actualizar tu personal.'));
-
-            // Crear una respuesta JSON para indicar error
-            $response = ['success' => false];
+        } else {
+            // Si no es una solicitud POST, cargar los datos del registro en el formulario
+            $this->request->data = $registro;
         }
 
-        // Enviar la respuesta como JSON
-        $this->autoRender = false;
-        $this->response->type('json');
-        echo json_encode($response);
-
-        if (!$this->request->data) {
-            $this->request->data = $personal;
-        }
+        // Renderizar la vista del formulario de edición
+        $this->set('registro', $registro); // Puedes utilizar esto en la vista para mostrar los datos
+        $this->render('edit');
     }
 
     public function delete()
