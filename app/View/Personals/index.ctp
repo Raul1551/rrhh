@@ -42,7 +42,7 @@
                                         <a id="cancelarAccionCliente" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
                                     </li>
                                     <script type="text/javascript">
-                                        $("#cancelarAccionCliente").click(
+                                        /* $("#cancelarAccionCliente").click(
                                             function(event) {
                                                 event.preventDefault();
                                                 $("#clientesModalPrincipalDialog").unbind('hidden.bs.modal');
@@ -64,13 +64,13 @@
                                                 });
                                                 $('#clientesModalPrincipalDialog').modal('hide');
                                             }
-                                        );
+                                        ); */
                                     </script>
                                     <li>
-                                        <a class="fa fa-lg fa-check" id="guardarEditRegistroCliente" form="ClienteEditForm" title="Guardar" type="submit" href="#"></a>
+                                        <a class="fa fa-lg fa-check" id="guardarEditRegistroCliente" form="ClienteEditForm" title="Guardar" onclick="guardarNuevoRegistro()" type="submit" href="#"></a>
                                     </li>
                                     <script type="text/javascript">
-                                        $('#guardarEditRegistroCliente').on('click', function(event) {
+                                       /*  $('#guardarEditRegistroCliente').on('click', function(event) {
                                             event.preventDefault();
                                             $(this).addClass('disabled');
                                             var formulario = $("#ClienteEditForm");
@@ -90,7 +90,7 @@
                                             } else {
                                                 $(this).removeClass('disabled');
                                             }
-                                        });
+                                        }); */
                                     </script>
                                 </ul>
                             </div>
@@ -112,12 +112,6 @@
                         <form class="cuerpo-contenedor" action="rrhh/personals/update" id="ClientesEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del personal</legend>
                             <div id="fila2" class="row">
-                                <div id="columna1" class="col-md-1" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="idDiv" class="form-group">
-                                        <label id="idLabel">Id</label>
-                                        <input type="text" disabled class="form-control" value="">
-                                    </div>
-                                </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="dniDiv" class="form-group">
                                         <label id="dniLabel">DNI</label>
@@ -174,7 +168,13 @@
                                         <input id="localidad" type="text" name="data[Personal][localidad]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
-                                <div id="columna11" class="col-md-2" style="padding-right: 5px; padding-left: 5px;">
+                                <div id="columna15" class="col-md-2" style="padding-right: 5px; padding-left: 5px;">
+                                    <div id="provinciaDiv" class="form-group">
+                                        <label id="provinciaLabel">Provincia</label>
+                                        <input id="provincia" type="text" name="data[Personal][provincia]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                    </div>
+                                </div>
+                                <div id="columna11" class="col-md-1" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="cpDiv" class="form-group">
                                         <label id="cpLabel">CP</label>
                                         <input id="cp" type="text" name="data[Personal][codigo_postal]" class="form-control" value="" maxlength="5" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un Código Postal correcto.">
@@ -239,7 +239,7 @@
     </div>
     <script>
         //Esta funcion se ejecuta cuando se cierra el modal
-        $("#clientesModalPrincipalDialog").on('hidden.bs.modal', function(e) {
+       /*  $("#clientesModalPrincipalDialog").on('hidden.bs.modal', function(e) {
             e.stopPropagation();
             $('#clientesModalPrincipalDiv').remove();
 
@@ -269,7 +269,7 @@
         //Esto es la vista que carga en el modal 
         $("#dialogBodyclientesModalPrincipalDialog").load('personals/editarPersonal/modalPrincipal:cerrarModal', function() {
             $().ajustarModalPrincipal('ordenador', 'dialogBodyclientesModalPrincipalDialog');
-        });
+        }); */
     </script>
     <div id="cabeceraModulo" class="row cabecera-contenedor">
         <div id="columnaCabeceraModulo" class="col-md-8 col-xs-12">
@@ -518,4 +518,51 @@
         });
 
     });
+</script>
+<script>
+    $(document).ready(function () {
+        // Asigna un evento click al botón
+        $("#nuevoRegistroCliente").on("click", function (event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            // Abre el modal
+            
+            $("#clientesModalPrincipalDiv").modal("show");
+        });
+    });
+</script>
+<script>
+function guardarNuevoRegistro() {
+    // Prevenir la acción predeterminada del formulario
+    event.preventDefault();
+
+    // Recopilar los datos del formulario
+    var formData = new FormData(document.getElementById('ClientesEditForm'));
+
+    // Enviar los datos al controlador para crear un nuevo registro
+    $.ajax({
+        url: '/personals/add', // Reemplaza esto con la URL de tu controlador
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+            // Verificar la respuesta del controlador y realizar acciones necesarias
+            if (response.success) {
+                // Registro creado con éxito, cierra el modal
+                var modal = document.getElementById('clientesModalPrincipalDialog');
+                modal.style.display = 'none';
+                // También puedes actualizar la vista de la tabla u otras acciones necesarias
+                // ...
+            } else {
+                // Manejar errores si es necesario
+                alert('Error al crear el registro');
+            }
+        },
+        error: function() {
+            // Manejar errores de la solicitud AJAX
+            alert('Error de conexión al crear el registro');
+        }
+    });
+}
+
 </script>

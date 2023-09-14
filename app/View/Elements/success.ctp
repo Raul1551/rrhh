@@ -1,3 +1,3 @@
 <div class="alert alert-success">
-    <?php echo $this->Session->flash(); ?>
+    <strong>Éxito:</strong> El registro se ha eliminado correctamente.
 </div>

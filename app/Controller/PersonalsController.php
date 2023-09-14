@@ -6,6 +6,9 @@ App::uses('AppController', 'Controller');
 
 class PersonalsController extends AppController
 {
+
+    public $components = array('Session');
+
     public function index()
     {
         // Cargar el modelo Personal
@@ -16,6 +19,29 @@ class PersonalsController extends AppController
 
         // Pasar la lista de personal a la vista
         $this->set('personals', $personals);
+    }
+
+    public function add()
+    {
+        // Verificar si se ha enviado un formulario (POST)
+        if ($this->request->is('post')) {
+            // Guardar los datos del formulario en el modelo
+            $this->Personal->create();
+            if ($this->Personal->save($this->request->data)) {
+                // Los datos se guardaron correctamente
+                $this->Session->setFlash(__('El registro ha sido guardado correctamente.'), 'success');
+                return $this->redirect(array('action' => 'index'));
+            } else {
+                // Los datos no se pudieron guardar
+                $this->Session->setFlash(__('No se pudo guardar el registro. Por favor, inténtalo de nuevo.'), 'error');
+            }
+        }
+
+        // Renderizar la vista del formulario para agregar nuevos registros
+        // Aquí debes asegurarte de que tu vista tenga un formulario para ingresar los datos.
+        // También debes tener en cuenta la validación de datos en el modelo.
+        // Por ejemplo: $this->Personal->validates();
+        $this->render('add');
     }
 
     public function verPersonal($id = null)
@@ -32,7 +58,7 @@ class PersonalsController extends AppController
         $this->set('personal', $personal);
     }
 
-    public function editarPersonal($id = null)
+    public function edit($id = null)
     {
         if (!$id) {
             throw new NotFoundException(__('ID inválido'));
@@ -56,8 +82,6 @@ class PersonalsController extends AppController
             $this->request->data = $personal;
         }
     }
-
-    public $components = array('Session');
 
     public function delete()
     {
