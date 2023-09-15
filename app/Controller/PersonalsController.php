@@ -45,39 +45,41 @@ class PersonalsController extends AppController
     {
         // Verificar si se proporciona un ID de registro válido
         if (!$id) {
-            throw new NotFoundException(__('ID de registro no válido'));
-        }
-
-        // Buscar el registro en la base de datos por su ID
-        $registro = $this->Personal->findById($id);
-
-        // Verificar si el registro existe
-        if (!$registro) {
-            throw new NotFoundException(__('Registro no encontrado'));
-        }
-
-        // Verificar si se ha enviado un formulario (POST)
-        if ($this->request->is(['post', 'put'])) {
-            // Establecer el ID del registro en los datos enviados
-            $this->request->data['Personal']['id'] = $id;
-
-            // Intentar guardar los datos del formulario en el modelo
-            if ($this->Personal->save($this->request->data)) {
-                // Los datos se guardaron correctamente
-                $this->Flash->success(__('Los cambios se guardaron correctamente.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                // Los datos no se pudieron guardar
-                $this->Flash->error(__('No se pudieron guardar los cambios. Por favor, inténtalo de nuevo.'));
-            }
+            $response = ['success' => false, 'message' => 'ID de registro no válido'];
         } else {
-            // Si no es una solicitud POST, cargar los datos del registro en el formulario
-            $this->request->data = $registro;
+            // Buscar el registro en la base de datos por su ID
+            $registro = $this->Personal->findById($id);
+            
+            // Verificar si el registro existe
+            if (!$registro) {
+                $response = ['success' => false, 'message' => 'Registro no encontrado'];
+            } else {
+                // Verificar si se ha enviado un formulario (POST)
+                if ($this->request->is(['post', 'put'])) {
+                    // Establecer el ID del registro en los datos enviados
+                    $this->request->data['Personal']['id'] = $id;
+
+                    // Intentar guardar los datos del formulario en el modelo
+                    if ($this->Personal->save($this->request->data)) {
+                        // Los datos se guardaron correctamente
+                        $response = ['success' => true, 'message' => 'Los cambios se guardaron correctamente.'];
+                    } else {
+                        // Los datos no se pudieron guardar
+                        $response = ['success' => false, 'message' => 'No se pudieron guardar los cambios. Por favor, inténtalo de nuevo.'];
+                    }
+                } else {
+                    // Si no es una solicitud POST, cargar los datos del registro en el formulario
+                    $this->request->data = $registro;
+                    $response = ['success' => true, 'data' => $registro];
+                }
+            }
         }
 
-        // Renderizar la vista del formulario de edición
-        $this->set('registro', $registro);
-        $this->render('index');
+        // Devolver la respuesta como JSON
+        $this->autoRender = false;
+        $this->response->type('json');
+        echo json_encode($response);
+        $this->response->send();
     }
 
     public function delete()
