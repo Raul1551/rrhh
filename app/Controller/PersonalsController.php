@@ -38,26 +38,8 @@ class PersonalsController extends AppController
             }
         }
 
-        // Renderizar la vista del formulario para agregar nuevos registros
-        // Aquí debes asegurarte de que tu vista tenga un formulario para ingresar los datos.
-        // También debes tener en cuenta la validación de datos en el modelo.
-        // Por ejemplo: $this->Personal->validates();
         $this->render('add');
     }
-
-    /* public function verPersonal($id = null)
-    {
-        if (!$id) {
-            throw new NotFoundException(__('ID inválido'));
-        }
-
-        $personal = $this->Personal->findById($id);
-        if (!$personal) {
-            throw new NotFoundException(__('Personal inválido'));
-        }
-
-        $this->set('personal', $personal);
-    } */
 
     public function edit($id = null)
     {
@@ -94,8 +76,8 @@ class PersonalsController extends AppController
         }
 
         // Renderizar la vista del formulario de edición
-        $this->set('registro', $registro); // Puedes utilizar esto en la vista para mostrar los datos
-        $this->render('edit');
+        $this->set('registro', $registro);
+        $this->render('index');
     }
 
     public function delete()
@@ -120,7 +102,7 @@ class PersonalsController extends AppController
             $this->Session->setFlash(__('Solicitud no válida.'), 'error');
         }
 
-        // Redirigir a la página anterior o a donde desees después de la eliminación
+        // Redirigir a la página anterior
         return $this->redirect(array('action' => 'index'));
     }
 }
