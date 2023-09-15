@@ -21,72 +21,6 @@
             </ul>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#editRegistro').on('click', function() {
-                // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
-                var idRegistro = obtenerIdRegistroSeleccionado();
-                // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
-
-                // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
-                console.log('ID del registro seleccionado:', idRegistro);
-
-                // Comprobar si se ha seleccionado un registro antes de continuar
-                if (idRegistro) {
-                    // Realizar una solicitud AJAX para obtener los datos del registro
-                    $.ajax({
-                        type: 'GET',
-                        url: 'personals/edit/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
-                        dataType: 'json',
-                        success: function(response) {
-                            console.log('Datos del registro:', response);
-                            if (response.success) {
-                                var data = response.data; // Obtener los datos del registro de la respuesta
-                                // Llenar los campos del formulario con los datos del registro
-                                $('#dni').val(data.Personal.dni);
-                                $('#nombre').val(data.Personal.nombre);
-                                $('#apellido1').val(data.Personal.apellido1);
-                                $('#apellido2').val(data.Personal.apellido2);
-                                $('#direccion').val(data.Personal.direccion);
-                                $('#numero').val(data.Personal.numero);
-                                $('#piso').val(data.Personal.piso);
-                                $('#puerta').val(data.Personal.puerta);
-                                $('#localidad').val(data.Personal.localidad);
-                                $('#provincia').val(data.Personal.provincia);
-                                $('#cp').val(data.Personal.codigo_postal);
-                                $('#telefono').val(data.Personal.telefono);
-                                $('#emailParticular').val(data.Personal.email_particular);
-                                $('#emailEmpresa').val(data.Personal.email_empresa);
-                                $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
-
-                                // Abrir el modal después de cargar los datos
-                                $('#personalModalEditarPrincipalDiv').modal('show');
-                            } else {
-                                // Manejar el caso en el que no se puedan cargar los datos del registro
-                                alert('Error al cargar los datos del registro.');
-                            }
-                        },
-                        error: function() {
-                            // Manejar el caso de error en la solicitud AJAX
-                            alert('Error de servidor.');
-                        }
-                    });
-                } else {
-                    alert('Por favor, selecciona un registro antes de editar.');
-                }
-            });
-            // Asignar un evento cuando el modal se muestre
-            $('#personalModalEditarPrincipalDiv').on('shown.bs.modal', function() {
-                console.log('Modal mostrado');
-                // En este punto, el modal ya se ha mostrado, y los campos del formulario se llenarán con los datos.
-            });
-        });
-
-        function obtenerIdRegistroSeleccionado() {
-            var id = $('.row-selected').attr('itemid');
-            return id || null;
-        }
-    </script>
 
     <!-- ---------------------------------------------------------------------------------------- -->
     <!-- MODAL PARA AÑADIR REGISTROS -->
@@ -185,25 +119,25 @@
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="dniDiv" class="form-group">
                                         <label id="dniLabel">DNI</label>
-                                        <input id="dni" type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto.">
+                                        <input type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto.">
                                     </div>
                                 </div>
                                 <div id="columna3" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="nombreDiv" class="form-group required" aria-required="true">
                                         <label id="nombreLabel">Nombre</label>
-                                        <input id="nombre" type="text" name="data[Personal][nombre]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input type="text" name="data[Personal][nombre]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
                                     </div>
                                 </div>
                                 <div id="columna4" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="apellido1Div" class="form-group required" aria-required="true">
                                         <label id="apellido1Label">Primer Apellido</label>
-                                        <input id="apellido1" type="text" name="data[Personal][apellido1]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input type="text" name="data[Personal][apellido1]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
                                     </div>
                                 </div>
                                 <div id="columna5" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="apellido2Div" class="form-group required" aria-required="true">
                                         <label id="apellido2Label">Segundo Apellido</label>
-                                        <input id="apellido2" type="text" name="data[Personal][apellido2]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input type="text" name="data[Personal][apellido2]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -211,43 +145,43 @@
                                 <div id="columna6" class="col-md-3" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="direccionDiv" class="form-group">
                                         <label id="direccionLabel">Dirección</label>
-                                        <input id="direccion" type="text" name="data[Personal][direccion]" class="form-control" value="" maxlength="150" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][direccion]" class="form-control" value="" maxlength="150" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna7" class="col-md-1" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="numeroDiv" class="form-group">
                                         <label id="numeroLabel">Número</label>
-                                        <input id="numero" type="text" name="data[Personal][numero]" class="form-control" value="" maxlength="3" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][numero]" class="form-control" value="" maxlength="3" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna8" class="col-md-1" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="pisoDiv" class="form-group">
                                         <label id="pisoLabel">Piso</label>
-                                        <input id="piso" type="text" name="data[Personal][piso]" class="form-control" value="" maxlength="3" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][piso]" class="form-control" value="" maxlength="3" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna9" class="col-md-1" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="puertaDiv" class="form-group">
                                         <label id="puertaLabel">Puerta</label>
-                                        <input id="puerta" type="text" name="data[Personal][puerta]" class="form-control" value="" maxlength="3" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][puerta]" class="form-control" value="" maxlength="3" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna10" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="localidadDiv" class="form-group">
                                         <label id="localidadLabel">Localidad</label>
-                                        <input id="localidad" type="text" name="data[Personal][localidad]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][localidad]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna15" class="col-md-2" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="provinciaDiv" class="form-group">
                                         <label id="provinciaLabel">Provincia</label>
-                                        <input id="provincia" type="text" name="data[Personal][provincia]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][provincia]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna11" class="col-md-1" style="padding-right: 5px; padding-left: 5px;">
                                     <div id="cpDiv" class="form-group">
                                         <label id="cpLabel">CP</label>
-                                        <input id="cp" type="text" name="data[Personal][codigo_postal]" class="form-control" value="" maxlength="5" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un Código Postal correcto.">
+                                        <input type="text" name="data[Personal][codigo_postal]" class="form-control" value="" maxlength="5" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un Código Postal correcto.">
                                     </div>
                                 </div>
                                 <!--
@@ -284,25 +218,25 @@
                                 <div id="columna12" class="col-md-3">
                                     <div id="telefonoDiv" class="form-group required" aria-required="true">
                                         <label id="telefonoLabel">Teléfono</label>
-                                        <input id="telefono" type="text" name="data[Personal][telefono]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                        <input type="text" name="data[Personal][telefono]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna13" class="col-md-3">
                                     <div id="emailParticularDiv" class="form-group required" aria-required="true">
                                         <label id="emailParticularLabel">Email Particular</label>
-                                        <input id="emailParticular" type="text" name="data[Personal][email_particular]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
+                                        <input type="text" name="data[Personal][email_particular]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
                                     </div>
                                 </div>
                                 <div id="columna14" class="col-md-3">
                                     <div id="emailEmpresaDiv" class="form-group required" aria-required="true">
                                         <label id="emailEmpresaLabel">Email Empresa</label>
-                                        <input id="emailEmpresa" type="text" name="data[Personal][email_empresa]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
+                                        <input type="text" name="data[Personal][email_empresa]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
                                     </div>
                                 </div>
                                 <div id="columna15" class="col-md-3">
                                     <div id="cuentaCorrienteDiv" class="form-group required" aria-required="true">
                                         <label id="cuentaCorrienteLabel">Cuenta Corriente</label>
-                                        <input id="cuentaCorriente" type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
+                                        <input  type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -312,7 +246,7 @@
             </div>
         </div>
     </div>
-    !-- ---------------------------------------------------------------------------------------- -->
+    <!-- ---------------------------------------------------------------------------------------- -->
     <!-- MODAL PARA MODIFICAR REGISTROS -->
     <!-- ---------------------------------------------------------------------------------------- -->
     <div id="personalModalEditarPrincipalDiv" class="modalPrincipal" style="display: none;">
@@ -860,3 +794,101 @@
         });
     }
 </script>
+<script>
+        $(document).ready(function() {
+            $('#editRegistro').on('click', function() {
+                // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
+                var idRegistro = obtenerIdRegistroSeleccionado();
+                // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
+
+                // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
+                console.log('ID del registro seleccionado:', idRegistro);
+
+                // Comprobar si se ha seleccionado un registro antes de continuar
+                if (idRegistro) {
+                    // Realizar una solicitud AJAX para obtener los datos del registro
+                    $.ajax({
+                        type: 'GET',
+                        url: 'personals/edit/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log('Datos del registro:', response);
+                            if (response.success) {
+                                var data = response.data; // Obtener los datos del registro de la respuesta
+                                // Llenar los campos del formulario con los datos del registro
+                                $('#dni').val(data.Personal.dni);
+                                $('#nombre').val(data.Personal.nombre);
+                                $('#apellido1').val(data.Personal.apellido1);
+                                $('#apellido2').val(data.Personal.apellido2);
+                                $('#direccion').val(data.Personal.direccion);
+                                $('#numero').val(data.Personal.numero);
+                                $('#piso').val(data.Personal.piso);
+                                $('#puerta').val(data.Personal.puerta);
+                                $('#localidad').val(data.Personal.localidad);
+                                $('#provincia').val(data.Personal.provincia);
+                                $('#cp').val(data.Personal.codigo_postal);
+                                $('#telefono').val(data.Personal.telefono);
+                                $('#emailParticular').val(data.Personal.email_particular);
+                                $('#emailEmpresa').val(data.Personal.email_empresa);
+                                $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
+
+                                // Abrir el modal después de cargar los datos
+                                $('#personalModalEditarPrincipalDiv').modal('show');
+                            } else {
+                                // Manejar el caso en el que no se puedan cargar los datos del registro
+                                alert('Error al cargar los datos del registro.');
+                            }
+                        },
+                        error: function() {
+                            // Manejar el caso de error en la solicitud AJAX
+                            alert('Error de servidor.');
+                        }
+                    });
+                } else {
+                    alert('Por favor, selecciona un registro antes de editar.');
+                }
+            });
+        });
+
+        function obtenerIdRegistroSeleccionado() {
+            var id = $('.row-selected').attr('itemid');
+            return id || null;
+        }
+
+        $(document).ready(function() {
+    // ... (código existente)
+
+    // Agrega un evento de clic al botón "Guardar"
+    $('#guardarEditRegistroPersonal').on('click', function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe normalmente
+
+        // Obtén los datos actualizados del formulario
+        var formData = $('#PersonalEditForm').serialize();
+
+        // Realiza una solicitud AJAX para actualizar el registro
+        $.ajax({
+            type: 'POST', // Puedes ajustar esto a tu necesidad (GET, PUT, POST, etc.)
+            url: 'personals/edit' +idRegistro, // Reemplaza con la URL correcta para actualizar el registro
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    // Maneja el caso de actualización exitosa
+                    alert('Registro actualizado correctamente');
+                    $('#personalModalEditarPrincipalDiv').modal('hide'); // Cierra el modal después de la actualización
+                    // Aquí puedes realizar otras acciones necesarias, como recargar la lista de registros actualizados.
+                } else {
+                    // Maneja el caso en el que la actualización falla
+                    alert('Error al actualizar el registro.');
+                }
+            },
+            error: function() {
+                // Maneja el caso de error en la solicitud AJAX
+                alert('Error de servidor.');
+            }
+        });
+    });
+
+    // ... (más código)
+});
+    </script>
