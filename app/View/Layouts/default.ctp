@@ -147,7 +147,7 @@
 								</a>
 							</li>
 							<li class="dropdown-submenu" data-menu="43">
-								<a href="./../Vestuarios/index" onclick="$('#tituloMenuModulo').html('Vestuario')">
+								<a href="vestuarios" onclick="$('#tituloMenuModulo').html('Vestuario')">
 									<i class="fa fa fa-star masPequeño"></i>
 									Vestuario
 								</a>

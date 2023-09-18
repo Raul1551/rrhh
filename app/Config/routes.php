@@ -47,12 +47,26 @@ Router::connect('/personals/delete/:id', array('controller' => 'personals', 'act
 // TALLAS
 // Index Tallas
 Router::connect('/tallas', array('controller' => 'tallas', 'action' => 'index'));
+// Ruta ver
+Router::connect('/tallas/view/:id', array('controller' => 'tallas', 'action' => 'view'), array('pass' => array('id')));
 // Add Tallas
 Router::connect('/tallas/add', array('controller' => 'tallas', 'action' => 'add'));
 // Ruta delete
 Router::connect('/tallas/delete/:id', array('controller' => 'tallas', 'action' => 'delete'), array('pass' => array('id'), 'id' => '[0-9]+'));
 // Ruta editar
 Router::connect('/tallas/edit/:id', array('controller' => 'tallas', 'action' => 'edit'), array('pass' => array('id')));
+
+// VESTUARIO
+// Index Vestuario
+Router::connect('/vestuarios', array('controller' => 'vestuarios', 'action' => 'index'));
+// Ruta ver
+Router::connect('/vestuarios/view/:id', array('controller' => 'vestuarios', 'action' => 'view'), array('pass' => array('id')));
+// Add Vestuario
+Router::connect('/vestuarios/add', array('controller' => 'vestuarios', 'action' => 'add'));
+// Ruta delete
+Router::connect('/vestuarios/delete/:id', array('controller' => 'vestuarios', 'action' => 'delete'), array('pass' => array('id'), 'id' => '[0-9]+'));
+// Ruta editar
+Router::connect('/vestuarios/edit/:id', array('controller' => 'vestuarios', 'action' => 'edit'), array('pass' => array('id')));
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
