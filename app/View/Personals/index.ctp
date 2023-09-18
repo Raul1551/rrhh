@@ -782,7 +782,7 @@
                     if (response.success) {
                         location.reload(); // Recarga la página
                     } else {
-                        // Manejar errores si es necesario
+        
                         alert('Error al crear el registro');
                     }
                 }
@@ -907,7 +907,7 @@
     // Funcion para abrir el modal de edicion con los datos del registro
     $(document).ready(function() {
         $('#viewRegistro').on('click', function() {
-            // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
+            // Aquí obtendremos el ID del registro seleccionado
             var idRegistro = obtenerIdRegistroSeleccionado();
             // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
 
@@ -919,7 +919,7 @@
                 // Realizar una solicitud AJAX para obtener los datos del registro
                 $.ajax({
                     type: 'GET',
-                    url: 'personals/view/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
+                    url: 'personals/view/' + idRegistro,
                     dataType: 'json',
                     success: function(response) {
                         console.log('Datos del registro:', response);
@@ -952,7 +952,7 @@
                         }
                     },
                     error: function() {
-                        // Manejar el caso de error en la solicitud AJAX
+                        
                         alert('Error de servidor.');
                     }
                 });

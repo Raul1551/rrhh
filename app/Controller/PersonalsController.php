@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('Personal', 'Model');
+App::uses('DuplicateDataException', 'Lib/Error');
 /**
  * Personals Controller
  */
@@ -50,6 +51,14 @@ class PersonalsController extends AppController
     {
         // Verificar si se ha enviado un formulario (POST)
         if ($this->request->is('post')) {
+            // Verificar la unicidad del campo "dni"
+            $dni = $this->request->data['Personal']['dni'];
+            $existingRecord = $this->Personal->findByDni($dni);
+
+            if ($existingRecord) {
+                // Si ya existe un registro con este DNI, lanza la excepción
+                throw new DuplicateDataException();
+            }
             // Guardar los datos del formulario en el modelo
             $this->Personal->create();
             if ($this->Personal->save($this->request->data)) {
@@ -60,10 +69,8 @@ class PersonalsController extends AppController
                 // Los datos no se pudieron guardar
                 $this->Session->setFlash(__('No se pudo guardar el registro. Por favor, inténtalo de nuevo.'), 'error');
             }
-            
         }
 
-        $this->render('add');
     }
 
     public function edit($id = null)
