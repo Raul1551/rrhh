@@ -33,6 +33,8 @@
 
 	// Index Personal
 	Router::connect('/personals', array('controller' => 'personals', 'action' => 'index'));
+	// Ruta ver
+	Router::connect('/personals/view/:id', array('controller' => 'personals', 'action' => 'view'), array('pass' => array('id')));
 	// Ruta añadir
 	Router::connect('/personals/add', array('controller' => 'personals', 'action' => 'add'));
 	// Ruta editar

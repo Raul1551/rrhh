@@ -795,6 +795,7 @@
     }
 </script>
 <script>
+    // Funcion para abrir el modal de edicion con los datos del registro
     $(document).ready(function() {
         $('#editRegistro').on('click', function() {
             // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
@@ -831,9 +832,12 @@
                             $('#emailParticular').val(data.Personal.email_particular);
                             $('#emailEmpresa').val(data.Personal.email_empresa);
                             $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
-
+                            // Mostrar los botones por su ID
+                            $('#guardarEditRegistroPersonal, #cancelarAccionPersonal').show();
                             // Abrir el modal después de cargar los datos
                             $('#personalModalEditarPrincipalDiv').modal('show');
+                            // Eliminar el atributo de solo lectura de los campos
+                            $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefono, #emailParticular, #emailEmpresa, #cuentaCorriente').prop('readonly', false);
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');
@@ -865,8 +869,8 @@
 
         // Realiza una solicitud AJAX para actualizar el registro
         $.ajax({
-            type: 'POST', // Puedes ajustar esto a tu necesidad (GET, PUT, POST, etc.)
-            url: 'personals/edit/' + idRegistro, // Reemplaza con la URL correcta para actualizar el registro
+            type: 'POST',
+            url: 'personals/edit/' + idRegistro,
             data: formData,
             dataType: 'json',
             success: function(response) {
@@ -874,13 +878,72 @@
                     alert('Registro actualizado correctamente');
                     $('#personalModalEditarPrincipalDiv').modal('hide'); // Cierra el modal después de la actualización
 
-                    // Puedes realizar acciones adicionales aquí, como recargar la lista de registros actualizados
+                    // 
                 } else {
                     alert('Error al actualizar el registro.');
                 }
             },
             error: function() {
                 alert('Error de servidor.');
+            }
+        });
+    });
+
+    // Funcion para abrir el modal de visualización del registro
+    // Funcion para abrir el modal de edicion con los datos del registro
+    $(document).ready(function() {
+        $('#viewRegistro').on('click', function() {
+            // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
+            var idRegistro = obtenerIdRegistroSeleccionado();
+            // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
+
+            // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
+            console.log('ID del registro seleccionado:', idRegistro);
+
+            // Comprobar si se ha seleccionado un registro antes de continuar
+            if (idRegistro) {
+                // Realizar una solicitud AJAX para obtener los datos del registro
+                $.ajax({
+                    type: 'GET',
+                    url: 'personals/view/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Datos del registro:', response);
+                        if (response.success) {
+                            var data = response.data; // Obtener los datos del registro de la respuesta
+                            // Llenar los campos del formulario con los datos del registro
+                            $('#dni').val(data.Personal.dni);
+                            $('#nombre').val(data.Personal.nombre);
+                            $('#apellido1').val(data.Personal.apellido1);
+                            $('#apellido2').val(data.Personal.apellido2);
+                            $('#direccion').val(data.Personal.direccion);
+                            $('#numero').val(data.Personal.numero);
+                            $('#piso').val(data.Personal.piso);
+                            $('#puerta').val(data.Personal.puerta);
+                            $('#localidad').val(data.Personal.localidad);
+                            $('#provincia').val(data.Personal.provincia);
+                            $('#cp').val(data.Personal.codigo_postal);
+                            $('#telefono').val(data.Personal.telefono);
+                            $('#emailParticular').val(data.Personal.email_particular);
+                            $('#emailEmpresa').val(data.Personal.email_empresa);
+                            $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
+                            $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefono, #emailParticular, #emailEmpresa, #cuentaCorriente').prop('readonly', true);
+                            // Ocultar los botones por su ID
+                            $('#guardarEditRegistroPersonal, #cancelarAccionPersonal').hide();
+                            // Abrir el modal después de cargar los datos
+                            $('#personalModalEditarPrincipalDiv').modal('show');
+                        } else {
+                            // Manejar el caso en el que no se puedan cargar los datos del registro
+                            alert('Error al cargar los datos del registro.');
+                        }
+                    },
+                    error: function() {
+                        // Manejar el caso de error en la solicitud AJAX
+                        alert('Error de servidor.');
+                    }
+                });
+            } else {
+                alert('Por favor, selecciona un registro antes de editar.');
             }
         });
     });
