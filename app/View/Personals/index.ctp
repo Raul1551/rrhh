@@ -236,7 +236,7 @@
                                 <div id="columna15" class="col-md-3">
                                     <div id="cuentaCorrienteDiv" class="form-group required" aria-required="true">
                                         <label id="cuentaCorrienteLabel">Cuenta Corriente</label>
-                                        <input  type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
+                                        <input type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +295,7 @@
                                         ); */
                                     </script>
                                     <li>
-                                        <a class="fa fa-lg fa-check" id="guardarEditRegistroPersonal" form="PersonalEditForm" title="Guardar" onclick="guardarNuevoRegistro()" type="submit" href="#"></a>
+                                        <a class="fa fa-lg fa-check" id="guardarEditRegistroPersonal" form="PersonalEditForm" title="Guardar" onclick="" type="submit" href="#"></a>
                                     </li>
                                     <script type="text/javascript">
                                         /*  $('#guardarEditRegistroPersonal').on('click', function(event) {
@@ -795,100 +795,93 @@
     }
 </script>
 <script>
-        $(document).ready(function() {
-            $('#editRegistro').on('click', function() {
-                // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
-                var idRegistro = obtenerIdRegistroSeleccionado();
-                // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
+    $(document).ready(function() {
+        $('#editRegistro').on('click', function() {
+            // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
+            var idRegistro = obtenerIdRegistroSeleccionado();
+            // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
 
-                // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
-                console.log('ID del registro seleccionado:', idRegistro);
+            // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
+            console.log('ID del registro seleccionado:', idRegistro);
 
-                // Comprobar si se ha seleccionado un registro antes de continuar
-                if (idRegistro) {
-                    // Realizar una solicitud AJAX para obtener los datos del registro
-                    $.ajax({
-                        type: 'GET',
-                        url: 'personals/edit/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
-                        dataType: 'json',
-                        success: function(response) {
-                            console.log('Datos del registro:', response);
-                            if (response.success) {
-                                var data = response.data; // Obtener los datos del registro de la respuesta
-                                // Llenar los campos del formulario con los datos del registro
-                                $('#dni').val(data.Personal.dni);
-                                $('#nombre').val(data.Personal.nombre);
-                                $('#apellido1').val(data.Personal.apellido1);
-                                $('#apellido2').val(data.Personal.apellido2);
-                                $('#direccion').val(data.Personal.direccion);
-                                $('#numero').val(data.Personal.numero);
-                                $('#piso').val(data.Personal.piso);
-                                $('#puerta').val(data.Personal.puerta);
-                                $('#localidad').val(data.Personal.localidad);
-                                $('#provincia').val(data.Personal.provincia);
-                                $('#cp').val(data.Personal.codigo_postal);
-                                $('#telefono').val(data.Personal.telefono);
-                                $('#emailParticular').val(data.Personal.email_particular);
-                                $('#emailEmpresa').val(data.Personal.email_empresa);
-                                $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
+            // Comprobar si se ha seleccionado un registro antes de continuar
+            if (idRegistro) {
+                // Realizar una solicitud AJAX para obtener los datos del registro
+                $.ajax({
+                    type: 'GET',
+                    url: 'personals/edit/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Datos del registro:', response);
+                        if (response.success) {
+                            var data = response.data; // Obtener los datos del registro de la respuesta
+                            // Llenar los campos del formulario con los datos del registro
+                            $('#dni').val(data.Personal.dni);
+                            $('#nombre').val(data.Personal.nombre);
+                            $('#apellido1').val(data.Personal.apellido1);
+                            $('#apellido2').val(data.Personal.apellido2);
+                            $('#direccion').val(data.Personal.direccion);
+                            $('#numero').val(data.Personal.numero);
+                            $('#piso').val(data.Personal.piso);
+                            $('#puerta').val(data.Personal.puerta);
+                            $('#localidad').val(data.Personal.localidad);
+                            $('#provincia').val(data.Personal.provincia);
+                            $('#cp').val(data.Personal.codigo_postal);
+                            $('#telefono').val(data.Personal.telefono);
+                            $('#emailParticular').val(data.Personal.email_particular);
+                            $('#emailEmpresa').val(data.Personal.email_empresa);
+                            $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
 
-                                // Abrir el modal después de cargar los datos
-                                $('#personalModalEditarPrincipalDiv').modal('show');
-                            } else {
-                                // Manejar el caso en el que no se puedan cargar los datos del registro
-                                alert('Error al cargar los datos del registro.');
-                            }
-                        },
-                        error: function() {
-                            // Manejar el caso de error en la solicitud AJAX
-                            alert('Error de servidor.');
+                            // Abrir el modal después de cargar los datos
+                            $('#personalModalEditarPrincipalDiv').modal('show');
+                        } else {
+                            // Manejar el caso en el que no se puedan cargar los datos del registro
+                            alert('Error al cargar los datos del registro.');
                         }
-                    });
-                } else {
-                    alert('Por favor, selecciona un registro antes de editar.');
-                }
-            });
+                    },
+                    error: function() {
+                        // Manejar el caso de error en la solicitud AJAX
+                        alert('Error de servidor.');
+                    }
+                });
+            } else {
+                alert('Por favor, selecciona un registro antes de editar.');
+            }
         });
+    });
 
-        function obtenerIdRegistroSeleccionado() {
-            var id = $('.row-selected').attr('itemid');
-            return id || null;
-        }
+    function obtenerIdRegistroSeleccionado() {
+        var id = $('.row-selected').attr('itemid');
+        return id || null;
+    }
 
-        $(document).ready(function() {
-    // ... (código existente)
-
-    // Agrega un evento de clic al botón "Guardar"
+    // Cuando se hace clic en el botón "Guardar" en el modal de edición
     $('#guardarEditRegistroPersonal').on('click', function(event) {
         event.preventDefault(); // Evita que el formulario se envíe normalmente
+        var idRegistro = obtenerIdRegistroSeleccionado();
 
-        // Obtén los datos actualizados del formulario
+        // Obtén los datos actualizados del formulario del modal
         var formData = $('#PersonalEditForm').serialize();
 
         // Realiza una solicitud AJAX para actualizar el registro
         $.ajax({
             type: 'POST', // Puedes ajustar esto a tu necesidad (GET, PUT, POST, etc.)
-            url: 'personals/edit' +idRegistro, // Reemplaza con la URL correcta para actualizar el registro
+            url: 'personals/edit/' + idRegistro, // Reemplaza con la URL correcta para actualizar el registro
             data: formData,
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
-                    // Maneja el caso de actualización exitosa
                     alert('Registro actualizado correctamente');
                     $('#personalModalEditarPrincipalDiv').modal('hide'); // Cierra el modal después de la actualización
-                    // Aquí puedes realizar otras acciones necesarias, como recargar la lista de registros actualizados.
+
+                    // Puedes realizar acciones adicionales aquí, como recargar la lista de registros actualizados
                 } else {
-                    // Maneja el caso en el que la actualización falla
                     alert('Error al actualizar el registro.');
                 }
             },
             error: function() {
-                // Maneja el caso de error en la solicitud AJAX
                 alert('Error de servidor.');
             }
         });
     });
-
-    // ... (más código)
-});
-    </script>
+</script>
