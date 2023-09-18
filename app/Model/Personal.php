@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
 class Personal extends AppModel{
     public $useTable = 'personal';
 
-    public $validate = array(
+    /* public $validate = array(
         'dni' => array(
             'rule' => 'isUnique',
             'message' => 'Este DNI ya está en uso'
@@ -29,7 +29,7 @@ class Personal extends AppModel{
             'rule' => 'isUnique',
             'message' => 'Este correo electrónico de empresa ya está en uso'
         )
-    );
+    ); */
 
 }
 ?>

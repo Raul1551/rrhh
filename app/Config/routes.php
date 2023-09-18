@@ -51,6 +51,8 @@ Router::connect('/tallas', array('controller' => 'tallas', 'action' => 'index'))
 Router::connect('/tallas/add', array('controller' => 'tallas', 'action' => 'add'));
 // Ruta delete
 Router::connect('/tallas/delete/:id', array('controller' => 'tallas', 'action' => 'delete'), array('pass' => array('id'), 'id' => '[0-9]+'));
+// Ruta editar
+Router::connect('/tallas/edit/:id', array('controller' => 'tallas', 'action' => 'edit'), array('pass' => array('id')));
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

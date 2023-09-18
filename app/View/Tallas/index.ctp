@@ -139,6 +139,59 @@
             </div>
         </div>
     </div>
+    <!-- ---------------------------------------------------------------------------------------- -->
+    <!-- MODAL PARA MODIFICAR REGISTROS -->
+    <!-- ---------------------------------------------------------------------------------------- -->
+    <div id="tallaModalEditarPrincipalDiv" class="modalPrincipal" style="display: none;">
+        <div class="modal fade modalPersonalizado in" id="tallaModalPrincipalDialog" tabindex="-1" role="dialog" aria-labelledby="tallaModalPrincipalDialog" aria-hidden="true" data-backdrop="static" data-keyboard="true" style="overflow-y: auto; z-index: 2000; display: block; padding-left: 17px;">
+            <div class="modal-dialog  modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            <span id="dialogSpanHeadertallaModalPrincipalDialog"></span>
+                            Tallas
+                        </h5>
+                        <button type="button" id="botonDisparadortallaModalPrincipalDialog" class="close" data-pulsado data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="dialogBodytallaModalPrincipalDialog" style="max-height: 89.2142vh; overflow-y: auto;">
+                        <div id="menuModulo" class="row navbar  navbar-default navbar-fixed-top">
+                            <div id="columnaBotonesUsuario" class="col-md-12">
+                                <ul class="nav navbar-nav pull-right">
+                                    <li>
+                                        <a id="cancelarAccionEditarTalla" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
+                                    </li>
+                                    <li>
+                                        <a class="fa fa-lg fa-check" id="guardarEditRegistroTalla" form="TallaEditForm" title="Guardar" onclick="" type="submit" href="#"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="cabeceraModulo" class="row cabecera-contenedor bloqueMasPequeño">
+                            <div id="columnaCabeceraModulo" class="col-md-12">
+                                <label id="etiquetaModulo">
+                                    Modificar Tallas
+                                </label>
+                            </div>
+                        </div>
+                        <form class="cuerpo-contenedor" action="/tallas/edit/:id" id="TallasEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
+                            <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales de las tallas</legend>
+                            <div id="fila2" class="row">
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaDiv" class="form-group">
+                                        <label id="tallaLabel">Talla</label>
+                                        <input id="talla" type="text" name="data[Talla][talla]" class="form-control" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="cuerpoModulo" class="row cuerpo-contenedor">
         <div class="dataTables_wrapper" role="grid" id="DataTables_Table_0_wrapper" style="max-height: 56.3707vh; border: 1px solid rgb(221, 221, 221); position: relative;">
             <table class="table table-striped dataTable" style="margin-bottom: 0px; border: 0px solid rgb(221, 221, 221); border-collapse: inherit;">
@@ -283,25 +336,25 @@
 
 
         $('#eliminartallas').on('click', function(event) {
-            $.post("personals/eliminarTallas/");
+            $.post("tallas/eliminarTallas/");
         });
         $('#redireccionartallas').on('click', function(event) {
-            $.post("personals/redirigirTallas/");
+            $.post("tallas/redirigirTallas/");
         });
         $('#cambiarnombreTalla').on('click', function(event) {
-            $.post("personals/cambiarNombreTallas/");
+            $.post("tallas/cambiarNombreTallas/");
         });
 
         $(document).ready(function() {
-        //Funcion para cuando pulses delete no se te vaya para detras el sidera y te
-        //descuaragingue todo
-        //Funcion para tener el titulo de la barras bonito y para cuando pulses delete no se joda todo   
-        history.pushState(null, null, "/rrhh/tallas");
-        window.addEventListener('popstate', function(event) {
+            //Funcion para cuando pulses delete no se te vaya para detras el sidera y te
+            //descuaragingue todo
+            //Funcion para tener el titulo de la barras bonito y para cuando pulses delete no se joda todo   
             history.pushState(null, null, "/rrhh/tallas");
-        });
+            window.addEventListener('popstate', function(event) {
+                history.pushState(null, null, "/rrhh/tallas");
+            });
 
-    });
+        });
     </script>
     <script>
         // FUNCIONES PARA ABRIR Y CERRAR EL MODAL DE AÑADIR REGISTRO
@@ -322,44 +375,179 @@
                 $("#tallaModalPrincipalDiv").modal("hide");
             });
         });
+
         function guardarNuevoRegistro() {
-        // Prevenir la acción predeterminada del formulario
-        event.preventDefault();
+            // Prevenir la acción predeterminada del formulario
+            event.preventDefault();
 
-        // Recopilar los datos del formulario
-        var formData = new FormData(document.getElementById('TallaAddForm'));
+            // Recopilar los datos del formulario
+            var formData = new FormData(document.getElementById('TallaAddForm'));
 
-        // Enviar los datos al controlador para crear un nuevo registro
-        $.ajax({
-            url: 'tallas/add', // Reemplaza esto con la URL de tu controlador
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log('Petición AJAX exitosa'); // Agregar un mensaje de depuración
-                console.log(response); // Mostrar la respuesta en la consola
-                // Verificar si la propiedad "success" está definida en la respuesta JSON
-                if (response.hasOwnProperty('success')) {
-                    if (response.success) {
-                        location.reload(); // Recarga la página
-                    } else {
-        
-                        alert('Error al crear el registro');
+            // Enviar los datos al controlador para crear un nuevo registro
+            $.ajax({
+                url: 'tallas/add', // Reemplaza esto con la URL de tu controlador
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log('Petición AJAX exitosa'); // Agregar un mensaje de depuración
+                    console.log(response); // Mostrar la respuesta en la consola
+                    // Verificar si la propiedad "success" está definida en la respuesta JSON
+                    if (response.hasOwnProperty('success')) {
+                        if (response.success) {
+                            location.reload(); // Recarga la página
+                        } else {
+
+                            alert('Error al crear el registro');
+                        }
                     }
+                },
+                error: function() {
+                    // Manejar errores de la solicitud AJAX
+                    alert('Error de conexión al crear el registro');
+                }
+            });
+        }
+        // Boton cancelar. Detener propagación de eventos
+        // Cuando se hace clic en el botón "Cancelar" en el formulario de edición
+        $('#cancelarAccionTalla').on('click', function(event) {
+            event.preventDefault();
+            $('#TallaAddForm')[0].reset();
+            $('#tallaModalPrincipalDiv').modal('hide');
+        });
+    </script>
+    <script>
+        // Funcion para abrir el modal de edicion con los datos del registro
+    $(document).ready(function() {
+        $('#editRegistro').on('click', function() {
+            // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
+            var idRegistro = obtenerIdRegistroSeleccionado();
+            // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
+
+            // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
+            console.log('ID del registro seleccionado:', idRegistro);
+
+            // Comprobar si se ha seleccionado un registro antes de continuar
+            if (idRegistro) {
+                // Realizar una solicitud AJAX para obtener los datos del registro
+                $.ajax({
+                    type: 'GET',
+                    url: 'tallas/edit/' + idRegistro, // Reemplaza con la URL correcta para obtener el registro
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Datos del registro:', response);
+                        if (response.success) {
+                            var data = response.data; // Obtener los datos del registro de la respuesta
+                            // Llenar los campos del formulario con los datos del registro
+                            $('#talla').val(data.Talla.talla);
+                           
+                            // Mostrar los botones por su ID
+                            $('#guardarEditRegistroTalla, #cancelarAccionTalla').show();
+                            // Abrir el modal después de cargar los datos
+                            $('#tallaModalEditarPrincipalDiv').modal('show');
+                            // Eliminar el atributo de solo lectura de los campos
+                            $('#talla').prop('readonly', false);
+                        } else {
+                            // Manejar el caso en el que no se puedan cargar los datos del registro
+                            alert('Error al cargar los datos del registro.');
+                        }
+                    },
+                    error: function() {
+                        // Manejar el caso de error en la solicitud AJAX
+                        alert('Error de servidor.');
+                    }
+                });
+            } else {
+                alert('Por favor, selecciona un registro antes de editar.');
+            }
+        });
+    });
+
+    function obtenerIdRegistroSeleccionado() {
+        var id = $('.row-selected').attr('itemid');
+        return id || null;
+    }
+
+    // Cuando se hace clic en el botón "Guardar" en el modal de edición
+    $('#guardarEditRegistroTalla').on('click', function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe normalmente
+        var idRegistro = obtenerIdRegistroSeleccionado();
+
+        // Obtén los datos actualizados del formulario del modal
+        var formData = $('#TallaEditForm').serialize();
+
+        // Realiza una solicitud AJAX para actualizar el registro
+        $.ajax({
+            type: 'POST',
+            url: 'tallas/edit/' + idRegistro,
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    console.log('Registro actualizado correctamente');
+                    $('#tallaModalEditarPrincipalDiv').modal('hide'); // Cierra el modal después de la actualización
+
+                    // 
+                } else {
+                    alert('Error al actualizar el registro.');
                 }
             },
             error: function() {
-                // Manejar errores de la solicitud AJAX
-                alert('Error de conexión al crear el registro');
+                alert('Error de servidor.');
             }
         });
-    }
+    });
     // Boton cancelar. Detener propagación de eventos
     // Cuando se hace clic en el botón "Cancelar" en el formulario de edición
-    $('#cancelarAccionTalla').on('click', function(event) {
+    $('#cancelarAccionEditarTalla').on('click', function(event) {
         event.preventDefault();
-        $('#TallaAddForm')[0].reset();
-        $('#tallaModalPrincipalDiv').modal('hide');
+        $('#TallaEditForm')[0].reset();
+        $('#tallaModalEditarPrincipalDiv').modal('hide');
+    });
+
+    // Funcion para abrir el modal de visualización del registro
+    // Funcion para abrir el modal de edicion con los datos del registro
+    $(document).ready(function() {
+        $('#viewRegistro').on('click', function() {
+            // Aquí obtendremos el ID del registro seleccionado
+            var idRegistro = obtenerIdRegistroSeleccionado();
+            // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
+
+            // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
+            console.log('ID del registro seleccionado:', idRegistro);
+
+            // Comprobar si se ha seleccionado un registro antes de continuar
+            if (idRegistro) {
+                // Realizar una solicitud AJAX para obtener los datos del registro
+                $.ajax({
+                    type: 'GET',
+                    url: 'tallas/view/' + idRegistro,
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Datos del registro:', response);
+                        if (response.success) {
+                            var data = response.data; // Obtener los datos del registro de la respuesta
+                            // Llenar los campos del formulario con los datos del registro
+                            $('#talla').val(data.Talla.talla);
+                            $('#talla').prop('readonly', true);
+                            // Ocultar los botones por su ID
+                            $('#guardarEditRegistroTalla, #cancelarAccionTalla').hide();
+                            // Abrir el modal después de cargar los datos
+                            $('#tallaModalEditarPrincipalDiv').modal('show');
+                        } else {
+                            // Manejar el caso en el que no se puedan cargar los datos del registro
+                            alert('Error al cargar los datos del registro.');
+                        }
+                    },
+                    error: function() {
+                        
+                        alert('Error de servidor.');
+                    }
+                });
+            } else {
+                alert('Por favor, selecciona un registro antes de editar.');
+            }
+        });
     });
     </script>
