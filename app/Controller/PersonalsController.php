@@ -60,6 +60,7 @@ class PersonalsController extends AppController
                 // Los datos no se pudieron guardar
                 $this->Session->setFlash(__('No se pudo guardar el registro. Por favor, inténtalo de nuevo.'), 'error');
             }
+            
         }
 
         $this->render('add');
