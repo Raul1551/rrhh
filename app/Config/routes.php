@@ -49,6 +49,8 @@ Router::connect('/personals/delete/:id', array('controller' => 'personals', 'act
 Router::connect('/tallas', array('controller' => 'tallas', 'action' => 'index'));
 // Add Tallas
 Router::connect('/tallas/add', array('controller' => 'tallas', 'action' => 'add'));
+// Ruta delete
+Router::connect('/tallas/delete/:id', array('controller' => 'tallas', 'action' => 'delete'), array('pass' => array('id'), 'id' => '[0-9]+'));
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

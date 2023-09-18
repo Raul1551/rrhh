@@ -74,7 +74,7 @@
                             <label>Ninguno/Todos</label>
                         </li>
                         <li role="separator" class="divider"></li>
-                        <li data-header="Tallas.talla_id" onclick="$(this).children('i').toggleClass('fa-square-o')">
+                        <li data-header="Tallas.id" onclick="$(this).children('i').toggleClass('fa-square-o')">
                             <i class="fa fa-lg fa-check-square-o"></i>
                             <label>Id</label>
                         </li>
@@ -97,7 +97,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">
                             <span id="dialogSpanHeadertallasModalPrincipalDialog"></span>
-                            Personal
+                            Tallas
                         </h5>
                         <button type="button" id="botonDisparadortallasModalPrincipalDialog" class="close" data-pulsado data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">x</span>
@@ -147,8 +147,8 @@
                         <th class="check positionSticky">
                             <i class="fa fa-check-square fa-lg"></i>
                         </th>
-                        <th data-campo="id" data-header="Tallas.talla_id" class="orderable text-left positionSticky">
-                            <a href="/index/sort:Tallas.talla_id/direction.asc" class="desc">Id</a>
+                        <th data-campo="id" data-header="Tallas.id" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Tallas.id/direction.asc" class="desc">Id</a>
                         </th>
                         <th data-campo="talla" data-header="Tallas.talla" class="orderable text-left positionSticky">
                             <a href="/index/sort:Tallas.talla/direction.asc" class="desc">Talla</a>
@@ -157,11 +157,11 @@
                 </thead>
                 <tbody class="griddata" id="ClienteGridData">
                     <?php foreach ($tallas as $talla) : ?>
-                        <tr ondblclick="dobleClickFila($(this).attr('itemid'))" itemid="<?php echo $talla['Talla']['talla_id']; ?>" class="gradeA" title="Haga click para editar registro">
+                        <tr ondblclick="dobleClickFila($(this).attr('itemid'))" itemid="<?php echo $talla['Talla']['id']; ?>" class="gradeA" title="Haga click para editar registro">
                             <td>
-                                <i value="<?php echo $talla['Talla']['talla_id']; ?>" class="checkCell fa fa-lg fa-square-o"></i>
+                                <i value="<?php echo $talla['Talla']['id']; ?>" class="checkCell fa fa-lg fa-square-o"></i>
                             </td>
-                            <td class="id"><?php echo $talla['Talla']['talla_id']; ?> </td>
+                            <td class="id"><?php echo $talla['Talla']['id']; ?> </td>
                             <td class="talla text-left"><?php echo $talla['Talla']['talla']; ?></td>
                         </tr>
                     <?php endforeach; ?>
@@ -216,7 +216,7 @@
                             nextText: 'Sig',
                             cssStyle: 'compact-theme',
                             onPageClick: function(pageNumber, event) {
-                                $("#cuerpoModulo tbody ").load('/personals/index/' + $().getFilters(pageNumber, 'Personal.id', 'desc', '1') + '/' + $().getFields() + ' #cuerpoModulo tbody tr', function() {
+                                $("#cuerpoModulo tbody ").load('/tallas/index/' + $().getFilters(pageNumber, 'Talla.id', 'desc', '1') + '/' + $().getFields() + ' #cuerpoModulo tbody tr', function() {
                                     $().activarSeleccionarFilaAlHacerClick();
                                     $().actualizarBotonesIndexModalIndex();
 
@@ -282,15 +282,26 @@
         });
 
 
-        $('#eliminarpersonal').on('click', function(event) {
+        $('#eliminartallas').on('click', function(event) {
             $.post("personals/eliminarTallas/");
         });
-        $('#redireccionarpersonal').on('click', function(event) {
+        $('#redireccionartallas').on('click', function(event) {
             $.post("personals/redirigirTallas/");
         });
-        $('#cambiarnombrePersonal').on('click', function(event) {
+        $('#cambiarnombreTalla').on('click', function(event) {
             $.post("personals/cambiarNombreTallas/");
         });
+
+        $(document).ready(function() {
+        //Funcion para cuando pulses delete no se te vaya para detras el sidera y te
+        //descuaragingue todo
+        //Funcion para tener el titulo de la barras bonito y para cuando pulses delete no se joda todo   
+        history.pushState(null, null, "/rrhh/tallas");
+        window.addEventListener('popstate', function(event) {
+            history.pushState(null, null, "/rrhh/tallas");
+        });
+
+    });
     </script>
     <script>
         // FUNCIONES PARA ABRIR Y CERRAR EL MODAL DE AÑADIR REGISTRO
@@ -344,4 +355,11 @@
             }
         });
     }
+    // Boton cancelar. Detener propagación de eventos
+    // Cuando se hace clic en el botón "Cancelar" en el formulario de edición
+    $('#cancelarAccionTalla').on('click', function(event) {
+        event.preventDefault();
+        $('#TallaAddForm')[0].reset();
+        $('#tallaModalPrincipalDiv').modal('hide');
+    });
     </script>

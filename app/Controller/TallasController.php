@@ -39,4 +39,30 @@ class TallasController extends AppController
         }
 
     }
+
+    public function delete()
+    {
+        // Verificar si se recibió una solicitud POST
+        if ($this->request->is('post')) {
+            // Obtener los IDs de los registros a eliminar de los datos de la solicitud
+            $ids = $this->request->data['id'];
+
+            // Verificar si se proporcionaron IDs válidos
+            if (!empty($ids)) {
+                // Intentar eliminar los registros
+                if ($this->Talla->deleteAll(array('Talla.id' => $ids))) {
+                    $this->Session->setFlash(__('Los registros han sido eliminados correctamente.'), 'success');
+                } else {
+                    $this->Session->setFlash(__('No se pudieron eliminar los registros. Por favor, inténtalo de nuevo.'), 'error');
+                }
+            } else {
+                $this->Session->setFlash(__('No se proporcionaron IDs válidos para eliminar.'), 'error');
+            }
+        } else {
+            $this->Session->setFlash(__('Solicitud no válida.'), 'error');
+        }
+
+        // Redirigir a la página anterior
+        return $this->redirect(array('action' => 'index'));
+    }
 }
