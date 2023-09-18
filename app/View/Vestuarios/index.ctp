@@ -116,9 +116,15 @@
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="taponesDiv" class="form-group">
+                                        <label id="taponesLabel">Tapones</label>
+                                        <input type="checkbox" name="data[Vestuario][tapones]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaGafasDiv" class="form-group">
                                         <label id="tallaGafasLabel">Talla-gafas</label>
-                                        <input type="checkbox" name="data[Vestuario][talla_gafas]" class="form-control" value="">
+                                        <input type="text" name="data[Vestuario][talla_gafas]" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -130,7 +136,61 @@
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaZapatosDiv" class="form-group">
                                         <label id="tallaZapatosLabel">Talla-zapatos</label>
-                                        <input type="checkbox" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
+                                        <input type="text" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaSudaderaDiv" class="form-group">
+                                        <label id="tallaSudaderaLabel">Talla-sudadera</label>
+                                        <input type="text" name="data[Vestuario][talla_sudadera_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaCamisetaDiv" class="form-group">
+                                        <label id="tallaCamisetaLabel">Talla-camiseta</label>
+                                        <input type="text" name="data[Vestuario][talla_camiseta_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaChaquetaDiv" class="form-group">
+                                        <label id="tallaChaquetaLabel">Talla-chaqueta</label>
+                                        <input type="text" name="data[Vestuario][talla_chaqueta_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaPantalonDiv" class="form-group">
+                                        <label id="tallaPantalonLabel">Talla-pantalon</label>
+                                        <input type="text" name="data[Vestuario][talla_pantalon_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaChalecoDiv" class="form-group">
+                                        <label id="tallaChalecoLabel">Talla-chaleco</label>
+                                        <input type="text" name="data[Vestuario][talla_chaleco_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaChubasqueroDiv" class="form-group">
+                                        <label id="tallaChubasqueroLabel">Talla-chubasquero</label>
+                                        <input type="text" name="data[Vestuario][talla_chubasquero_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaGuantesDiv" class="form-group">
+                                        <label id="tallaGuantesLabel">Talla-guantes</label>
+                                        <input type="text" name="data[Vestuario][talla_guantes_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaTaponesDiv" class="form-group">
+                                        <label id="tallaTaponesLabel">Talla-tapones</label>
+                                        <input type="text" name="data[Vestuario][talla_tapones_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaCascoDiv" class="form-group">
+                                        <label id="tallaCascoLabel">Talla-casco</label>
+                                        <input type="text" name="data[Vestuario][talla_casco_id]" class="form-control" value="">
                                     </div>
                                 </div>
                                 <!-- Continuar con el resto de campos -->
@@ -237,7 +297,7 @@
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaGafasDiv" class="form-group">
                                         <label id="tallaGafasLabel">Talla-gafas</label>
-                                        <input id="tallaGafas" type="checkbox" name="data[Vestuario][talla_gafas]" class="form-control" value="">
+                                        <input id="tallaGafas" type="text" name="data[Vestuario][talla_gafas]" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -249,7 +309,61 @@
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaZapatosDiv" class="form-group">
                                         <label id="tallaZapatosLabel">Talla-zapatos</label>
-                                        <input id="tallaZapatos" type="checkbox" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
+                                        <input id="tallaZapatos" type="text" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaSudaderaDiv" class="form-group">
+                                        <label id="tallaSudaderaLabel">Talla-sudadera</label>
+                                        <input id="tallaSudadera" type="text" name="data[Vestuario][talla_sudadera_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaCamisetaDiv" class="form-group">
+                                        <label id="tallaCamisetaLabel">Talla-camiseta</label>
+                                        <input id="tallaCamiseta" type="text" name="data[Vestuario][talla_camiseta_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaChaquetaDiv" class="form-group">
+                                        <label id="tallaChaquetaLabel">Talla-chaqueta</label>
+                                        <input id="tallaChaqueta" type="text" name="data[Vestuario][talla_chaqueta_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaPantalonDiv" class="form-group">
+                                        <label id="tallaPantalonLabel">Talla-pantalon</label>
+                                        <input id="tallaPantalon" type="text" name="data[Vestuario][talla_pantalon_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaChalecoDiv" class="form-group">
+                                        <label id="tallaChalecoLabel">Talla-chaleco</label>
+                                        <input id="tallaChaleco" type="text" name="data[Vestuario][talla_chaleco_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaChubasqueroDiv" class="form-group">
+                                        <label id="tallaChubasqueroLabel">Talla-chubasquero</label>
+                                        <input id="tallaChubasquero" type="text" name="data[Vestuario][talla_chubasquero_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaGuantesDiv" class="form-group">
+                                        <label id="tallaGuantesLabel">Talla-guantes</label>
+                                        <input id="tallaGuantes" type="text" name="data[Vestuario][talla_guantes_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaTaponesDiv" class="form-group">
+                                        <label id="tallaTaponesLabel">Talla-tapones</label>
+                                        <input id="tallaTapones" type="text" name="data[Vestuario][talla_tapones_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaCascoDiv" class="form-group">
+                                        <label id="tallaCascoLabel">Talla-casco</label>
+                                        <input id="tallaCasco" type="text" name="data[Vestuario][talla_casco_id]" class="form-control" value="">
                                     </div>
                                 </div>
                             </div>
