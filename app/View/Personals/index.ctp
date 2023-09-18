@@ -45,71 +45,16 @@
                                     <li>
                                         <a id="cancelarAccionPersonal" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
                                     </li>
-                                    <script type="text/javascript">
-                                        /* $("#cancelarAccionPersonal").click(
-                                            function(event) {
-                                                event.preventDefault();
-                                                $("#personalModalPrincipalDialog").unbind('hidden.bs.modal');
-                                                $("#personalModalPrincipalDialog").on('hidden.bs.modal', function(e) {
-                                                    e.stopPropagation();
-                                                    $('#personalModalPrincipalDiv').remove();
-                                                });
-                                                $('#personalModalPrincipalDialog').modal('hide');
-                                            }
-                                        );
-
-                                        $("#botonDisparadorpersonalModalPrincipalDialog").click(
-                                            function(event) {
-                                                event.preventDefault();
-                                                $("#personalModalPrincipalDialog").unbind('hidden.bs.modal');
-                                                $("#personalModalPrincipalDialog").on('hidden.bs.modal', function(e) {
-                                                    e.stopPropagation();
-                                                    $('#personalModalPrincipalDiv').remove();
-                                                });
-                                                $('#personalModalPrincipalDialog').modal('hide');
-                                            }
-                                        ); */
-                                    </script>
                                     <li>
                                         <a class="fa fa-lg fa-check" id="guardarRegistroPersonal" form="PersonalAddForm" title="Guardar" onclick="guardarNuevoRegistro()" type="submit" href="#"></a>
                                     </li>
-                                    <script type="text/javascript">
-                                        /*  $('#guardarEditRegistroPersonal').on('click', function(event) {
-                                            event.preventDefault();
-                                            $(this).addClass('disabled');
-                                            var formulario = $("#PersonalAddForm");
-                                            if (formulario.checkearValidacion()) {
-                                                formulario.ajaxForm();
-                                                formulario.ajaxSubmit({
-                                                    success: function(data2) {
-                                                        $("#personalModalPrincipalDialog").unbind('hidden.bs.modal');
-                                                        $("#personalModalPrincipalDialog").on('hidden.bs.modal', function(e) {
-                                                            e.stopPropagation();
-                                                            $('#cuerpoApp').html(data2);
-                                                        });
-                                                        $('#personalModalPrincipalDialog').modal('hide');
-
-                                                    }
-                                                });
-                                            } else {
-                                                $(this).removeClass('disabled');
-                                            }
-                                        }); */
-                                    </script>
                                 </ul>
                             </div>
                         </div>
                         <div id="cabeceraModulo" class="row cabecera-contenedor bloqueMasPequeño">
                             <div id="columnaCabeceraModulo" class="col-md-12">
                                 <label id="etiquetaModulo">
-
-                                    Modificar Personal
-                                    <!--
-                                    <span class="etiquetaInformacion">
-                                        <i style="color: white;"><?php //echo $personal['Personal']['nombre']; 
-                                                                    ?></i>
-                                    </span>
-                                    -->
+                                    Añadir Personal
                                 </label>
                             </div>
                         </div>
@@ -184,35 +129,6 @@
                                         <input type="text" name="data[Personal][codigo_postal]" class="form-control" value="" maxlength="5" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un Código Postal correcto.">
                                     </div>
                                 </div>
-                                <!--
-                                    <div id="columna10" class="col-md-3" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="localidadDiv_id3" class="form-group required" aria-required="true">
-                                        <label id="localidadLabel_id3">Localidad</label>
-                                        <div id="input-grouplocalidad" class="input-group">
-                                            <div class="dropdown bootstrap-select input-group-btn">
-                                                <select id="localidad_id3" name="data[Cliente][localidad]" class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" aria-required="true"></select>
-                                                <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="localidad_id3" title="">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner"></div>
-                                                    </div>
-                                                    <span class="bs-caret">
-                                                        <span class="caret"></span>
-                                                    </span>
-                                                </button>
-                                                <div class="dropdown-menu open" role="combobox">
-                                                    <div class="bs-searchbox">
-                                                        <input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="search">
-                                                    </div>
-                                                    <div class="inner-open" role="listbox" aria-expanded="false" tabindex="-1">
-                                                        <ul class="dropdown-menu inner"></ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span title="añadir un nuevo registro" class="input-group-addon fa fa-plus fa-lg cursorPointer" id="nuevoRegistroSelectlocalidad_id3"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                    -->
                             </div>
                             <div id="fila17" class="row">
                                 <div id="columna12" class="col-md-3">
@@ -738,26 +654,6 @@
             $("#personalModalPrincipalDiv").modal("hide");
         });
     });
-
-    // FUNCIONES PARA ABRIR Y CERRAR EL MODAL DE MODIFICAR REGISTRO
-
-    /* $(document).ready(function() {
-        // Asigna un evento click al botón
-        $("#editRegistro").on("click", function(event) {
-            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-            // Abre el modal
-
-            $("#personalModalEditarPrincipalDiv").modal("show");
-        });
-    });
-    $(document).ready(function() {
-        // Asigna un evento click al botón
-        $("#guardarEditRegistroPersonal").on("click", function(event) {
-            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-            // Cierra el modal
-            $("#personalModalEditarPrincipalDiv").modal("hide");
-        });
-    }); */
 </script>
 <script>
     function guardarNuevoRegistro() {

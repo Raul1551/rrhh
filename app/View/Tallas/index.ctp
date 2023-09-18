@@ -87,6 +87,58 @@
             </div>
         </div>
     </div>
+    <!-- ---------------------------------------------------------------------------------------- -->
+    <!-- MODAL PARA AÑADIR REGISTROS -->
+    <!-- ---------------------------------------------------------------------------------------- -->
+    <div id="tallaModalPrincipalDiv" class="modalPrincipal" style="display: none;">
+        <div class="modal fade modalPersonalizado in" id="tallaModalPrincipalDialog" tabindex="-1" role="dialog" aria-labelledby="tallaModalPrincipalDialog" aria-hidden="true" data-backdrop="static" data-keyboard="true" style="overflow-y: auto; z-index: 2000; display: block; padding-left: 17px;">
+            <div class="modal-dialog  modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            <span id="dialogSpanHeadertallasModalPrincipalDialog"></span>
+                            Personal
+                        </h5>
+                        <button type="button" id="botonDisparadortallasModalPrincipalDialog" class="close" data-pulsado data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="dialogBodytallaModalPrincipalDialog" style="max-height: 89.2142vh; overflow-y: auto;">
+                        <div id="menuModulo" class="row navbar  navbar-default navbar-fixed-top">
+                            <div id="columnaBotonesUsuario" class="col-md-12">
+                                <ul class="nav navbar-nav pull-right">
+                                    <li>
+                                        <a id="cancelarAccionTalla" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
+                                    </li>
+                                    <li>
+                                        <a class="fa fa-lg fa-check" id="guardarRegistroTalla" form="TallaAddForm" title="Guardar" onclick="guardarNuevoRegistro()" type="submit" href="#"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="cabeceraModulo" class="row cabecera-contenedor bloqueMasPequeño">
+                            <div id="columnaCabeceraModulo" class="col-md-12">
+                                <label id="etiquetaModulo">
+                                    Añadir Talla
+                                </label>
+                            </div>
+                        </div>
+                        <form class="cuerpo-contenedor" action="/tallas/add" id="TallaAddForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
+                            <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales de las tallas</legend>
+                            <div id="fila2" class="row">
+                                <div id="columna3" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
+                                    <div id="tallaDiv" class="form-group required" aria-required="true">
+                                        <label id="tallaLabel">Talla</label>
+                                        <input type="text" name="data[Talla][talla]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="cuerpoModulo" class="row cuerpo-contenedor">
         <div class="dataTables_wrapper" role="grid" id="DataTables_Table_0_wrapper" style="max-height: 56.3707vh; border: 1px solid rgb(221, 221, 221); position: relative;">
             <table class="table table-striped dataTable" style="margin-bottom: 0px; border: 0px solid rgb(221, 221, 221); border-collapse: inherit;">
@@ -219,3 +271,77 @@
         </div>
         <div id="totalRegistros" class="pull-right"></div>
     </div>
+    <script>
+        $().ajustarIndexAltoPantalla('ordenador');
+        $(document).ready(function() {
+            $().cargarLibreriaSelectpicker();
+            $().activarOrdenacionEnColumnas();
+            $().activarSeleccionarFilaAlHacerClick();
+            $().activarSeleccionarTodasONingunaFilas();
+            $().botonEliminar("tallas");
+        });
+
+
+        $('#eliminarpersonal').on('click', function(event) {
+            $.post("personals/eliminarTallas/");
+        });
+        $('#redireccionarpersonal').on('click', function(event) {
+            $.post("personals/redirigirTallas/");
+        });
+        $('#cambiarnombrePersonal').on('click', function(event) {
+            $.post("personals/cambiarNombreTallas/");
+        });
+    </script>
+    <script>
+        // FUNCIONES PARA ABRIR Y CERRAR EL MODAL DE AÑADIR REGISTRO
+        $(document).ready(function() {
+            // Asigna un evento click al botón
+            $("#nuevoRegistroTallas").on("click", function(event) {
+                event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+                // Abre el modal
+                $("#tallaModalPrincipalDiv").modal("show");
+            });
+        });
+
+        $(document).ready(function() {
+            // Asigna un evento click al botón
+            $("#guardarRegistroTalla").on("click", function(event) {
+                event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+                // Cierra el modal
+                $("#tallaModalPrincipalDiv").modal("hide");
+            });
+        });
+        function guardarNuevoRegistro() {
+        // Prevenir la acción predeterminada del formulario
+        event.preventDefault();
+
+        // Recopilar los datos del formulario
+        var formData = new FormData(document.getElementById('TallaAddForm'));
+
+        // Enviar los datos al controlador para crear un nuevo registro
+        $.ajax({
+            url: 'tallas/add', // Reemplaza esto con la URL de tu controlador
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log('Petición AJAX exitosa'); // Agregar un mensaje de depuración
+                console.log(response); // Mostrar la respuesta en la consola
+                // Verificar si la propiedad "success" está definida en la respuesta JSON
+                if (response.hasOwnProperty('success')) {
+                    if (response.success) {
+                        location.reload(); // Recarga la página
+                    } else {
+        
+                        alert('Error al crear el registro');
+                    }
+                }
+            },
+            error: function() {
+                // Manejar errores de la solicitud AJAX
+                alert('Error de conexión al crear el registro');
+            }
+        });
+    }
+    </script>
