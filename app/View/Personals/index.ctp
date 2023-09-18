@@ -267,7 +267,7 @@
                             <div id="columnaBotonesUsuario" class="col-md-12">
                                 <ul class="nav navbar-nav pull-right">
                                     <li>
-                                        <a id="cancelarAccionPersonal" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
+                                        <a id="cancelarAccionEditarPersonal" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
                                     </li>
                                     <script type="text/javascript">
                                         /* $("#cancelarAccionPersonal").click(
@@ -793,6 +793,13 @@
             }
         });
     }
+    // Boton cancelar. Detener propagación de eventos
+    // Cuando se hace clic en el botón "Cancelar" en el formulario de edición
+    $('#cancelarAccionPersonal').on('click', function(event) {
+        event.preventDefault();
+        $('#PersonalAddForm')[0].reset();
+        $('#personalModalPrincipalDiv').modal('hide');
+    });
 </script>
 <script>
     // Funcion para abrir el modal de edicion con los datos del registro
@@ -888,6 +895,13 @@
             }
         });
     });
+    // Boton cancelar. Detener propagación de eventos
+    // Cuando se hace clic en el botón "Cancelar" en el formulario de edición
+    $('#cancelarAccionEditarPersonal').on('click', function(event) {
+        event.preventDefault();
+        $('#PersonalEditForm')[0].reset();
+        $('#personalModalEditarPrincipalDiv').modal('hide');
+    });
 
     // Funcion para abrir el modal de visualización del registro
     // Funcion para abrir el modal de edicion con los datos del registro
@@ -947,4 +961,5 @@
             }
         });
     });
+    
 </script>
