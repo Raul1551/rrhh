@@ -175,7 +175,7 @@
                                 </label>
                             </div>
                         </div>
-                        <form class="cuerpo-contenedor" action="/tallas/edit/:id" id="TallasEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
+                        <form class="cuerpo-contenedor" action="/tallas/edit/:id" id="TallaEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales de las tallas</legend>
                             <div id="fila2" class="row">
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -421,9 +421,8 @@
         // Funcion para abrir el modal de edicion con los datos del registro
     $(document).ready(function() {
         $('#editRegistro').on('click', function() {
-            // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
+            // Aquí obtendremos el ID del registro seleccionado
             var idRegistro = obtenerIdRegistroSeleccionado();
-            // Asignamos el ID del registro seleccionado al atributo data-idregistro del botón.
 
             // Ahora, el botón tiene el ID del registro seleccionado almacenado en data-idregistro.
             console.log('ID del registro seleccionado:', idRegistro);
@@ -485,7 +484,6 @@
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
-                    console.log('Registro actualizado correctamente');
                     $('#tallaModalEditarPrincipalDiv').modal('hide'); // Cierra el modal después de la actualización
 
                     // 
