@@ -110,15 +110,15 @@
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="gafasDiv" class="form-group">
-                                        <label id="gafasLabel">Gafas</label>
-                                        <input type="checkbox" name="data[Vestuario][gafas]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="taponesDiv" class="form-group">
                                         <label id="taponesLabel">Tapones</label>
                                         <input type="checkbox" name="data[Vestuario][tapones]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="gafasDiv" class="form-group">
+                                        <label id="gafasLabel">Gafas</label>
+                                        <input type="checkbox" name="data[Vestuario][gafas]" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -182,15 +182,15 @@
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaTaponesDiv" class="form-group">
-                                        <label id="tallaTaponesLabel">Talla-tapones</label>
-                                        <input type="text" name="data[Vestuario][talla_tapones_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaCascoDiv" class="form-group">
                                         <label id="tallaCascoLabel">Talla-casco</label>
                                         <input type="text" name="data[Vestuario][talla_casco_id]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaTaponesDiv" class="form-group">
+                                        <label id="tallaTaponesLabel">Talla-tapones</label>
+                                        <input type="text" name="data[Vestuario][talla_tapones_id]" class="form-control" value="">
                                     </div>
                                 </div>
                                 <!-- Continuar con el resto de campos -->
@@ -286,6 +286,12 @@
                                     <div id="cascoDiv" class="form-group">
                                         <label id="cascoLabel">Casco</label>
                                         <input id="casco" type="checkbox" name="data[Vestuario][casco]" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="taponesDiv" class="form-group">
+                                        <label id="taponesLabel">Tapones</label>
+                                        <input id="tapones" type="checkbox" name="data[Vestuario][tapones]" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -463,6 +469,10 @@
                             <i class="fa fa-lg fa-check-square-o"></i>
                             <label>Casco</label>
                         </li>
+                        <li data-header="Vestuario.tapones" onclick="$(this).children('i').toggleClass('fa-square-o')">
+                            <i class="fa fa-lg fa-check-square-o"></i>
+                            <label>Tapones</label>
+                        </li>
                         <li data-header="Vestuario.gafas" onclick="$(this).children('i').toggleClass('fa-square-o')">
                             <i class="fa fa-lg fa-check-square-o"></i>
                             <label>Gafas</label>
@@ -511,6 +521,9 @@
                         <th data-campo="casco" data-header="Vestuario.casco" class="orderable text-left positionSticky">
                             <a href="/index/sort:Vestuario.casco/direction.asc" class="desc">Casco</a>
                         </th>
+                        <th data-campo="tapones" data-header="Vestuario.tapones" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Vestuario.tapones/direction.asc" class="desc">Tapones</a>
+                        </th>
                         <th data-campo="gafas" data-header="Vestuario.gafas" class="orderable text-left positionSticky">
                             <a href="/index/sort:Vestuario.gafas/direction.asc" class="desc">Gafas</a>
                         </th>
@@ -534,6 +547,7 @@
                             <td class="chubasquero text-left"><?php echo $vestuario['Vestuario']['chubasquero']; ?></td>
                             <td class="guantes text-left"><?php echo $vestuario['Vestuario']['guantes']; ?></td>
                             <td class="casco text-left"><?php echo $vestuario['Vestuario']['casco']; ?></td>
+                            <td class="tapones text-left"><?php echo $vestuario['Vestuario']['tapones']; ?></td>
                             <td class="gafas text-left"><?php echo $vestuario['Vestuario']['gafas']; ?></td>
                             <td class="zapatos text-left"><?php echo $vestuario['Vestuario']['zapatos']; ?></td>
                         </tr>
@@ -771,17 +785,29 @@
                             $('#chubasquero').val(data.Vestuario.chubasquero);
                             $('#guantes').val(data.Vestuario.guantes);
                             $('#casco').val(data.Vestuario.casco);
+                            $('#tapones').val(data.Vestuario.tapones);
                             $('#gafas').val(data.Vestuario.gafas);
                             $('#tallaGafas').val(data.Vestuario.talla_gafas);
                             $('#zapatos').val(data.Vestuario.zapatos);
                             $('#tallaZapatos').val(data.Vestuario.talla_zapatos);
+                            $('#tallaSudadera').val(data.Vestuario.talla_sudadera_id);
+                            $('#tallaCamiseta').val(data.Vestuario.talla_camiseta_id);
+                            $('#tallaChaqueta').val(data.Vestuario.talla_chaqueta_id);
+                            $('#tallaPantalon').val(data.Vestuario.talla_pantalon_id);
+                            $('#tallaChaleco').val(data.Vestuario.talla_chaleco_id);
+                            $('#tallaChubasquero').val(data.Vestuario.talla_chubasquero_id);
+                            $('#tallaGuantes').val(data.Vestuario.talla_guantes_id);
+                            $('#tallaCasco').val(data.Vestuario.talla_casco_id);
+                            $('#tallaTapones').val(data.Vestuario.talla_tapones_id);
                             // Añadir el resto de campos
                             // Mostrar los botones por su ID
                             $('#guardarEditRegistroVestuario, #cancelarAccionVestuario').show();
                             // Abrir el modal después de cargar los datos
                             $('#vestuarioModalEditarPrincipalDiv').modal('show');
                             // Eliminar el atributo de solo lectura de los campos
-                            $('#sudadera, #camiseta, #chaqueta, #pantalon, #chaleco, #chubasquero, #guantes, #casco, #gafas, #tallaGafas, #zapatos, #tallaZapatos').prop('readonly', false);
+                            $('#sudadera, #camiseta, #chaqueta, #pantalon, #chaleco, #chubasquero, #guantes, #casco, #gafas, #tallaGafas, #zapatos, #tallaZapatos',
+                            '#tallaSudadera', '#tallaCamiseta', '#tallaChaqueta', '#tallaPantalon', '#tallaChaleco', '#tallaChubasquero', '#tallaGuantes',
+                            '#tallaCasco', '#tallaTapones').prop('readonly', false);
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');
@@ -874,7 +900,18 @@
                             $('#tallaGafas').val(data.Vestuario.talla_gafas);
                             $('#zapatos').val(data.Vestuario.zapatos);
                             $('#tallaZapatos').val(data.Vestuario.talla_zapatos);
-                            $('#sudadera, #camiseta, #chaqueta, #pantalon, #chaleco, #chubasquero, #guantes, #casco, #gafas, #tallaGafas, #zapatos, #tallaZapatos').prop('readonly', true);
+                            $('#tallaSudadera').val(data.Vestuario.talla_sudadera_id);
+                            $('#tallaCamiseta').val(data.Vestuario.talla_camiseta_id);
+                            $('#tallaChaqueta').val(data.Vestuario.talla_chaqueta_id);
+                            $('#tallaPantalon').val(data.Vestuario.talla_pantalon_id);
+                            $('#tallaChaleco').val(data.Vestuario.talla_chaleco_id);
+                            $('#tallaChubasquero').val(data.Vestuario.talla_chubasquero_id);
+                            $('#tallaGuantes').val(data.Vestuario.talla_guantes_id);
+                            $('#tallaCasco').val(data.Vestuario.talla_casco_id);
+                            $('#tallaTapones').val(data.Vestuario.talla_tapones_id);
+                            $('#sudadera, #camiseta, #chaqueta, #pantalon, #chaleco, #chubasquero, #guantes, #casco, #gafas, #tallaGafas, #zapatos, #tallaZapatos',
+                            '#tallaSudadera', '#tallaCamiseta', '#tallaChaqueta', '#tallaPantalon', '#tallaChaleco', '#tallaChubasquero', '#tallaGuantes',
+                            '#tallaCasco', '#tallaTapones').prop('readonly', false);
                             // Ocultar los botones por su ID
                             $('#guardarEditRegistroVestuario, #cancelarAccionVestuario').hide();
                             // Abrir el modal después de cargar los datos
