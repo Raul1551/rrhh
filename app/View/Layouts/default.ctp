@@ -159,7 +159,7 @@
 								</a>
 							</li>
 							<li class="dropdown-submenu" data-menu="84">
-								<a href="./../Tallas/index" onclick="$('#tituloMenuModulo').html('Tallas')">
+								<a href="tallas" onclick="$('#tituloMenuModulo').html('Tallas')">
 									<i class="fa fa fa-text-height masPequeño"></i>
 									Tallas
 								</a>

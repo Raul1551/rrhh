@@ -3,7 +3,7 @@
         <div id="columnaBotonesUsuario" class="col-md-12">
             <ul class="nav navbar-nav pull-right">
                 <li>
-                    <a class="fa fa-filter fa-lg" title="Filtrar Registros" id="filtroCliente"></a>
+                    <a class="fa fa-filter fa-lg" title="Filtrar Registros" id="filtroPersonal"></a>
                 </li>
                 <li>
                     <a class="fa fa-eye fa-lg cursorPointer disabled" title="Consultar Registro" id="viewRegistro" href="#"></a>
