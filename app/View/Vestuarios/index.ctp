@@ -61,76 +61,294 @@
                         <form class="cuerpo-contenedor" action="/vestuarios/add" id="VestuarioAddForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del vestuario</legend>
                             <div id="fila2" class="row">
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="sudaderaDiv" class="form-group">
                                         <label id="sudaderaLabel">Sudadera</label>
-                                        <input type="checkbox" name="data[Vestuario][sudadera]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][sudadera]" class="form-control data-toggle-select" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)" data-target="tallasudadera_id">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna3" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallasudadera_idDiv" class="form-group">
+                                        <label id="tallasudadera_idLabel">Talla sudadera</label>
+                                        <div class="">
+                                            <select id="tallasudadera_id" name="[Vestuario][talla_sudadera_id]" class="selectpicker" data-toggle-select value="" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98">
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="camisetaDiv" class="form-group">
                                         <label id="camisetaLabel">Camiseta</label>
-                                        <input type="checkbox" name="data[Vestuario][camiseta]" class="form-control" value="">
+                                        <input id="camisetaCheckbox" type="hidden" name="data[Vestuario][camiseta]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna3" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallacamiseta_idDiv" class="form-group">
+                                        <label id="tallasudadera_idLabel">Talla camiseta</label>
+                                        <div class="">
+                                            <select id="tallacamiseta_id" name[Vestuario][talla_camiseta_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="chaquetaDiv" class="form-group">
                                         <label id="chaquetaLabel">Chaqueta</label>
-                                        <input type="checkbox" name="data[Vestuario][chaqueta]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][chaqueta]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna3" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallachaqueta_idDiv" class="form-group">
+                                        <label id="tallachaqueta_idLabel">Talla chaqueta</label>
+                                        <div class="">
+                                            <select id="tallachaqueta_id" name[Vestuario][talla_chaqueta_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="pantalonDiv" class="form-group">
                                         <label id="pantalonLabel">Pantalón</label>
-                                        <input type="checkbox" name="data[Vestuario][pantalon]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][pantalon]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallapantalon_idDiv" class="form-group">
+                                        <label id="tallapantalon_idLabel">Talla pantalón</label>
+                                        <div class="">
+                                            <select id="tallapantalon_id" name[Vestuario][talla_pantalon_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="chalecoDiv" class="form-group">
                                         <label id="chalecoLabel">Chaleco</label>
-                                        <input type="checkbox" name="data[Vestuario][chaleco]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][chaleco]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallachaleco_idDiv" class="form-group">
+                                        <label id="tallachaleco_idLabel">Talla chaleco</label>
+                                        <div class="">
+                                            <select id="tallachaleco_id" name[Vestuario][talla_chaleco_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="chubasqueroDiv" class="form-group">
                                         <label id="chubasqueroLabel">Chubasquero</label>
-                                        <input type="checkbox" name="data[Vestuario][chubasquero]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][chubasquero]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallachubasquero_idDiv" class="form-group">
+                                        <label id="tallachubasquero_idLabel">Talla chubasquero</label>
+                                        <div class="">
+                                            <select id="tallachubasquero_id" name[Vestuario][talla_chubasquero_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="guantesDiv" class="form-group">
                                         <label id="guantesLabel">Guantes</label>
-                                        <input type="checkbox" name="data[Vestuario][guantes]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][guantes]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaguantes_idDiv" class="form-group">
+                                        <label id="tallaguantes_idLabel">Talla guantes</label>
+                                        <div class="">
+                                            <select id="tallaguantes_id" name[Vestuario][talla_guantes_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="cascoDiv" class="form-group">
                                         <label id="cascoLabel">Casco</label>
-                                        <input type="checkbox" name="data[Vestuario][casco]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][casco]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallacasco_idDiv" class="form-group">
+                                        <label id="tallacasco_idLabel">Talla casco</label>
+                                        <div class="">
+                                            <select id="tallacasco_id" name[Vestuario][talla_casco_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="taponesDiv" class="form-group">
                                         <label id="taponesLabel">Tapones</label>
-                                        <input type="checkbox" name="data[Vestuario][tapones]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][tapones]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallatapones_idDiv" class="form-group">
+                                        <label id="tallatapones_idLabel">Talla tapones</label>
+                                        <div class="">
+                                            <select id="tallatapones_id" name[Vestuario][talla_tapones_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="gafasDiv" class="form-group">
                                         <label id="gafasLabel">Gafas</label>
-                                        <input type="checkbox" name="data[Vestuario][gafas]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][gafas]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaGafasDiv" class="form-group">
                                         <label id="tallaGafasLabel">Talla-gafas</label>
-                                        <input type="text" name="data[Vestuario][talla_gafas]" class="form-control" value="">
+                                        <input type="text" name="data[Vestuario][talla_gafas]" class="form-control">
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="zapatosDiv" class="form-group">
                                         <label id="zapatosLabel">Zapatos</label>
-                                        <input type="checkbox" name="data[Vestuario][zapatos]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][zapatos]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
@@ -139,61 +357,6 @@
                                         <input type="text" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaSudaderaDiv" class="form-group">
-                                        <label id="tallaSudaderaLabel">Talla-sudadera</label>
-                                        <input type="text" name="data[Vestuario][talla_sudadera_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaCamisetaDiv" class="form-group">
-                                        <label id="tallaCamisetaLabel">Talla-camiseta</label>
-                                        <input type="text" name="data[Vestuario][talla_camiseta_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaChaquetaDiv" class="form-group">
-                                        <label id="tallaChaquetaLabel">Talla-chaqueta</label>
-                                        <input type="text" name="data[Vestuario][talla_chaqueta_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaPantalonDiv" class="form-group">
-                                        <label id="tallaPantalonLabel">Talla-pantalon</label>
-                                        <input type="text" name="data[Vestuario][talla_pantalon_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaChalecoDiv" class="form-group">
-                                        <label id="tallaChalecoLabel">Talla-chaleco</label>
-                                        <input type="text" name="data[Vestuario][talla_chaleco_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaChubasqueroDiv" class="form-group">
-                                        <label id="tallaChubasqueroLabel">Talla-chubasquero</label>
-                                        <input type="text" name="data[Vestuario][talla_chubasquero_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaGuantesDiv" class="form-group">
-                                        <label id="tallaGuantesLabel">Talla-guantes</label>
-                                        <input type="text" name="data[Vestuario][talla_guantes_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaCascoDiv" class="form-group">
-                                        <label id="tallaCascoLabel">Talla-casco</label>
-                                        <input type="text" name="data[Vestuario][talla_casco_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaTaponesDiv" class="form-group">
-                                        <label id="tallaTaponesLabel">Talla-tapones</label>
-                                        <input type="text" name="data[Vestuario][talla_tapones_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <!-- Continuar con el resto de campos -->
                             </div>
                         </form>
                     </div>
@@ -240,136 +403,306 @@
                         <form class="cuerpo-contenedor" action="/vestuarios/edit/:id" id="VestuarioEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del vestuario</legend>
                             <div id="fila2" class="row">
-                            <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna19" class="col-md-1" style="padding-left: 55px;">
+                                    <div id="idPersonalDiv" class="form-group">
+                                        <label id="idPersonalLabel">Id</label>
+                                        <input type="text" disabled class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="sudaderaDiv" class="form-group">
                                         <label id="sudaderaLabel">Sudadera</label>
-                                        <input id="sudadera" type="checkbox" name="data[Vestuario][sudadera]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][sudadera]" class="form-control data-toggle-select" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)" data-target="tallasudadera_id">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna3" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallasudadera_idDiv" class="form-group">
+                                        <label id="tallasudadera_idLabel">Talla sudadera</label>
+                                        <div class="">
+                                            <select id="tallasudadera_id" name="[Vestuario][talla_sudadera_id]" class="selectpicker" data-toggle-select value="" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98">
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="camisetaDiv" class="form-group">
                                         <label id="camisetaLabel">Camiseta</label>
-                                        <input id="camiseta" type="checkbox" name="data[Vestuario][camiseta]" class="form-control" value="">
+                                        <input id="camisetaCheckbox" type="hidden" name="data[Vestuario][camiseta]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna3" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallacamiseta_idDiv" class="form-group">
+                                        <label id="tallasudadera_idLabel">Talla camiseta</label>
+                                        <div class="">
+                                            <select id="tallacamiseta_id" name[Vestuario][talla_camiseta_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="chaquetaDiv" class="form-group">
                                         <label id="chaquetaLabel">Chaqueta</label>
-                                        <input id="chaqueta" type="checkbox" name="data[Vestuario][chaqueta]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][chaqueta]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna3" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallachaqueta_idDiv" class="form-group">
+                                        <label id="tallachaqueta_idLabel">Talla chaqueta</label>
+                                        <div class="">
+                                            <select id="tallachaqueta_id" name[Vestuario][talla_chaqueta_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="pantalonDiv" class="form-group">
                                         <label id="pantalonLabel">Pantalón</label>
-                                        <input id="pantalon" type="checkbox" name="data[Vestuario][pantalon]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][pantalon]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallapantalon_idDiv" class="form-group">
+                                        <label id="tallapantalon_idLabel">Talla pantalón</label>
+                                        <div class="">
+                                            <select id="tallapantalon_id" name[Vestuario][talla_pantalon_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="chalecoDiv" class="form-group">
                                         <label id="chalecoLabel">Chaleco</label>
-                                        <input id="chaleco" type="checkbox" name="data[Vestuario][chaleco]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][chaleco]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallachaleco_idDiv" class="form-group">
+                                        <label id="tallachaleco_idLabel">Talla chaleco</label>
+                                        <div class="">
+                                            <select id="tallachaleco_id" name[Vestuario][talla_chaleco_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="chubasqueroDiv" class="form-group">
                                         <label id="chubasqueroLabel">Chubasquero</label>
-                                        <input id="chubasquero" type="checkbox" name="data[Vestuario][chubasquero]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][chubasquero]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallachubasquero_idDiv" class="form-group">
+                                        <label id="tallachubasquero_idLabel">Talla chubasquero</label>
+                                        <div class="">
+                                            <select id="tallachubasquero_id" name[Vestuario][talla_chubasquero_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="guantesDiv" class="form-group">
                                         <label id="guantesLabel">Guantes</label>
-                                        <input id="guantes" type="checkbox" name="data[Vestuario][guantes]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][guantes]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallaguantes_idDiv" class="form-group">
+                                        <label id="tallaguantes_idLabel">Talla guantes</label>
+                                        <div class="">
+                                            <select id="tallaguantes_id" name[Vestuario][talla_guantes_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="cascoDiv" class="form-group">
                                         <label id="cascoLabel">Casco</label>
-                                        <input id="casco" type="checkbox" name="data[Vestuario][casco]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][casco]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallacasco_idDiv" class="form-group">
+                                        <label id="tallacasco_idLabel">Talla casco</label>
+                                        <div class="">
+                                            <select id="tallacasco_id" name[Vestuario][talla_casco_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="taponesDiv" class="form-group">
                                         <label id="taponesLabel">Tapones</label>
-                                        <input id="tapones" type="checkbox" name="data[Vestuario][tapones]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][tapones]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="tallatapones_idDiv" class="form-group">
+                                        <label id="tallatapones_idLabel">Talla tapones</label>
+                                        <div class="">
+                                            <select id="tallatapones_id" name[Vestuario][talla_tapones_id] class="selectpicker" data-size="10" data-live-search-normalize="true" data-live-search="true" data-dropup-auto="false" tabindex="-98" required>
+                                                <option value selected>Seleccione una opción...</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="tallasudadera_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="gafasDiv" class="form-group">
                                         <label id="gafasLabel">Gafas</label>
-                                        <input id="gafas" type="checkbox" name="data[Vestuario][gafas]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][gafas]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaGafasDiv" class="form-group">
                                         <label id="tallaGafasLabel">Talla-gafas</label>
-                                        <input id="tallaGafas" type="text" name="data[Vestuario][talla_gafas]" class="form-control" value="">
+                                        <input type="text" name="data[Vestuario][talla_gafas]" class="form-control">
                                     </div>
                                 </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
+                                <div id="columna2" class="col-md-1" style="padding-left: 55px;">
                                     <div id="zapatosDiv" class="form-group">
                                         <label id="zapatosLabel">Zapatos</label>
-                                        <input id="zapatos" type="checkbox" name="data[Vestuario][zapatos]" class="form-control" value="">
+                                        <input type="hidden" name="data[Vestuario][zapatos]" class="form-control" value="" onclick=" $(this).val() == 0 ? $(this).val(1) : $(this).val(0)">
+                                        <i class="form-control fa fa-lg fa-check-square-o fa-square-o" onclick="$(this).toggleClass('fa-square-o').siblings().trigger('click');"></i>
                                     </div>
                                 </div>
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="tallaZapatosDiv" class="form-group">
                                         <label id="tallaZapatosLabel">Talla-zapatos</label>
-                                        <input id="tallaZapatos" type="text" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaSudaderaDiv" class="form-group">
-                                        <label id="tallaSudaderaLabel">Talla-sudadera</label>
-                                        <input id="tallaSudadera" type="text" name="data[Vestuario][talla_sudadera_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaCamisetaDiv" class="form-group">
-                                        <label id="tallaCamisetaLabel">Talla-camiseta</label>
-                                        <input id="tallaCamiseta" type="text" name="data[Vestuario][talla_camiseta_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaChaquetaDiv" class="form-group">
-                                        <label id="tallaChaquetaLabel">Talla-chaqueta</label>
-                                        <input id="tallaChaqueta" type="text" name="data[Vestuario][talla_chaqueta_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaPantalonDiv" class="form-group">
-                                        <label id="tallaPantalonLabel">Talla-pantalon</label>
-                                        <input id="tallaPantalon" type="text" name="data[Vestuario][talla_pantalon_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaChalecoDiv" class="form-group">
-                                        <label id="tallaChalecoLabel">Talla-chaleco</label>
-                                        <input id="tallaChaleco" type="text" name="data[Vestuario][talla_chaleco_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaChubasqueroDiv" class="form-group">
-                                        <label id="tallaChubasqueroLabel">Talla-chubasquero</label>
-                                        <input id="tallaChubasquero" type="text" name="data[Vestuario][talla_chubasquero_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaGuantesDiv" class="form-group">
-                                        <label id="tallaGuantesLabel">Talla-guantes</label>
-                                        <input id="tallaGuantes" type="text" name="data[Vestuario][talla_guantes_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaTaponesDiv" class="form-group">
-                                        <label id="tallaTaponesLabel">Talla-tapones</label>
-                                        <input id="tallaTapones" type="text" name="data[Vestuario][talla_tapones_id]" class="form-control" value="">
-                                    </div>
-                                </div>
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="tallaCascoDiv" class="form-group">
-                                        <label id="tallaCascoLabel">Talla-casco</label>
-                                        <input id="tallaCasco" type="text" name="data[Vestuario][talla_casco_id]" class="form-control" value="">
+                                        <input type="text" name="data[Vestuario][talla_zapatos]" class="form-control" value="">
                                     </div>
                                 </div>
                             </div>
@@ -735,7 +1068,7 @@
                     if (response.success) {
                         location.reload(); // Recarga la página
                     } else {
-        
+
                         alert('Error al crear el registro');
                     }
                 }
@@ -801,13 +1134,13 @@
                             $('#tallaTapones').val(data.Vestuario.talla_tapones_id);
                             // Añadir el resto de campos
                             // Mostrar los botones por su ID
-                            $('#guardarEditRegistroVestuario, #cancelarAccionVestuario').show();
+                            $('#guardarEditRegistroVestuario, #cancelarAccionEditarVestuario').show();
                             // Abrir el modal después de cargar los datos
                             $('#vestuarioModalEditarPrincipalDiv').modal('show');
                             // Eliminar el atributo de solo lectura de los campos
                             $('#sudadera, #camiseta, #chaqueta, #pantalon, #chaleco, #chubasquero, #guantes, #casco, #gafas, #tallaGafas, #zapatos, #tallaZapatos',
-                            '#tallaSudadera', '#tallaCamiseta', '#tallaChaqueta', '#tallaPantalon', '#tallaChaleco', '#tallaChubasquero', '#tallaGuantes',
-                            '#tallaCasco', '#tallaTapones').prop('readonly', false);
+                                '#tallaSudadera', '#tallaCamiseta', '#tallaChaqueta', '#tallaPantalon', '#tallaChaleco', '#tallaChubasquero', '#tallaGuantes',
+                                '#tallaCasco', '#tallaTapones').prop('readonly', false);
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');
@@ -910,19 +1243,19 @@
                             $('#tallaCasco').val(data.Vestuario.talla_casco_id);
                             $('#tallaTapones').val(data.Vestuario.talla_tapones_id);
                             $('#sudadera, #camiseta, #chaqueta, #pantalon, #chaleco, #chubasquero, #guantes, #casco, #gafas, #tallaGafas, #zapatos, #tallaZapatos',
-                            '#tallaSudadera', '#tallaCamiseta', '#tallaChaqueta', '#tallaPantalon', '#tallaChaleco', '#tallaChubasquero', '#tallaGuantes',
-                            '#tallaCasco', '#tallaTapones').prop('readonly', false);
-                            // Ocultar los botones por su ID
-                            $('#guardarEditRegistroVestuario, #cancelarAccionVestuario').hide();
+                                '#tallaSudadera', '#tallaCamiseta', '#tallaChaqueta', '#tallaPantalon', '#tallaChaleco', '#tallaChubasquero', '#tallaGuantes',
+                                '#tallaCasco', '#tallaTapones').prop('readonly', false);
                             // Abrir el modal después de cargar los datos
                             $('#vestuarioModalEditarPrincipalDiv').modal('show');
+                            // Ocultar los botones por su ID
+                            $('#guardarEditRegistroVestuario, #cancelarAccionEditarVestuario').hide();
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');
                         }
                     },
                     error: function() {
-                        
+
                         alert('Error de servidor.');
                     }
                 });

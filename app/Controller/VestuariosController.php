@@ -16,8 +16,10 @@ class VestuariosController extends AppController
         // Cargar el modelo Personal
         $this->loadModel('Vestuario');
 
+
         // Obtener una lista de personal desde la base de datos
         $vestuarios = $this->Vestuario->find('all');
+
 
         // Pasar la lista de personal a la vista
         $this->set('vestuarios', $vestuarios);
@@ -51,7 +53,7 @@ class VestuariosController extends AppController
     {
         // Verificar si se ha enviado un formulario (POST)
         if ($this->request->is('post')) {
-            
+
             // Guardar los datos del formulario en el modelo
             $this->Vestuario->create();
             if ($this->Vestuario->save($this->request->data)) {
@@ -63,7 +65,6 @@ class VestuariosController extends AppController
                 $this->Session->setFlash(__('No se pudo guardar el registro. Por favor, inténtalo de nuevo.'), 'error');
             }
         }
-
     }
 
     public function edit($id = null)

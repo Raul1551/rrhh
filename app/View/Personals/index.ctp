@@ -652,7 +652,7 @@
                             $('#emailEmpresa').val(data.Personal.email_empresa);
                             $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
                             // Mostrar los botones por su ID
-                            $('#guardarEditRegistroPersonal, #cancelarAccionPersonal').show();
+                            $('#guardarEditRegistroPersonal, #cancelarAccionEditarPersonal').show();
                             // Abrir el modal después de cargar los datos
                             $('#personalModalEditarPrincipalDiv').modal('show');
                             // Eliminar el atributo de solo lectura de los campos
@@ -753,10 +753,10 @@
                             $('#emailEmpresa').val(data.Personal.email_empresa);
                             $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
                             $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefono, #emailParticular, #emailEmpresa, #cuentaCorriente').prop('readonly', true);
-                            // Ocultar los botones por su ID
-                            $('#guardarEditRegistroPersonal, #cancelarAccionPersonal').hide();
                             // Abrir el modal después de cargar los datos
                             $('#personalModalEditarPrincipalDiv').modal('show');
+                            // Ocultar los botones por su ID
+                            $('#guardarEditRegistroPersonal, #cancelarAccionEditarPersonal').hide();
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');

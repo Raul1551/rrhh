@@ -108,7 +108,7 @@
                             <div id="columnaBotonesUsuario" class="col-md-12">
                                 <ul class="nav navbar-nav pull-right">
                                     <li>
-                                        <a id="cancelarAccionTalla" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
+                                        <a id="cancelarAccionAñadirTalla" class="elemento-sidera fa fa-reply fa-lg" href="#" title="Cancelar"></a>
                                     </li>
                                     <li>
                                         <a class="fa fa-lg fa-check" id="guardarRegistroTalla" form="TallaAddForm" title="Guardar" onclick="guardarNuevoRegistro()" type="submit" href="#"></a>
@@ -442,7 +442,7 @@
                             $('#talla').val(data.Talla.talla);
                            
                             // Mostrar los botones por su ID
-                            $('#guardarEditRegistroTalla, #cancelarAccionTalla').show();
+                            $('#guardarEditRegistroTalla, #cancelarAccionEditarTalla').show();
                             // Abrir el modal después de cargar los datos
                             $('#tallaModalEditarPrincipalDiv').modal('show');
                             // Eliminar el atributo de solo lectura de los campos
@@ -529,10 +529,10 @@
                             // Llenar los campos del formulario con los datos del registro
                             $('#talla').val(data.Talla.talla);
                             $('#talla').prop('readonly', true);
-                            // Ocultar los botones por su ID
-                            $('#guardarEditRegistroTalla, #cancelarAccionTalla').hide();
                             // Abrir el modal después de cargar los datos
                             $('#tallaModalEditarPrincipalDiv').modal('show');
+                            // Ocultar los botones por su ID
+                            $('#guardarEditRegistroTalla, #cancelarAccionEditarTalla').hide();
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');
