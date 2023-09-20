@@ -60,7 +60,7 @@
                         </div>
                         <form class="cuerpo-contenedor" action="/vestuarios/add" id="VestuarioAddForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del vestuario</legend>
-                            <div id="fila2" class="row">
+                            <div id="fila3" class="row">
                                 <div id="columna19" class="col-md-2" style="padding-left: 15px;">
                                     <div id="nombreDiv" class="form-group">
                                         <label id="nombreLabel">Nombre</label>
@@ -84,6 +84,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="fila2" class="row">
                                 <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="sudaderaDiv" class="form-group">
                                         <label id="sudaderaLabel">Sudadera</label>
@@ -425,6 +427,31 @@
                         </div>
                         <form class="cuerpo-contenedor" action="/vestuarios/edit/:id" id="VestuarioEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del vestuario</legend>
+                            <div id="fila3" class="row">
+                                <div id="columna19" class="col-md-2" style="padding-left: 15px;">
+                                    <div id="nombreDiv" class="form-group">
+                                        <label id="nombreLabel">Nombre</label>
+                                        <div class="">
+                                            <select id="personal_id" name="data[Vestuario][id_personal]" class="selectpicker">
+                                                <option value selected>Seleccione una opción...</option>
+                                                <?php foreach ($personals as $personal) : ?>
+                                                    <option value="<?php echo $personal['Personal']['id']; ?>">
+                                                        <?php echo $personal['Personal']['nombre']; ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                            <!-- <button type="button" class="" data-toggle="dropdown" role="button" data-id="personal_id" title="Talla" aria-expanded="false" aria-invalid="false">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner"></div>
+                                                </div>
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div id="fila2" class="row">
                                 <!-- <div id="columna19" class="col-md-1" style="padding-left: 55px;">
                                     <div id="idPersonalDiv" class="form-group">
