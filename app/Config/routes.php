@@ -67,6 +67,18 @@ Router::connect('/vestuarios/add', array('controller' => 'vestuarios', 'action' 
 Router::connect('/vestuarios/delete/:id', array('controller' => 'vestuarios', 'action' => 'delete'), array('pass' => array('id'), 'id' => '[0-9]+'));
 // Ruta editar
 Router::connect('/vestuarios/edit/:id', array('controller' => 'vestuarios', 'action' => 'edit'), array('pass' => array('id')));
+
+// ENTREGAS
+// Index Entregas
+Router::connect('/entregas', array('controller' => 'entregas', 'action' => 'index'));
+// Ruta ver
+Router::connect('/entregas/view/:id', array('controller' => 'entregas', 'action' => 'view'), array('pass' => array('id')));
+// Add Entregas
+Router::connect('/entregas/add', array('controller' => 'entregas', 'action' => 'add'));
+// Ruta delete
+Router::connect('/entregas/delete/:id', array('controller' => 'entregas', 'action' => 'delete'), array('pass' => array('id'), 'id' => '[0-9]+'));
+// Ruta editar
+Router::connect('/entregas/edit/:id', array('controller' => 'entregas', 'action' => 'edit'), array('pass' => array('id')));
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

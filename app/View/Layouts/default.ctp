@@ -153,7 +153,7 @@
 								</a>
 							</li>
 							<li class="dropdown-submenu" data-menu="45">
-								<a href="./../Entregas/index" onclick="$('#tituloMenuModulo').html('Entregas')">
+								<a href="entregas" onclick="$('#tituloMenuModulo').html('Entregas')">
 									<i class="fa fa fa-send masPequeño"></i>
 									Entregas
 								</a>

@@ -403,12 +403,12 @@
                         <form class="cuerpo-contenedor" action="/vestuarios/edit/:id" id="VestuarioEditForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del vestuario</legend>
                             <div id="fila2" class="row">
-                                <div id="columna19" class="col-md-1" style="padding-left: 55px;">
+                                <!-- <div id="columna19" class="col-md-1" style="padding-left: 55px;">
                                     <div id="idPersonalDiv" class="form-group">
                                         <label id="idPersonalLabel">Id</label>
                                         <input type="text" disabled class="form-control" value="">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div id="columna1" class="col-md-1" style="padding-left: 55px;">
                                     <div id="sudaderaDiv" class="form-group">
                                         <label id="sudaderaLabel">Sudadera</label>
