@@ -15,11 +15,17 @@ class VestuariosController extends AppController
     {
         // Cargar el modelo Personal
         $this->loadModel('Vestuario');
+        // Cargar el modelo Personal
+        $this->loadModel('Personal');
 
+        // Obtener una lista de personal desde la base de datos
+        $personals = $this->Personal->find('all');
 
         // Obtener una lista de personal desde la base de datos
         $vestuarios = $this->Vestuario->find('all');
 
+        // Pasar la lista de personal a la vista
+        $this->set('personals', $personals);
 
         // Pasar la lista de personal a la vista
         $this->set('vestuarios', $vestuarios);
