@@ -61,10 +61,11 @@
                         <form class="cuerpo-contenedor" action="/personals/add" id="PersonalAddForm" method="post" accept-charset="UTF-8" novalidate="novalidate">
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del personal</legend>
                             <div id="fila2" class="row">
-                                <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="dniDiv" class="form-group">
+                                <div id="columna2" class="col-md-3" style="padding-right: 5px; padding-left: 15px;">
+                                    <div id="dniDiv" class="form-group required" aria-required="true">
                                         <label id="dniLabel">DNI</label>
-                                        <input type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto.">
+                                        <input id="dni" type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto." required aria-required="true">
+                                        <span id="dniWarning" style="color: red;"></span>
                                     </div>
                                 </div>
                                 <div id="columna3" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
@@ -74,15 +75,15 @@
                                     </div>
                                 </div>
                                 <div id="columna4" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                    <div id="apellido1Div" class="form-group required" aria-required="true">
+                                    <div id="apellido1Div" class="form-group">
                                         <label id="apellido1Label">Primer Apellido</label>
-                                        <input type="text" name="data[Personal][apellido1]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input type="text" name="data[Personal][apellido1]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio.">
                                     </div>
                                 </div>
                                 <div id="columna5" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                    <div id="apellido2Div" class="form-group required" aria-required="true">
+                                    <div id="apellido2Div" class="form-group">
                                         <label id="apellido2Label">Segundo Apellido</label>
-                                        <input type="text" name="data[Personal][apellido2]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input type="text" name="data[Personal][apellido2]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio.">
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div id="columna10" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                    <div id="localidadDiv" class="form-group">
+                                    <div id="localidadDiv" class="form-group required" aria-required="true">
                                         <label id="localidadLabel">Localidad</label>
                                         <input type="text" name="data[Personal][localidad]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
@@ -129,30 +130,40 @@
                                         <input type="text" name="data[Personal][codigo_postal]" class="form-control" value="" maxlength="5" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un Código Postal correcto.">
                                     </div>
                                 </div>
-                            </div>
-                            <div id="fila17" class="row">
                                 <div id="columna12" class="col-md-3">
-                                    <div id="telefonoDiv" class="form-group required" aria-required="true">
-                                        <label id="telefonoLabel">Teléfono</label>
-                                        <input type="text" name="data[Personal][telefono]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                    <div id="telefonoParticularDiv" class="form-group required" aria-required="true">
+                                        <label id="telefonoParticularLabel">Teléfono particular</label>
+                                        <input type="text" name="data[Personal][telefono_particular]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna13" class="col-md-3">
-                                    <div id="emailParticularDiv" class="form-group required" aria-required="true">
+                                    <div id="emailParticularDiv" class="form-group">
                                         <label id="emailParticularLabel">Email Particular</label>
-                                        <input type="text" name="data[Personal][email_particular]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
+                                        <input type="text" name="data[Personal][email_particular]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto.">
                                     </div>
                                 </div>
-                                <div id="columna14" class="col-md-3">
-                                    <div id="emailEmpresaDiv" class="form-group required" aria-required="true">
-                                        <label id="emailEmpresaLabel">Email Empresa</label>
-                                        <input type="text" name="data[Personal][email_empresa]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
-                                    </div>
-                                </div>
-                                <div id="columna15" class="col-md-3">
+                            </div>
+                            <div id="fila17" class="row">
+                                <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos de pago</legend>
+                                <div id="columna15" class="col-md-6">
                                     <div id="cuentaCorrienteDiv" class="form-group required" aria-required="true">
                                         <label id="cuentaCorrienteLabel">Cuenta Corriente</label>
                                         <input type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
+                                    </div>
+                                </div>
+                            </div>
+                            <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos de empresa</legend>
+                            <div id="fila18">
+                                <div id="columna20" class="col-md-4">
+                                    <div id="telefonoEmpresaDiv" class="form-group required" aria-required="true">
+                                        <label id="telefonoEmpresaLabel">Teléfono empresa</label>
+                                        <input type="text" name="data[Personal][telefono_empresa]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                    </div>
+                                </div>
+                                <div id="columna14" class="col-md-4">
+                                    <div id="emailEmpresaDiv" class="form-group required" aria-required="true">
+                                        <label id="emailEmpresaLabel">Email Empresa</label>
+                                        <input type="text" name="data[Personal][email_empresa]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." required aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -356,10 +367,6 @@
                             <label>Ninguno/Todos</label>
                         </li>
                         <li role="separator" class="divider"></li>
-                        <li data-header="Personal.id" onclick="$(this).children('i').toggleClass('fa-square-o')">
-                            <i class="fa fa-lg fa-check-square-o"></i>
-                            <label>Id</label>
-                        </li>
                         <li data-header="Personal.nombre" onclick="$(this).children('i').toggleClass('fa-square-o')">
                             <i class="fa fa-lg fa-check-square-o"></i>
                             <label>Nombre</label>
@@ -371,6 +378,22 @@
                         <li data-header="Personal.localidad" onclick="$(this).children('i').toggleClass('fa-square-o')">
                             <i class="fa fa-lg fa-check-square-o"></i>
                             <label>Localidad</label>
+                        </li>
+                        <li data-header="Personal.telefono_particular" onclick="$(this).children('i').toggleClass('fa-square-o')">
+                            <i class="fa fa-lg fa-check-square-o"></i>
+                            <label>Teléfono particular</label>
+                        </li>
+                        <li data-header="Personal.email_particular" onclick="$(this).children('i').toggleClass('fa-square-o')">
+                            <i class="fa fa-lg fa-check-square-o"></i>
+                            <label>Email particular</label>
+                        </li>
+                        <li data-header="Personal.telefono_empresa" onclick="$(this).children('i').toggleClass('fa-square-o')">
+                            <i class="fa fa-lg fa-check-square-o"></i>
+                            <label>Teléfono empresa</label>
+                        </li>
+                        <li data-header="Personal.email_empresa" onclick="$(this).children('i').toggleClass('fa-square-o')">
+                            <i class="fa fa-lg fa-check-square-o"></i>
+                            <label>Email empresa</label>
                         </li>
                     </ul>
                 </div>
@@ -385,9 +408,6 @@
                         <th class="check positionSticky">
                             <i class="fa fa-check-square fa-lg"></i>
                         </th>
-                        <th data-campo="id" data-header="Personal.id" class="orderable text-left positionSticky">
-                            <a href="/index/sort:Personal.id/direction.asc" class="desc">Id</a>
-                        </th>
                         <th data-campo="nombre" data-header="Personal.nombre" class="orderable text-left positionSticky">
                             <a href="/index/sort:Personal.nombre/direction.asc" class="desc">Nombre</a>
                         </th>
@@ -397,6 +417,18 @@
                         <th data-campo="localidad" data-header="Personal.localidad" class="orderable text-left positionSticky">
                             <a href="/index/sort:Personal.localidad/direction.asc" class="desc">Localidad</a>
                         </th>
+                        <th data-campo="telefono_particular" data-header="Personal.telefono_particular" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Personal.telefono_particular/direction.asc" class="desc">Teléfono particular</a>
+                        </th>
+                        <th data-campo="telefono_empresa" data-header="Personal.telefono_empresa" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Personal.telefono_empresa/direction.asc" class="desc">Teléfono empresa</a>
+                        </th>
+                        <th data-campo="email_particular" data-header="Personal.email_particular" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Personal.email_particular/direction.asc" class="desc">Email particular</a>
+                        </th>
+                        <th data-campo="email_empresa" data-header="Personal.email_empresa" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Personal.email_empresa/direction.asc" class="desc">Email empresa</a>
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="griddata" id="ClienteGridData">
@@ -405,10 +437,13 @@
                             <td>
                                 <i value="<?php echo $personal['Personal']['id']; ?>" class="checkCell fa fa-lg fa-square-o"></i>
                             </td>
-                            <td class="id"><?php echo $personal['Personal']['id']; ?> </td>
-                            <td class="nombre text-left"><?php echo $personal['Personal']['nombre']; ?></td>
+                            <td class="nombre text-left"><?php echo $personal['Personal']['nombre'] . ' ' . $personal['Personal']['apellido1'] . ' ' . $personal['Personal']['apellido2']; ?></td>
                             <td class="dni text-left"><?php echo $personal['Personal']['dni']; ?></td>
                             <td class="localidad text-left"><?php echo $personal['Personal']['localidad']; ?></td>
+                            <td class="telefono_particular text-left"><?php echo $personal['Personal']['telefono_particular']; ?></td>
+                            <td class="telefono_empresa text-left"><?php echo $personal['Personal']['telefono_empresa']; ?></td>
+                            <td class="email_particular text-left"><?php echo $personal['Personal']['email_particular']; ?></td>
+                            <td class="email_empresa text-left"><?php echo $personal['Personal']['email_empresa']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -550,6 +585,28 @@
         });
 
     });
+    // Validar formato de DNI para formulario de añadir nuevo registro
+    $(document).ready(function() {
+        $("#dni").on("input", function() {
+            var dniValue = $(this).val().trim();
+
+            if (dniValue.length === 9) {
+                var numeros = dniValue.substring(0, 8);
+                var letra = dniValue.substring(8);
+
+                if (/^\d+$/.test(numeros) && letra.match(/[a-zA-Z]/)) {
+                    // El formato es correcto, no se muestra ninguna advertencia.
+                    $("#dniWarning").text("");
+                } else {
+                    // El formato es incorrecto, mostrar advertencia.
+                    $("#dniWarning").text("El DNI debe tener 8 números y una letra.");
+                }
+            } else {
+                // La longitud es incorrecta, mostrar advertencia.
+                $("#dniWarning").text("El DNI debe tener 9 caracteres.");
+            }
+        });
+    });
 </script>
 <script>
     // FUNCIONES PARA ABRIR Y CERRAR EL MODAL DE AÑADIR REGISTRO
@@ -594,7 +651,7 @@
                     if (response.success) {
                         location.reload(); // Recarga la página
                     } else {
-        
+
                         alert('Error al crear el registro');
                     }
                 }
@@ -763,7 +820,7 @@
                         }
                     },
                     error: function() {
-                        
+
                         alert('Error de servidor.');
                     }
                 });
@@ -772,5 +829,4 @@
             }
         });
     });
-    
 </script>
