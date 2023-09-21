@@ -64,7 +64,7 @@
                                 <div id="columna2" class="col-md-3" style="padding-right: 5px; padding-left: 15px;">
                                     <div id="dniDiv" class="form-group required" aria-required="true">
                                         <label id="dniLabel">DNI</label>
-                                        <input id="dni" type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto." required aria-required="true">
+                                        <input id="dniAdd" type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto." required aria-required="true">
                                         <span id="dniWarning" style="color: red;"></span>
                                     </div>
                                 </div>
@@ -213,9 +213,10 @@
                             <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos generales del personal</legend>
                             <div id="fila2" class="row">
                                 <div id="columna2" class="col-md-2" style="padding-right: 5px; padding-left: 15px;">
-                                    <div id="dniDiv" class="form-group">
+                                    <div id="dniDiv" class="form-group required" aria-required="true">
                                         <label id="dniLabel">DNI</label>
-                                        <input id="dni" type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto.">
+                                        <input id="dni" type="text" name="data[Personal][dni]" class="form-control nifES" value="" maxlength="9" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Por favor indica un NIF / NIE / CIF correcto." required aria-required="true">
+                                        <span id="dniWarning" style="color: red;"></span>
                                     </div>
                                 </div>
                                 <div id="columna3" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
@@ -225,15 +226,15 @@
                                     </div>
                                 </div>
                                 <div id="columna4" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                    <div id="apellido1Div" class="form-group required" aria-required="true">
+                                    <div id="apellido1Div" class="form-group">
                                         <label id="apellido1Label">Primer Apellido</label>
-                                        <input id="apellido1" type="text" name="data[Personal][apellido1]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input id="apellido1" type="text" name="data[Personal][apellido1]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio.">
                                     </div>
                                 </div>
                                 <div id="columna5" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                    <div id="apellido2Div" class="form-group required" aria-required="true">
+                                    <div id="apellido2Div" class="form-group">
                                         <label id="apellido2Label">Segundo Apellido</label>
-                                        <input id="apellido2" type="text" name="data[Personal][apellido2]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio." required aria-required="true">
+                                        <input id="apellido2" type="text" name="data[Personal][apellido2]" class="form-control mayusculas" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.Este campo es obligatorio.">
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +264,7 @@
                                     </div>
                                 </div>
                                 <div id="columna10" class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                    <div id="localidadDiv" class="form-group">
+                                    <div id="localidadDiv" class="form-group required" aria-required="true">
                                         <label id="localidadLabel">Localidad</label>
                                         <input id="localidad" type="text" name="data[Personal][localidad]" class="form-control" value="" maxlength="50" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
@@ -283,27 +284,39 @@
                             </div>
                             <div id="fila17" class="row">
                                 <div id="columna12" class="col-md-3">
-                                    <div id="telefonoDiv" class="form-group required" aria-required="true">
-                                        <label id="telefonoLabel">Teléfono</label>
-                                        <input id="telefono" type="text" name="data[Personal][telefono]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
+                                    <div id="telefonoParticularDiv" class="form-group required" aria-required="true">
+                                        <label id="telefonoParticularLabel">Teléfono particular</label>
+                                        <input id="telefonoParticular" type="text" name="data[Personal][telefono_particular]" class="form-control" value="" maxlength="11" title="Introduce un número de teléfono correcto." pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna13" class="col-md-3">
-                                    <div id="emailParticularDiv" class="form-group required" aria-required="true">
+                                    <div id="emailParticularDiv" class="form-group">
                                         <label id="emailParticularLabel">Email Particular</label>
-                                        <input id="emailParticular" type="text" name="data[Personal][email_particular]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
+                                        <input id="emailParticular" type="text" name="data[Personal][email_particular]" class="form-control email" value="" maxlength="50" title="Introduce un email correcto.">
+                                    </div>
+                                </div>
+                            </div>
+                            <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos de pago</legend>
+                            <div id="fila19" class="row">
+                                <div id="columna15" class="col-md-3">
+                                    <div id="cuentaCorrienteDiv" class="form-group required" aria-required="true">
+                                        <label id="cuentaCorrienteLabel">Cuenta Corriente</label>
+                                        <input id="cuentaCorriente" type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" title="Introduce un número de cuenta correcto.">
+                                    </div>
+                                </div>
+                            </div>
+                            <legend id="cabeceraInfo_9152" class="text-seccion alert-info legendStrata">Datos de empresa</legend>
+                            <div id="fila15" class="row">
+                                <div id="columna20" class="col-md-4">
+                                    <div id="telefonoEmpresaDiv" class="form-group required" aria-required="true">
+                                        <label id="telefonoEmpresaLabel">Teléfono empresa</label>
+                                        <input id="telefonoEmpresa" type="text" name="data[Personal][telefono_empresa]" class="form-control" value="" maxlength="11" pattern title="Introduce un número de teléfono correcto." aria-required="true" pattern="[ a-zA-Z0-9ñÑ€áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ\+.,:;ºª@_\-%()/=]+" title="Sólo están permitidos caracteres alfanuméricos.">
                                     </div>
                                 </div>
                                 <div id="columna14" class="col-md-3">
                                     <div id="emailEmpresaDiv" class="form-group required" aria-required="true">
                                         <label id="emailEmpresaLabel">Email Empresa</label>
                                         <input id="emailEmpresa" type="text" name="data[Personal][email_empresa]" class="form-control email" value="" maxlength="50" pattern title="Introduce un email correcto." aria-required="true">
-                                    </div>
-                                </div>
-                                <div id="columna15" class="col-md-3">
-                                    <div id="cuentaCorrienteDiv" class="form-group required" aria-required="true">
-                                        <label id="cuentaCorrienteLabel">Cuenta Corriente</label>
-                                        <input id="cuentaCorriente" type="text" name="data[Personal][cuenta_corriente]" class="form-control" value="" maxlength="50" pattern title="Introduce un número de cuenta correcto." aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -587,6 +600,29 @@
     });
     // Validar formato de DNI para formulario de añadir nuevo registro
     $(document).ready(function() {
+        $("#dniAdd").on("input", function() {
+            var dniValue = $(this).val().trim();
+
+            if (dniValue.length === 9) {
+                var numeros = dniValue.substring(0, 8);
+                var letra = dniValue.substring(8);
+
+                if (/^\d+$/.test(numeros) && letra.match(/[a-zA-Z]/)) {
+                    // El formato es correcto, no se muestra ninguna advertencia.
+                    $("#dniWarning").text("");
+                } else {
+                    // El formato es incorrecto, mostrar advertencia.
+                    $("#dniWarning").text("El DNI debe tener 8 números y una letra.");
+                }
+            } else {
+                // La longitud es incorrecta, mostrar advertencia.
+                $("#dniWarning").text("El DNI debe tener 9 caracteres.");
+            }
+        });
+    });
+    // ================================================================
+    // Validar formato de DNI para formulario de editar registro
+    $(document).ready(function() {
         $("#dni").on("input", function() {
             var dniValue = $(this).val().trim();
 
@@ -704,7 +740,8 @@
                             $('#localidad').val(data.Personal.localidad);
                             $('#provincia').val(data.Personal.provincia);
                             $('#cp').val(data.Personal.codigo_postal);
-                            $('#telefono').val(data.Personal.telefono);
+                            $('#telefonoParticular').val(data.Personal.telefono_particular);
+                            $('#telefonoEmpresa').val(data.Personal.telefono_empresa);
                             $('#emailParticular').val(data.Personal.email_particular);
                             $('#emailEmpresa').val(data.Personal.email_empresa);
                             $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
@@ -713,7 +750,7 @@
                             // Abrir el modal después de cargar los datos
                             $('#personalModalEditarPrincipalDiv').modal('show');
                             // Eliminar el atributo de solo lectura de los campos
-                            $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefono, #emailParticular, #emailEmpresa, #cuentaCorriente').prop('readonly', false);
+                            $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefonoParticular, #emailParticular, #telefonoEmpresa, #emailEmpresa, #cuentaCorriente').prop('readonly', false);
                         } else {
                             // Manejar el caso en el que no se puedan cargar los datos del registro
                             alert('Error al cargar los datos del registro.');
@@ -805,11 +842,12 @@
                             $('#localidad').val(data.Personal.localidad);
                             $('#provincia').val(data.Personal.provincia);
                             $('#cp').val(data.Personal.codigo_postal);
-                            $('#telefono').val(data.Personal.telefono);
+                            $('#telefonoParticular').val(data.Personal.telefono_particular);
+                            $('#telefonoEmpresa').val(data.Personal.telefono_empresa);
                             $('#emailParticular').val(data.Personal.email_particular);
                             $('#emailEmpresa').val(data.Personal.email_empresa);
                             $('#cuentaCorriente').val(data.Personal.cuenta_corriente);
-                            $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefono, #emailParticular, #emailEmpresa, #cuentaCorriente').prop('readonly', true);
+                            $('#dni, #nombre, #apellido1, #apellido2, #direccion, #numero, #piso, #puerta, #localidad, #provincia, #cp, #telefonoParticular, #emailParticular, #telefonoEmpresa, #emailEmpresa, #cuentaCorriente').prop('readonly', true);
                             // Abrir el modal después de cargar los datos
                             $('#personalModalEditarPrincipalDiv').modal('show');
                             // Ocultar los botones por su ID
