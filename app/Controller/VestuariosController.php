@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('Vestuario', 'Model');
+App::uses('Personal', 'Model');
 App::uses('DuplicateDataException', 'Lib/Error');
 /**
  * Personals Controller
@@ -22,7 +23,9 @@ class VestuariosController extends AppController
         $personals = $this->Personal->find('all');
 
         // Obtener una lista de personal desde la base de datos
-        $vestuarios = $this->Vestuario->find('all');
+        $vestuarios = $this->Vestuario->find('all', [
+            'contain' => 'Personal', // Asegúrate de que sea la relación correcta definida en tu modelo
+        ]);
 
         // Pasar la lista de personal a la vista
         $this->set('personals', $personals);

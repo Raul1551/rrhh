@@ -877,8 +877,8 @@
                         <th class="check positionSticky">
                             <i class="fa fa-check-square fa-lg"></i>
                         </th>
-                        <th data-campo="id" data-header="Vestuario.id" class="orderable text-left positionSticky">
-                            <a href="/index/sort:Vestuario.id/direction.asc" class="desc">Id</a>
+                        <th data-campo="nombre" data-header="Personal.nombre" class="orderable text-left positionSticky">
+                            <a href="/index/sort:Personal.nombre/direction.asc" class="desc">Nombre</a>
                         </th>
                         <th data-campo="sudadera" data-header="Vestuario.sudadera" class="orderable text-left positionSticky">
                             <a href="/index/sort:Vestuario.sudadera/direction.asc" class="desc">Sudadera</a>
@@ -921,7 +921,7 @@
                             <td>
                                 <i value="<?php echo $vestuario['Vestuario']['id']; ?>" class="checkCell fa fa-lg fa-square-o"></i>
                             </td>
-                            <td class="id"><?php echo $vestuario['Vestuario']['id']; ?> </td>
+                            <td class="nombre"><?php echo $vestuario['Personal']['nombre'].' '.$vestuario['Personal']['apellido1'].' '.$vestuario['Personal']['apellido2']; ?> </td>
                             <td class="sudadera text-left"><?php echo $vestuario['Vestuario']['sudadera']; ?></td>
                             <td class="camiseta text-left"><?php echo $vestuario['Vestuario']['camiseta']; ?></td>
                             <td class="chaqueta text-left"><?php echo $vestuario['Vestuario']['chaqueta']; ?></td>

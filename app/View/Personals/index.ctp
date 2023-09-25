@@ -685,7 +685,9 @@
                 // Verificar si la propiedad "success" está definida en la respuesta JSON
                 if (response.hasOwnProperty('success')) {
                     if (response.success) {
-                        location.reload(); // Recarga la página
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
                     } else {
 
                         alert('Error al crear el registro');
@@ -792,8 +794,7 @@
                     // Recarga la página después de un breve retraso (por ejemplo, 1 segundo)
                     setTimeout(function() {
                         location.reload();
-                    }, 1000);
-                    // 
+                    }, 500);
                 } else {
                     alert('Error al actualizar el registro.');
                 }
