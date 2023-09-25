@@ -70,7 +70,6 @@ class PersonalsController extends AppController
                 $this->Session->setFlash(__('No se pudo guardar el registro. Por favor, inténtalo de nuevo.'), 'error');
             }
         }
-
     }
 
     public function edit($id = null)

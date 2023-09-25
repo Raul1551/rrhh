@@ -444,9 +444,9 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody class="griddata" id="ClienteGridData">
+                <tbody class="griddata" id="PersonalGridData">
                     <?php foreach ($personals as $personal) : ?>
-                        <tr ondblclick="dobleClickFila($(this).attr('itemid'))" itemid="<?php echo $personal['Personal']['id']; ?>" class="gradeA" title="Haga click para editar registro">
+                        <tr itemid="<?php echo $personal['Personal']['id']; ?>" class="gradeA" title="Haga click para editar registro">
                             <td>
                                 <i value="<?php echo $personal['Personal']['id']; ?>" class="checkCell fa fa-lg fa-square-o"></i>
                             </td>
@@ -707,7 +707,7 @@
     });
 </script>
 <script>
-    // Funcion para abrir el modal de edicion con los datos del registro
+    // Funcion para abrir el modal de edicion con los datos del registro al hacer click en el boton editar
     $(document).ready(function() {
         $('#editRegistro').on('click', function() {
             // Aquí obtendremos el ID del registro seleccionado y lo asignaremos al atributo data-idregistro del botón.
@@ -789,7 +789,10 @@
             success: function(response) {
                 if (response.success) {
                     $('#personalModalEditarPrincipalDiv').modal('hide'); // Cierra el modal después de la actualización
-
+                    // Recarga la página después de un breve retraso (por ejemplo, 1 segundo)
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1000);
                     // 
                 } else {
                     alert('Error al actualizar el registro.');
